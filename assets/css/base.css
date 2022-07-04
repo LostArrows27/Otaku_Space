@@ -31,3 +31,44 @@ html {
     display: flex;
     flex-wrap: wrap;
 }
+
+
+/* Button Style */
+
+.btn {
+    height: 34px;
+    min-width: 142px;
+    border: none;
+    text-decoration: none;
+    border-radius: 2px;
+    font-size: 1.4rem;
+    padding: 0 8px;
+    color: var(--text-color);
+    cursor: pointer;
+    background-color: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.6rem;
+}
+
+.btn.btn-normal:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.btn.btn--primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.btn.btn--disabled {
+    cursor: default;
+    background-color: #999;
+    color: #ccc;
+}
+
+
+.btn.btn--size-s {
+    height: 32px;
+    font-size: 12px;
+}
