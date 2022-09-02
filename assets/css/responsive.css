@@ -313,4 +313,8 @@
     .header__mobile-search-icon {
         font-size: 2.2rem;
     }
+
+    .header-option{
+        top: calc(100% + 1px);
+    }
 }

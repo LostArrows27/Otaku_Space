@@ -875,7 +875,6 @@
 
 .header-option__item {
     background-color: var(--white-color);
-    border-radius: 3px;
     padding: 8px 4px;
     text-align: left;
     width: 136px;
