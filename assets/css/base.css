@@ -6,6 +6,7 @@
     --primary-color-rgba: rgb(238, 77, 45);
     --navbar-height: 32px;
     --header-height: 120px;
+    --sort-bar-height: 46px;
     --star-gold-color: #FFCE3E;
     --header-width-search-height: calc(var(--header-height) - var(--navbar-height));
 }
@@ -23,16 +24,6 @@ html {
 }
 
 /* Responsive */
-
-.grid {
-    width: 1200px;
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-.grid__full-width {
-    width: 100%;
-}
 
 .grid__row {
     display: flex;
@@ -54,8 +45,6 @@ html {
     width: 83.33333%;
     padding: 0 5px;
 }
-
-
 
 /* Button Style */
 
@@ -144,10 +133,6 @@ html {
     box-shadow: 0 0 1px #666;
 }
 
-.select-input__item{
-
-}
-
 .select-input__link{
     text-decoration: none;
     color: var(--text-color);
@@ -203,8 +188,4 @@ html {
 
 .pagination-item__link:hover{
     color: var(--primary-color);
-}
-
-.pagination-item__icon{
-
 }
