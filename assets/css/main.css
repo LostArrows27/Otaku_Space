@@ -59,7 +59,6 @@
     width: 28px;
     height: 28px;
     border: 1px solid rgba(0, 0, 0, 0.2);
-
 }
 
 .navbar-user {
@@ -415,6 +414,7 @@
     bottom: 0;
     left: 0;
     animation: fadeIn linear 0.1s;
+    z-index: 20;
 }
 
 .modal__overlay {
@@ -462,6 +462,8 @@
 .auth-form {
     width: 500px;
 }
+
+
 
 .auth-form__input {
     font-size: 1.3rem;
@@ -698,7 +700,7 @@
 .cart__item-list {
     padding-left: 0;
     list-style: none;
-    max-height: 52vh;
+    max-height: 51.5vh;
     overflow-y: scroll;
 }
 

@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link rel="stylesheet" href="./assets/css/no_login.css">
     <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/all.css">
     <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/all.min.css">
 </head>
@@ -29,7 +30,7 @@
 <body>
     <div class="app">
         <!-- Header: start -->
-        <header class="header">
+        <header class="header" id = "header">
             <div class="grid wide">
                 <nav class="navbar hide-on-mobile-tablet">
                     <ul class="navbar-list">
@@ -58,7 +59,7 @@
                         </li>
                     </ul>
 
-                    <ul class="navbar-list">
+                    <ul class="navbar-list navbar-list--no-login">
                         <li class="navbar-list__item notify">
                             <a href="" class="item__link">
                                 <a href="" class="navbar__iconlink"><i class="fa-regular fa-bell"></i></a>
@@ -70,7 +71,7 @@
                                 </header>
                                 <ul class="header__notify-list">
                                     <li class="header__notify-item header__notify-item--viewed">
-                                        <a href="header" class="header__notify-link">
+                                        <a href="#header" class="header__notify-link">
                                             <img src="https://product.hstatic.net/200000343865/product/7_ban-pho-thong_poster_6933b5b6343a4c828d614ae9bec694a5_large.jpg"
                                                 alt="" class="header__notify-img">
                                             <div class="header__notify-info">
@@ -82,7 +83,7 @@
                                         </a>
                                     </li>
                                     <li class="header__notify-item">
-                                        <a href="header" class="header__notify-link">
+                                        <a href="#header" class="header__notify-link">
                                             <img src="https://product.hstatic.net/200000343865/product/thien-su-nha-ben_pho-thong_poster_355243c434124939b5921cb29f88a051_large.jpg"
                                                 alt="" class="header__notify-img">
                                             <div class="header__notify-info">
@@ -94,7 +95,7 @@
                                         </a>
                                     </li>
                                     <li class="header__notify-item">
-                                        <a href="header" class="header__notify-link">
+                                        <a href="#header" class="header__notify-link">
                                             <img src="https://vn-live-02.slatic.net/p/06399e99f48f6c77ba6b376a3305beaa.jpg"
                                                 alt="" class="header__notify-img">
                                             <div class="header__notify-info">
@@ -106,7 +107,7 @@
                                         </a>
                                     </li>
                                     <li class="header__notify-item">
-                                        <a href="header" class="header__notify-link">
+                                        <a href="#header" class="header__notify-link">
                                             <img src="https://cf.shopee.vn/file/798fc4169d4000602146611d0578e04e" alt=""
                                                 class="header__notify-img">
                                             <div class="header__notify-info">
@@ -118,7 +119,7 @@
                                         </a>
                                     </li>
                                     <li class="header__notify-item">
-                                        <a href="header" class="header__notify-link">
+                                        <a href="#header" class="header__notify-link">
                                             <img src="" alt="" class="header__notify-img">
                                             <div class="header__notify-info">
                                                 <span class="header__notify-name"></span>
@@ -138,9 +139,11 @@
                                 Trợ giúp
                             </a>
                         </li>
-                        <!-- <li class="navbar-list__item navbar-list__item--bold navbar-list__item--separate">Đăng ký</li>
-                        <li class="navbar-list__item navbar-list__item--bold">Đăng nhập</li> -->
-                        <li class="navbar-list__item navbar-user">
+                        <!-- Login form  -->
+                        <li class="navbar-list__item navbar-list__item--bold navbar-list__item--separate navbar-list__item--signUp">Đăng ký</li>
+                        <li class="navbar-list__item navbar-list__item--bold navbar-list__item--login">Đăng nhập</li>
+                        <!-- User menu account after login -->
+                        <li class="navbar-list__item navbar-user" style = "display: none;">
                             <img src="https://i.pinimg.com/originals/28/af/08/28af086c0505916ed41e9ca42850e635.jpg"
                                 alt="" class="navbar-user__avatar">
                             <span class="navbar-user__name">Thành Dũng</span>
@@ -162,7 +165,7 @@
                                     </a>
                                 </li>
                                 <li class="navbar__menu-item menu-item--seperate">
-                                    <a href="no_logIn.html">
+                                    <a href="">
                                         Đăng xuất
                                     </a>
                                 </li>
@@ -197,8 +200,7 @@
                                 <ul class="history-search">
                                     <li class="history-item"><a href="https://google.com">Thiên sứ nhà bên tập 1</a>
                                     </li>
-                                    <li class="history-item"><a href="https://google.com">Chuyện tình thanh xuân của
-                                            tôi</a></li>
+                                    <li class="history-item"><a href="https://google.com">Chuyện tình thanh xuân tôi</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -380,33 +382,29 @@
                             </div>
                         </div>
                     </div>
-                    <div class="navbar-list__item navbar-user hide">
-                        <img src="https://i.pinimg.com/originals/28/af/08/28af086c0505916ed41e9ca42850e635.jpg"
-                            alt="" class="navbar-user__avatar">
+                    <div class="navbar-list__item navbar-user hide user-menu">
+                        <div class="navbar-user__menu-login">
+                            <i class="fa-solid fa-bars"></i>
+                        </div>
                         <!-- User Account Menu -->
                         <ul class="navbar__menu">
                             <li class="navbar__menu-item">
-                                <a href="">
-                                    Tài khoản của tôi
-                                </a>
-                            </li>
-                            <li class="navbar__menu-item">
-                                <a href="">
-                                    Địa chỉ của tôi
-                                </a>
-                            </li>
-                            <li class="navbar__menu-item">
-                                <a href="">
-                                    Đơn mua
+                                <a href="index.html">
+                                    Đăng nhập
                                 </a>
                             </li>
                             <li class="navbar__menu-item menu-item--seperate">
-                                <a href="no_logIn.html">
-                                    Đăng xuất
+                                <a href="index.html">
+                                    Đăng ký
                                 </a>
                             </li>
                         </ul>
                     </div>
+                    <ul class="navbar-list navbar-list--no-login hide-now">
+                        <!-- Login form  -->
+                        <li class="navbar-list__item navbar-list__item--bold navbar-list__item--separate navbar-list__item--signUp">Đăng ký</li>
+                        <li class="navbar-list__item navbar-list__item--bold navbar-list__item--login">Đăng nhập</li>
+                    </ul>
                 </div>
             </div>
             <ul class="header__sort-bar">
@@ -1332,11 +1330,11 @@
     <!-- Footer: end -->
     </div>
     <!-- Modal Form Layout-->
-    <div class="modal">
+    <div class="modal" id = "modal">
         <div class="modal__overlay"></div>
         <div class="modal__body">
-            <!-- Authen Form -->
-            <div class="auth-form">
+            <!-- SignUp Form -->
+            <div class="auth-form" id = "auth-form--sign-up">
                 <div class="auth-form__container">
                     <div class="auth-form__header">
                         <h3 class="auth-form__heading">Đăng Ký</h3>
@@ -1365,7 +1363,7 @@
 
                     <div class="auth-form__controls">
                         <button class="btn auth-form__controls-back btn-normal">TRỞ LẠI</button>
-                        <button class="btn btn--primary">ĐĂNG KÝ</button>
+                        <a class="btn btn--primary btn--login" href="index.html">ĐĂNG KÝ</a>
                     </div>
                 </div>
                 <div class="auth-form__social">
@@ -1380,7 +1378,7 @@
                 </div>
             </div>
             <!-- Login Form -->
-            <div class="auth-form">
+            <div class="auth-form" id = "auth-form--sign-in">
                 <div class="auth-form__container">
                     <div class="auth-form__header">
                         <h3 class="auth-form__btn" style="color: var(--text-color)">Đăng Ký</h3>
@@ -1406,7 +1404,7 @@
 
                     <div class="auth-form__controls">
                         <button class="btn auth-form__controls-back btn-normal">TRỞ LẠI</button>
-                        <button class="btn btn--primary">ĐĂNG NHẬP</button>
+                        <a class="btn btn--primary btn--login" href="index.html">ĐĂNG NHẬP</a>
                     </div>
                 </div>
                 <div class="auth-form__social">
@@ -1422,8 +1420,10 @@
             </div>
         </div>
     </div>
+    <!-- JQuery -->
     <script src="./assets/jQuery/jquery-3.6.0.js"></script>
-    <script src="./assets/js/main_page.js"></script>
+    <!-- JS rieng -->
+    <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
