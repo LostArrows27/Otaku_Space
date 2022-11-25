@@ -4,6 +4,8 @@
     background-image: linear-gradient(0, #fe6433, #f53e2d);
 }
 
+/* auth-form chi can bo comment la hoat dong tro lai */
+
 .header__mobile-search{
     display: none;
     padding: 0 12px;
@@ -460,7 +462,7 @@
 }
 
 .auth-form {
-    width: 500px;
+    /* width: 500px; */
 }
 
 
@@ -626,6 +628,7 @@
     display: none;
     cursor: default;
     z-index: 6;
+    transition: all linear 0.3s;
 }
 
 .header__cart-list--no-cart {

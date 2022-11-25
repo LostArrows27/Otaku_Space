@@ -1,0 +1,421 @@
+.test {
+    background-color: navajowhite;
+    border: 1px solid red;
+}
+
+/* class for div using image make BG */
+.set-bg {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+/* Product Info CSS */
+.pushing {
+    margin: 16px 0 16px 0;
+}
+
+.product__info {
+    background-color: white;
+    padding-bottom: 10px;
+}
+
+.image-info--main {
+    padding-top: 100%;
+    margin-bottom: 12px;
+    transition: all linear 0.2s;
+}
+
+.image-info--sub>.col {}
+
+.image-info--sub>.col>div {
+    padding-top: 90%;
+}
+
+.image-info--sub>.col:hover {
+    border: 2px solid #EE4D2D;
+    cursor: pointer;
+}
+
+.info-sub-1 {
+    background-image: url(https://cf.shopee.vn/file/sg-11134201-22100-6z5kmi99u5iv07);
+}
+
+.info-sub-2 {
+    background-image: url(https://cf.shopee.vn/file/sg-11134201-22100-0eb819gav5iv44_tn);
+}
+
+.info-sub-3 {
+    background-image: url(https://cf.shopee.vn/file/sg-11134201-22100-t7h7k0gav5iv62_tn);
+}
+
+.info-sub-4 {
+    background-image: url(https://cf.shopee.vn/file/sg-11134201-22100-35h8u0gav5ivba_tn);
+}
+
+.info-sub-5 {
+    background-image: url(https://cf.shopee.vn/file/sg-11134201-22100-54f1sbhav5iv21_tn);
+}
+
+.product-share--social {}
+
+.social-container {
+    display: flex;
+    height: 40px;
+    justify-content: center;
+}
+
+.product-share {
+    margin-top: 20px;
+}
+
+.social--icon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.social--icon-each>i {
+    font-size: 2.2rem;
+    line-height: 40px;
+    margin: 0 2px;
+}
+
+.social--icon-each>.fa-facebook-messenger {
+    color: rgb(3, 132, 255);
+}
+
+.social--icon-each>.fa-facebook {
+    color: rgb(59, 89, 153);
+}
+
+.social--icon-each>.fa-pinterest {
+    color: rgb(222, 2, 23);
+}
+
+.social--icon-each>.fa-google-plus {
+    color: rgb(251, 86, 49);
+}
+
+.social-title {
+    font-size: 1.6rem;
+    margin: 0 4px;
+}
+
+.product-share--like {
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+}
+
+.product-share--like:hover,
+.social--icon-each:hover {
+    cursor: pointer;
+}
+
+.product-share--like>div {
+    margin: 0 6px;
+}
+
+.share--like-icon>i {
+    font-size: 2.2rem;
+    color: rgb(255, 89, 100);
+}
+
+.product-info {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.product-rating {
+    justify-content: flex-start;
+    line-height: normal;
+    margin: 10px;
+}
+
+.product-price {
+    background-color: rgba(118, 135, 121, 0.1);
+    padding: 3%;
+    max-width: 95%;
+    margin: 20px;
+
+}
+
+.total-pr {
+    margin-top: 8px;
+    margin-right: 10px;
+    color: orange;
+    font-size: 4rem;
+    text-align: center;
+
+}
+
+.original-pr {
+    align-self: center;
+    text-decoration: line-through;
+    font-size: 1.5rem;
+    color: rgb(146, 146, 146);
+
+
+}
+
+.currency {
+    font-size: 2.3rem;
+    position: relative;
+    bottom: 40%;
+    text-decoration: underline;
+
+}
+
+.sale-percent {
+    color: white;
+    font-size: 16px;
+    background-color: orange;
+    padding: auto 5px;
+    line-height: 26px;
+    border-radius: 10%;
+    align-self: center;
+}
+
+.prod-count {
+    margin: 40px 0px;
+    font-size: 1.5rem;
+    align-items: center;
+}
+
+.count-sec {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0 10px;
+    /* border: 1px solid rgb(219,219,219) ; */
+}
+
+.count-num {}
+
+.gray {
+    color: rgb(117, 117, 117);
+}
+
+.count-sec>.col {
+    border: 1px solid rgb(219, 219, 219);
+    padding: 4px 0;
+
+}
+
+
+.plus:hover,
+.minus:hover {
+    cursor: pointer;
+}
+
+.star-rating-wrap {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    border-right: 2px solid rgb(219, 219, 219);
+}
+
+
+.solded {
+    font-size: 1.4rem;
+    align-self: center;
+}
+
+.rating-star>i {
+    font-size: 2rem;
+}
+
+.btn--add {
+    color: #ee4d2d;
+    height: 48px;
+    background-color: rgb(255, 245, 241);
+    border: 1px solid #ee4d2d;
+    padding: 20px;
+}
+
+.btn--add:hover {
+    background-color: rgba(255, 245, 241, 0.5);
+}
+
+.btn--shopping:hover {
+    opacity: 0.9;
+}
+
+.btn--add-icon {
+    font-size: 1.6rem;
+    margin-right: 10px;
+}
+
+.btn-title {
+    font-size: 1.8rem;
+    font-weight: 300;
+}
+
+.btn--shopping {
+    height: 48px;
+    font-size: 1.8rem;
+    font-weight: 300;
+}
+
+.btn-shop {}
+
+/* Shop information CSS */
+
+.product__shop {
+    margin-bottom: 20px;
+    padding: 30px 20px;
+    background-color: white;
+}
+
+.shop__image {
+    display: flex;
+    position: relative;
+}
+
+.shop__image-logo {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    margin-right: 24px;
+    background-image: url("https://cf.shopee.vn/file/9dff163b95169481526a9c712ded7be5");
+}
+
+.shop__image-name {
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.shop__btn {
+    border: 1px solid #EE4D2D;
+    color: red;
+    font-weight: 300;
+    background-color: rgb(255,245,241);
+}
+
+.shop__btn:hover{
+    background-color: rgba(255, 245, 241, 0.5);
+}
+
+.shop__btn-icon {
+    margin-right: 10px;
+}
+
+.shop__image::after{
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    height: 78px;
+    border-right: 1px solid rgb(242,242,242);
+}
+
+.shop__information {
+    display: flex;
+    padding-top: 10px;
+}
+
+.info-first,
+.info-second {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-first > div,
+.info-second > div {
+    flex : 1;
+    font-size: 1.6rem;
+}
+
+.shop__information span {
+    color: #EE4D2D;
+}
+
+.info-first {
+    margin-left: 40px;
+}
+
+/* Similar Product CSS */
+
+.similar-title {
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 1.8rem;
+    /* color: #EE4D2D; */
+}
+
+.last-row{
+    margin-bottom: 50px;
+}
+
+.title-wrap{
+    display: flex;
+    
+}
+
+.str-line{
+    flex: 1;
+    align-self: center;
+    margin-left: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.box--purchased{
+    display: none;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100vw;
+    height:100vh;
+    top:0;
+    left:0;
+    z-index:5;
+    align-items: center;
+    justify-content: center;
+}
+.purchased{
+    background-color: var(--white-color);
+    width: 30vw;
+    height: 50vh;
+}
+
+.Fadeout{ 
+    animation: hide .5s linear ; 
+}
+
+@keyframes hide {
+    from{
+        
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to{
+        opacity: 0;
+        transform: scale(0); 
+    }
+    
+}
+
+.Fadein{
+        animation: reveal .5s linear alternate; 
+    }
+
+@keyframes reveal {
+    from{
+
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to{
+        opacity: 1;
+        transform: scale(1); 
+    }
+    
+}
