@@ -14,25 +14,40 @@
         integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Link Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
     <!-- End Link Font -->
-    <link rel="stylesheet" href="./assets/fonts/FontAwesome.Pro.6.1.1/fontawesome-pro-6.1.1-web/css/all.css">
-    <link rel="stylesheet" href="./assets/fonts/FontAwesome.Pro.6.1.1/fontawesome-pro-6.1.1-web/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/grid.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
-    <link rel="stylesheet" href="./assets/css/no_login.css">
-    <link rel="stylesheet" href="./assets/css/product-page.css">
-    <!-- <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/all.css">
-    <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/all.min.css"> -->
+    <link rel="stylesheet" href="./assets/css/user.css">
+    <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/all.css">
+    <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/all.min.css">
 </head>
 
 <body>
+    <div id="toast">
+        <!-- <div class="toast toast--buynow">
+            <div class="toast--content">
+                <div class="toast--icon">
+                    <i class="fa-sharp fa-solid fa-shield-check"></i>
+                </div>
+                <div class="toast--body">
+                    Thanh toán thành công
+                </div>
+                <div class="toast--close">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </div>
+            </div>
+            <div class="toast--runtime"></div>
+        </div> -->
+        
+    </div>
     <div class="app">
         <!-- Header: start -->
-        <header class="header" id="header">
+        <header class="header">
             <div class="grid wide">
                 <nav class="navbar hide-on-mobile-tablet">
                     <ul class="navbar-list">
@@ -61,7 +76,7 @@
                         </li>
                     </ul>
 
-                    <ul class="navbar-list navbar-list--no-login">
+                    <ul class="navbar-list">
                         <li class="navbar-list__item notify">
                             <a href="" class="item__link">
                                 <a href="" class="navbar__iconlink"><i class="fa-regular fa-bell"></i></a>
@@ -73,7 +88,7 @@
                                 </header>
                                 <ul class="header__notify-list">
                                     <li class="header__notify-item header__notify-item--viewed">
-                                        <a href="#header" class="header__notify-link">
+                                        <a href="header" class="header__notify-link">
                                             <img src="https://product.hstatic.net/200000343865/product/7_ban-pho-thong_poster_6933b5b6343a4c828d614ae9bec694a5_large.jpg"
                                                 alt="" class="header__notify-img">
                                             <div class="header__notify-info">
@@ -85,7 +100,7 @@
                                         </a>
                                     </li>
                                     <li class="header__notify-item">
-                                        <a href="#header" class="header__notify-link">
+                                        <a href="header" class="header__notify-link">
                                             <img src="https://product.hstatic.net/200000343865/product/thien-su-nha-ben_pho-thong_poster_355243c434124939b5921cb29f88a051_large.jpg"
                                                 alt="" class="header__notify-img">
                                             <div class="header__notify-info">
@@ -97,7 +112,7 @@
                                         </a>
                                     </li>
                                     <li class="header__notify-item">
-                                        <a href="#header" class="header__notify-link">
+                                        <a href="header" class="header__notify-link">
                                             <img src="https://vn-live-02.slatic.net/p/06399e99f48f6c77ba6b376a3305beaa.jpg"
                                                 alt="" class="header__notify-img">
                                             <div class="header__notify-info">
@@ -109,7 +124,7 @@
                                         </a>
                                     </li>
                                     <li class="header__notify-item">
-                                        <a href="#header" class="header__notify-link">
+                                        <a href="header" class="header__notify-link">
                                             <img src="https://cf.shopee.vn/file/798fc4169d4000602146611d0578e04e" alt=""
                                                 class="header__notify-img">
                                             <div class="header__notify-info">
@@ -121,7 +136,7 @@
                                         </a>
                                     </li>
                                     <li class="header__notify-item">
-                                        <a href="#header" class="header__notify-link">
+                                        <a href="header" class="header__notify-link">
                                             <img src="" alt="" class="header__notify-img">
                                             <div class="header__notify-info">
                                                 <span class="header__notify-name"></span>
@@ -142,13 +157,9 @@
                                 Trợ giúp
                             </a>
                         </li>
-                        <!-- Login form  -->
-                        <li
-                            class="navbar-list__item navbar-list__item--bold navbar-list__item--separate navbar-list__item--signUp">
-                            Đăng ký</li>
-                        <li class="navbar-list__item navbar-list__item--bold navbar-list__item--login">Đăng nhập</li>
-                        <!-- User menu account after login -->
-                        <li class="navbar-list__item navbar-user" style="display: none;">
+                        <!-- <li class="navbar-list__item navbar-list__item--bold navbar-list__item--separate">Đăng ký</li>
+                        <li class="navbar-list__item navbar-list__item--bold">Đăng nhập</li> -->
+                        <li class="navbar-list__item navbar-user">
                             <img src="https://i.pinimg.com/originals/28/af/08/28af086c0505916ed41e9ca42850e635.jpg"
                                 alt="" class="navbar-user__avatar">
                             <span class="navbar-user__name">Thành Dũng</span>
@@ -170,7 +181,7 @@
                                     </a>
                                 </li>
                                 <li class="navbar__menu-item menu-item--seperate">
-                                    <a href="">
+                                    <a href="no_logIn.html" class="logOut">
                                         Đăng xuất
                                     </a>
                                 </li>
@@ -205,8 +216,8 @@
                                 <ul class="history-search">
                                     <li class="history-item"><a href="https://google.com">Thiên sứ nhà bên tập 1</a>
                                     </li>
-                                    <li class="history-item"><a href="https://google.com">Chuyện tình thanh xuân tôi</a>
-                                    </li>
+                                    <li class="history-item"><a href="https://google.com">Chuyện tình thanh xuân của
+                                            tôi</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -388,31 +399,33 @@
                             </div>
                         </div>
                     </div>
-                    <div class="navbar-list__item navbar-user hide user-menu">
-                        <div class="navbar-user__menu-login">
-                            <i class="fa-solid fa-bars"></i>
-                        </div>
+                    <div class="navbar-list__item navbar-user hide">
+                        <img src="https://i.pinimg.com/originals/28/af/08/28af086c0505916ed41e9ca42850e635.jpg" alt=""
+                            class="navbar-user__avatar">
                         <!-- User Account Menu -->
                         <ul class="navbar__menu">
                             <li class="navbar__menu-item">
-                                <a href="index.html">
-                                    Đăng nhập
+                                <a href="">
+                                    Tài khoản của tôi
+                                </a>
+                            </li>
+                            <li class="navbar__menu-item">
+                                <a href="">
+                                    Địa chỉ của tôi
+                                </a>
+                            </li>
+                            <li class="navbar__menu-item">
+                                <a href="">
+                                    Đơn mua
                                 </a>
                             </li>
                             <li class="navbar__menu-item menu-item--seperate">
-                                <a href="index.html">
-                                    Đăng ký
+                                <a href="no_logIn.html">
+                                    Đăng xuất
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <ul class="navbar-list navbar-list--no-login hide-now">
-                        <!-- Login form  -->
-                        <li
-                            class="navbar-list__item navbar-list__item--bold navbar-list__item--separate navbar-list__item--signUp">
-                            Đăng ký</li>
-                        <li class="navbar-list__item navbar-list__item--bold navbar-list__item--login">Đăng nhập</li>
-                    </ul>
                 </div>
             </div>
             <ul class="header__sort-bar">
@@ -427,430 +440,130 @@
 
         <!-- Container: start -->
         <div class="app__container">
-            <div class="grid wide wrapper-product">
-                <div class="title-wrap">
-                    <div class="similar-title pushing">THÔNG TIN SẢN PHẨM </div>
-                    <div class="str-line"></div>
-                </div>
-
-                <div class="row contain-push sm-gutter product__info">
-                    <div class="col l-5">
-                        <div class="image-info">
-                            <div class="image-info--main set-bg"
-                                style="background-image: url(https://cf.shopee.vn/file/sg-11134201-22100-6z5kmi99u5iv07);">
+            <div class="grid wide">
+                <div class="row sm-gutter pushfrom-Header">
+                    <div class="col l-3 user__interact">
+                        <div class="user__interact--heading my-profile">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                                alt="" class="user__interact--avatar">
+                            <div class="user__interact--name">Hồ Sơ Của Tôi</div>
+                        </div>
+                        <div class="user__interact--heading my-product">
+                            <img src="https://cdn-icons-png.flaticon.com/512/308/308833.png"
+                                alt="" class="user__interact--avatar">
+                            <div class="user__interact--name">Bán Sản Phẩm</div>
+                        </div>
+                        <div class="strike"></div>
+                    </div>
+                    <div class="col l-9 user__information">
+                        <div class="user__information--heading">
+                            <div class="profile-title">Hồ Sơ Của Tôi</div>
+                            <div class="profile-description">Xem thông tin tài khoản của bạn</div>
+                        </div>
+                        <div class="row user__information--content padding-special">
+                            <div class="col l-6 user__info-text">
+                                <div class="info-wrap">
+                                    <span class="info-wrap--title">Tên đăng nhập: </span>
+                                    <span class="info-wrap--content">thanhdung0207</span>
+                                </div>
+                                <div class="info-wrap">
+                                    <span class="info-wrap--title">Tên người dùng: </span>
+                                    <span class="info-wrap--content">Thành Dũng</span>
+                                </div>
+                                <div class="info-wrap">
+                                    <span class="info-wrap--title">Mật khẩu: </span>
+                                    <span class="info-wrap--content">03********</span>
+                                </div>
+                                <div class="info-wrap">
+                                    <span class="info-wrap--title">Ngày sinh: </span>
+                                    <span class="info-wrap--content">02/07/2003</span>
+                                </div>
                             </div>
-                            <div class="row image-info--sub sm-gutter">
-                                <div class="col l-2-4">
-                                    <div class="set-bg info-sub-1"></div>
-                                </div>
-                                <div class="col l-2-4">
-                                    <div class="set-bg info-sub-2"></div>
-                                </div>
-                                <div class="col l-2-4">
-                                    <div class="set-bg info-sub-3"></div>
-                                </div>
-                                <div class="col l-2-4">
-                                    <div class="set-bg info-sub-4"></div>
-                                </div>
-                                <div class="col l-2-4">
-                                    <div class="set-bg info-sub-5"></div>
-                                </div>
-                            </div>
-                            <div class="row sm-gutter product-share">
-                                <div class="col l-6 product-share--social">
-                                    <div class="social-container">
-                                        <div class="social--icon">
-                                            <div class="social-title">Chia sẻ:</div>
-                                            <div class="social--icon-each">
-                                                <i class="fa-brands fa-facebook-messenger"></i>
-                                            </div>
-                                            <div class="social--icon-each">
-                                                <i class="fa-brands fa-facebook"></i>
-                                            </div>
-                                            <div class="social--icon-each">
-                                                <i class="fa-brands fa-pinterest"></i>
-                                            </div>
-                                            <div class="social--icon-each">
-                                                <i class="fa-brands fa-google-plus"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col l-6 product-share--like">
-                                    <div class="share--like-icon">
-                                        <i class="fa-regular fa-heart"></i>
-                                    </div>
-                                    <div class="share--like-liked">
-                                        Đã thích (<span class="like-counted">1</span>)
-                                    </div>
-                                </div>
+                            <div class="col l-6 user__info-second">
+                                <img src="https://i.pinimg.com/originals/28/af/08/28af086c0505916ed41e9ca42850e635.jpg"
+                                    alt="" class="user__info--avatar">
+                                <div class="user__info--name">Thành Dũng</div>
                             </div>
                         </div>
                     </div>
-                    <div class="col l-7">
-                        <div class="row sm-gutter product-info">
-                            <div class="col l-12 product-title">
-                                Gimai Seikatsu - Light Novel Tập 1-5 [Gốc Nhật] / Sống Cùng Em Kế - Hiten / HitenKei
-                            </div>
+                    <div class="col l-9 user__information unactive">
+                        <div class="user__information--heading">
+                            <div class="profile-title">Bán Sản Phẩm</div>
+                            <div class="profile-description">Đăng sản phẩm và bán trong shop của bạn</div>
                         </div>
-                        <div class="row sm-gutter product-rating">
-                            <div class="col l-2-4 star-rating-wrap border-right">
-                                <div class="home-product-item__rating rating-star">
-                                    <i class="fa-solid fa-star home-product-item__gold"></i>
-                                    <i class="fa-solid fa-star home-product-item__gold"></i>
-                                    <i class="fa-solid fa-star home-product-item__gold"></i>
-                                    <i class="fa-solid fa-star home-product-item__gold"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </div>
-                            </div>
-                            <div class="col l-3 solded border-right">
-                                Đã bán:
-                            </div>
-                            <div class="col l-4 solded">
-                                Danh mục: <span class="product-category--special">Light Novel</span>
-                            </div>
-                        </div>
-                        <div class="row sm-gutter product-price">
-                            <div class="col  original-pr">
-                                1.050.000
-                            </div>
-                            <div class="col total-pr">
-                                <span class="currency">đ</span>819.000
-                            </div>
-                            <div class="col sale-percent">
-                                20% giảm
-                            </div>
-                        </div>
-                        <div class="row sm-gutter prod-count ">
-                            <div class="col l-2 gray">
-                                Số lượng mua
-                            </div>
-                            <div class="col l-3">
-                                <div class="row ms-gutter count-sec">
-                                    <div class="col l-3 minus" onclick="countItem(false)">
-                                        -
+                        <div class="row user__information--content product-post">
+                            <div class="col l-6 user__info-text">
+                                <!-- 1. Ten san pham -->
+                                <!-- 2. Danh muc -->
+                                <!-- 3. Gia -->
+                                <!-- 4. So luong co san -->
+                                <!-- 5. 5 file anh co san (bat buoc up 5) -->
+                                <div class="info-wrap">
+                                    <span class="info-wrap--title">Tên sản phẩm: </span>
+                                    <div class="auth-form__group">
+                                        <input type="text" class="auth-form__input--special" placeholder="Tên sản phẩm">
                                     </div>
-                                    <div class="col l-6 count-num"></div>
-                                    <div class="col l-3 plus" onclick="countItem(true)">
-                                        +
+                                </div>
+                                <div class="info-wrap">
+                                    <span class="info-wrap--title">Danh mục: </span>
+                                    <div class="auth-form__group">
+                                        <input type="text" class="auth-form__input--special" placeholder="Danh mục sản phẩm">
+                                    </div>
+                                </div>
+                                <div class="info-wrap">
+                                    <span class="info-wrap--title">Giá bán: </span>
+                                    <div class="auth-form__group">
+                                        <input type="text" class="auth-form__input--special" placeholder="Giá bán sản phẩm">
+                                    </div>
+                                </div>
+                                <div class="info-wrap">
+                                    <span class="info-wrap--title">Số lượng đăng bán: </span>
+                                    <div class="auth-form__group">
+                                        <input type="text" class="auth-form__input--special" placeholder="Số lượng sản phẩm">
+                                    </div>
+                                </div>
+                                <div class="info-wrap">
+                                    <span class="info-wrap--title">Ảnh minh họa chính: </span>
+                                    <div class="auth-form__group">
+                                        <input type="text" class="auth-form__input--special" placeholder="Link ảnh minh họa chính">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col l-3 gray">
-                                <span class="data-count">20</span> sản phẩm sẵn có
-                            </div>
-                        </div>
-                        <div class="row sm-gutter btn-shop">
-                            <div class="col l-4">
-                                <div class="btn btn--add">
-                                    <i class="fa-solid fa-cart-shopping btn--add-icon"></i>
-                                    <span class="btn-title">Thêm vào giỏ hàng</span>
+                            <div class="col l-6 user__info-text">
+                                <!-- 1. Ten san pham -->
+                                <!-- 2. Danh muc -->
+                                <!-- 3. Gia -->
+                                <!-- 4. So luong co san -->
+                                <!-- 5. 5 file anh co san (bat buoc up 5) -->
+                                <div class="info-wrap">
+                                    <span class="info-wrap--title">Ảnh minh họa 2: </span>
+                                    <div class="auth-form__group">
+                                        <input type="text" class="auth-form__input--special" placeholder="Link ảnh minh họa 2">
+                                    </div>
+                                </div>
+                                <div class="info-wrap">
+                                    <span class="info-wrap--title">Ảnh minh họa 3: </span>
+                                    <div class="auth-form__group">
+                                        <input type="text" class="auth-form__input--special" placeholder="Link ảnh minh họa 3">
+                                    </div>
+                                </div>
+                                <div class="info-wrap">
+                                    <span class="info-wrap--title">Ảnh minh họa 4: </span>
+                                    <div class="auth-form__group">
+                                        <input type="text" class="auth-form__input--special" placeholder="Link ảnh minh họa 4">
+                                    </div>
+                                </div>
+                                <div class="info-wrap">
+                                    <span class="info-wrap--title">Ảnh minh họa 5: </span>
+                                    <div class="auth-form__group">
+                                        <input type="text" class="auth-form__input--special" placeholder="Link ảnh minh họa 5">
+                                    </div>
+                                </div>
+                                <div class="info-wrap submit-button">
+                                    <div class="btn btn--primary uploadItem">Đăng bán</div>
                                 </div>
                             </div>
-                            <div class="col l-4">
-                                <div class="btn btn--disabled btn--shopping" onclick="purchased()">
-                                    Mua Ngay
-                                </div>
-                            </div>
                         </div>
-
-                    </div>
-                </div>
-                <div class="title-wrap">
-                    <div class="similar-title pushing">THÔNG TIN SHOP </div>
-                    <div class="str-line"></div>
-                </div>
-                <div class="row sm-gutter product__shop">
-                    <div class="col l-4 shop__image">
-                        <div class="shop__image-logo set-bg" onclick="redirection()"></div>
-                        <div class="shop__image-subwrapper">
-                            <div class="shop__image-name" onclick="redirection()">thanhdung0207</div>
-                            <div class="shop__btn btn">
-                                <i class="fa-light fa-shop shop__btn-icon"></i>
-                                <span class="shop__btn-title">Xem shop</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col l-8 shop__information">
-                        <div class="info-first">
-                            <div class="info-rate">
-                                Đánh giá: <span class="rate-start">4.8</span>
-                                <i class="fa-solid fa-star home-product-item__gold"></i>
-                            </div>
-                            <div class="info-product">
-                                Sản phẩm: <span class="product-count">20</span>
-                            </div>
-                        </div>
-                        <div class="info-second">
-                            <div class="info-sold">
-                                Đã bán: <span class="sold-count">40</span> sản phẩm
-                            </div>
-                            <div class="info-customer">
-                                Khách hàng: <span class="customer-count">40</span> người đã mua
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row sm-gutter product__similar">
-                    <div class="col l-12 m-12 c-12 product__similar-wrapper">
-                        <div class="title-wrap">
-                            <div class="similar-title pushing">CÓ THỂ BẠN THÍCH </div>
-                            <div class="str-line"></div>
-                        </div>
-                        <div class="row sm-gutter similar-container last-row">
-                            <div class="col l-2 m-4 c-6">
-                                <!-- Product Item -->
-                                <a class="home-product-item" href="/productPage.html">
-                                    <div class="home-product-item__img"
-                                        style="background-image: url(https://cf.shopee.vn/file/50d88e26f112646c7add7ff75f584432_tn);">
-                                    </div>
-                                    <h4 class="home-product-item__name">
-                                        Truyện - Thiên sứ nhà bên tập 3 (Bản Giới Hạn)
-                                    </h4>
-                                    <div class="home-product-item__price">
-                                        <span class="home-prodct-item__price--old">120.000đ</span>
-                                        <span class="home-prodct-item__price--new">96.000đ</span>
-                                    </div>
-                                    <div class="home-product-item__action">
-                                        <span class="home-product-item__heart home-product-item__heart--liked">
-                                            <i class="fa-regular fa-heart"></i>
-                                            <!-- Heart Tim -->
-                                            <i class="fa-solid fa-heart home-product-item__heart--liked-heart"></i>
-                                        </span>
-                                        <div class="home-product-item__rating">
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <span class="sold-item">30 đã bán</span>
-                                        </div>
-                                    </div>
-                                    <div class="home-product-item__origin">
-                                        <span class="home-product-item__brand">Kim Đồng</span>
-                                        <span class="home-product-item__name-city">Việt Nam</span>
-                                    </div>
-                                    <div class="home-product-item__favortie">
-                                        <i class="fa-solid fa-check"></i>
-                                        <span>Yêu thích</span>
-                                    </div>
-                                    <div class="home-product-item__sale-off">
-                                        <span class="home-product-item__sale-off-percent">20%</span>
-                                        <span class="home-product-item__sale-off-label">GIẢM</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col l-2 m-4 c-6">
-                                <!-- Product Item -->
-                                <a class="home-product-item" href="/productPage.html">
-                                    <div class="home-product-item__img"
-                                        style="background-image: url(https://cf.shopee.vn/file/ba0f726d881d9f650309131bb05d51fe_tn);">
-                                    </div>
-                                    <h4 class="home-product-item__name">
-                                        Sách Hội Chứng Tuổi Thanh Xuân - Tập 1
-                                    </h4>
-                                    <div class="home-product-item__price">
-                                        <span class="home-prodct-item__price--old">105.000đ</span>
-                                        <span class="home-prodct-item__price--new">95.000đ</span>
-                                    </div>
-                                    <div class="home-product-item__action">
-                                        <span class="home-product-item__heart home-product-item__heart--liked">
-                                            <i class="fa-regular fa-heart"></i>
-                                            <!-- Heart Tim -->
-                                            <i class="fa-solid fa-heart home-product-item__heart--liked-heart"></i>
-                                        </span>
-                                        <div class="home-product-item__rating">
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <span class="sold-item">99+ đã bán</span>
-                                        </div>
-                                    </div>
-                                    <div class="home-product-item__origin">
-                                        <span class="home-product-item__brand">Kim Đồng</span>
-                                        <span class="home-product-item__name-city">Việt Nam</span>
-                                    </div>
-                                    <div class="home-product-item__favortie">
-                                        <i class="fa-solid fa-check"></i>
-                                        <span>Yêu thích</span>
-                                    </div>
-                                    <div class="home-product-item__sale-off">
-                                        <span class="home-product-item__sale-off-percent">5%</span>
-                                        <span class="home-product-item__sale-off-label">GIẢM</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col l-2 m-4 c-6">
-                                <!-- Product Item --> <a class="home-product-item" href="/productPage.html">
-                                    <div class="home-product-item__img"
-                                        style="background-image: url(https://cf.shopee.vn/file/3c1b2d78d167cb69822f908323610d92_tn);">
-                                    </div>
-                                    <h4 class="home-product-item__name">
-                                        Sách - Postcard Book Nhà Có 5 Nàng Dâu Chính Hãng Từ Nhật
-                                    </h4>
-                                    <div class="home-product-item__price">
-                                        <span class="home-prodct-item__price--old">500.000đ</span>
-                                        <span class="home-prodct-item__price--new">450.000đ</span>
-                                    </div>
-                                    <div class="home-product-item__action">
-                                        <span class="home-product-item__heart home-product-item__heart--liked">
-                                            <i class="fa-regular fa-heart"></i>
-                                            <!-- Heart Tim -->
-                                            <i class="fa-solid fa-heart home-product-item__heart--liked-heart"></i>
-                                        </span>
-                                        <div class="home-product-item__rating">
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <span class="sold-item">5 đã bán</span>
-                                        </div>
-                                    </div>
-                                    <div class="home-product-item__origin">
-                                        <span class="home-product-item__brand">Tokyo</span>
-                                        <span class="home-product-item__name-city">Nhật Bản</span>
-                                    </div>
-                                    <div class="home-product-item__favortie">
-                                        <i class="fa-solid fa-check"></i>
-                                        <span>Yêu thích</span>
-                                    </div>
-                                    <div class="home-product-item__sale-off">
-                                        <span class="home-product-item__sale-off-percent">10%</span>
-                                        <span class="home-product-item__sale-off-label">GIẢM</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col l-2 m-4 c-6">
-                                <!-- Product Item -->
-                                <a class="home-product-item" href="/productPage.html">
-                                    <div class="home-product-item__img"
-                                        style="background-image: url(https://cf.shopee.vn/file/201303282b536c7ba87efe13e27aa1e8_tn);">
-                                    </div>
-                                    <h4 class="home-product-item__name">
-                                        Truyện - Nhân Vật Hạ Cấp Tomozaki - Tập 3 (Bản Giới Hạn)
-                                    </h4>
-                                    <div class="home-product-item__price">
-                                        <span class="home-prodct-item__price--old">111.000đ</span>
-                                        <span class="home-prodct-item__price--new">90.000đ</span>
-                                    </div>
-                                    <div class="home-product-item__action">
-                                        <span class="home-product-item__heart home-product-item__heart--liked">
-                                            <i class="fa-regular fa-heart"></i>
-                                            <!-- Heart Tim -->
-                                            <i class="fa-solid fa-heart home-product-item__heart--liked-heart"></i>
-                                        </span>
-                                        <div class="home-product-item__rating">
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <span class="sold-item">280 đã bán</span>
-                                        </div>
-                                    </div>
-                                    <div class="home-product-item__origin">
-                                        <span class="home-product-item__brand">Kim Đồng</span>
-                                        <span class="home-product-item__name-city">Việt Nam</span>
-                                    </div>
-                                    <div class="home-product-item__favortie">
-                                        <i class="fa-solid fa-check"></i>
-                                        <span>Yêu thích</span>
-                                    </div>
-                                    <div class="home-product-item__sale-off">
-                                        <span class="home-product-item__sale-off-percent">15%</span>
-                                        <span class="home-product-item__sale-off-label">GIẢM</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col l-2 m-4 c-6">
-                                <!-- Product Item -->
-                                <a class="home-product-item" href="/productPage.html">
-                                    <div class="home-product-item__img"
-                                        style="background-image: url(https://cf.shopee.vn/file/2b351532041cb08eb2337e918f60777a_tn);">
-                                    </div>
-                                    <h4 class="home-product-item__name">
-                                        Sách Thần Chết Làm Thêm 300 Yên/Giờ
-                                    </h4>
-                                    <div class="home-product-item__price">
-                                        <span class="home-prodct-item__price--old">94.000đ</span>
-                                        <span class="home-prodct-item__price--new">75.000đ</span>
-                                    </div>
-                                    <div class="home-product-item__action">
-                                        <span class="home-product-item__heart home-product-item__heart--liked">
-                                            <i class="fa-regular fa-heart"></i>
-                                            <!-- Heart Tim -->
-                                            <i class="fa-solid fa-heart home-product-item__heart--liked-heart"></i>
-                                        </span>
-                                        <div class="home-product-item__rating">
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <span class="sold-item">99+ đã bán</span>
-                                        </div>
-                                    </div>
-                                    <div class="home-product-item__origin">
-                                        <span class="home-product-item__brand">Thái Hà</span>
-                                        <span class="home-product-item__name-city">Việt Nam</span>
-                                    </div>
-                                    <div class="home-product-item__favortie">
-                                        <i class="fa-solid fa-check"></i>
-                                        <span>Yêu thích</span>
-                                    </div>
-                                    <div class="home-product-item__sale-off">
-                                        <span class="home-product-item__sale-off-percent">20%</span>
-                                        <span class="home-product-item__sale-off-label">GIẢM</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col l-2 m-4 c-6">
-                                <!-- Product Item -->
-                                <a class="home-product-item" href="/productPage.html">
-                                    <div class="home-product-item__img"
-                                        style="background-image: url(https://cf.shopee.vn/file/c9951212162b35e10a8fbf5dce170816_tn);">
-                                    </div>
-                                    <h4 class="home-product-item__name">
-                                        Sách - Khi Bình Minh Tới Tớ Sẽ Đến Gặp Cậu Đầu Tiên
-                                    </h4>
-                                    <div class="home-product-item__price">
-                                        <span class="home-prodct-item__price--old">129.000đ</span>
-                                        <span class="home-prodct-item__price--new">96.000đ</span>
-                                    </div>
-                                    <div class="home-product-item__action">
-                                        <span class="home-product-item__heart home-product-item__heart--liked">
-                                            <i class="fa-regular fa-heart"></i>
-                                            <!-- Heart Tim -->
-                                            <i class="fa-solid fa-heart home-product-item__heart--liked-heart"></i>
-                                        </span>
-                                        <div class="home-product-item__rating">
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star home-product-item__gold"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <span class="sold-item">150 đã bán</span>
-                                        </div>
-                                    </div>
-                                    <div class="home-product-item__origin">
-                                        <span class="home-product-item__brand">AZ Books</span>
-                                        <span class="home-product-item__name-city">Việt Nam</span>
-                                    </div>
-                                    <div class="home-product-item__favortie">
-                                        <i class="fa-solid fa-check"></i>
-                                        <span>Yêu thích</span>
-                                    </div>
-                                    <div class="home-product-item__sale-off">
-                                        <span class="home-product-item__sale-off-percent">25%</span>
-                                        <span class="home-product-item__sale-off-label">GIẢM</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Thiet ke  -->
                     </div>
                 </div>
             </div>
@@ -1007,31 +720,13 @@
                 </div>
                 <div class="button-wrap">
                     <button class="btn btn--normal close">Trở lại</button>
-                    <button class="btn btn--primary confirm" onclick="">Mua Hàng</button>
+                    <button class="btn btn--primary confirm">Mua Hàng</button>
                 </div>
             </div>
             <!-- <button class = "btn btn--normal close">Trở lại</button>
             <button class = "btn btn--primary confirm">Thanh toán</button> -->
         </div>
     </div>
-    <div id="toast">
-        <!-- <div class="toast toast--buynow">
-            <div class="toast--content">
-                <div class="toast--icon">
-                    <i class="fa-sharp fa-solid fa-shield-check"></i>
-                </div>
-                <div class="toast--body">
-                    Thanh toán thành công
-                </div>
-                <div class="toast--close">
-                    <i class="fa-regular fa-circle-xmark"></i>
-                </div>
-            </div>
-            <div class="toast--runtime"></div>
-        </div> -->
-        
-    </div>
-    
     <!-- Purchased-box: end -->
     <!-- Footer: start -->
     <footer class="footer">
@@ -1130,11 +825,11 @@
     <!-- Footer: end -->
     </div>
     <!-- Modal Form Layout-->
-    <div class="modal" id="modal">
+    <div class="modal">
         <div class="modal__overlay"></div>
         <div class="modal__body">
-            <!-- SignUp Form -->
-            <div class="auth-form" id="auth-form--sign-up">
+            <!-- Authen Form -->
+            <div class="auth-form">
                 <div class="auth-form__container">
                     <div class="auth-form__header">
                         <h3 class="auth-form__heading">Đăng Ký</h3>
@@ -1143,7 +838,7 @@
 
                     <div class="auth-form__form">
                         <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" placeholder="Nhập tên đăng nhập của bạn">
+                            <input type="text" class="auth-form__input" placeholder="Số điện thoại">
                         </div>
                         <div class="auth-form__group">
                             <input type="password" class="auth-form__input" placeholder="Mật khẩu của bạn">
@@ -1163,7 +858,7 @@
 
                     <div class="auth-form__controls">
                         <button class="btn auth-form__controls-back btn-normal">TRỞ LẠI</button>
-                        <a class="btn btn--primary btn--login" href="index.html">ĐĂNG KÝ</a>
+                        <button class="btn btn--primary">ĐĂNG KÝ</button>
                     </div>
                 </div>
                 <div class="auth-form__social">
@@ -1178,7 +873,7 @@
                 </div>
             </div>
             <!-- Login Form -->
-            <div class="auth-form" id="auth-form--sign-in">
+            <div class="auth-form">
                 <div class="auth-form__container">
                     <div class="auth-form__header">
                         <h3 class="auth-form__btn" style="color: var(--text-color)">Đăng Ký</h3>
@@ -1204,7 +899,7 @@
 
                     <div class="auth-form__controls">
                         <button class="btn auth-form__controls-back btn-normal">TRỞ LẠI</button>
-                        <a class="btn btn--primary btn--login" href="index.html">ĐĂNG NHẬP</a>
+                        <button class="btn btn--primary">ĐĂNG NHẬP</button>
                     </div>
                 </div>
                 <div class="auth-form__social">
@@ -1219,13 +914,11 @@
                 </div>
             </div>
         </div>
-
     </div>
-    <!-- JQuery -->
     <script src="./assets/jQuery/jquery-3.6.0.js"></script>
-    <!-- JS rieng -->
     <script src="./assets/js/common.js"></script>
-    <script src="./assets/js/product_page.js"></script>
     <script src="./assets/js/purchased.js"></script>
-    <script src="./assets/js/product_page_2nd.js"></script>
+    <script src="./assets/js/user.js"></script>
 </body>
+
+</html>

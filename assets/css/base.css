@@ -31,17 +31,17 @@ html {
     margin: 0 -5px;
 }
 
-.grid__column-2{
+.grid__column-2 {
     width: 16.66667%;
     padding: 0 5px;
-}   
+}
 
-.grid__column-2-4{
+.grid__column-2-4 {
     width: 20%;
     padding: 0 5px;
 }
 
-.grid__column-10{
+.grid__column-10 {
     width: 83.33333%;
     padding: 0 5px;
 }
@@ -65,7 +65,7 @@ html {
     line-height: 1.6rem;
 }
 
-.btn--normal{
+.btn--normal {
     background-color: var(--white-color);
 }
 
@@ -93,7 +93,7 @@ html {
 
 /* Ô Selection */
 
-.select-input{
+.select-input {
     height: 34px;
     min-width: 200px;
     padding: 0 12px;
@@ -106,7 +106,7 @@ html {
     z-index: 1;
 }
 
-.select-input__label{
+.select-input__label {
     font-size: 1.4rem;
 }
 
@@ -120,17 +120,17 @@ html {
     left: 0;
 }
 
-.select-input__icon{
-    color: rgb(131,131,131);
+.select-input__icon {
+    color: rgb(131, 131, 131);
     position: relative;
     top: 1px;
 }
 
-.select-input:hover .select-input__list{
+.select-input:hover .select-input__list {
     display: block;
 }
 
-.select-input__list{
+.select-input__list {
     position: absolute;
     left: 0;
     right: 0;
@@ -143,7 +143,7 @@ html {
     box-shadow: 0 0 1px #666;
 }
 
-.select-input__link{
+.select-input__link {
     text-decoration: none;
     color: var(--text-color);
     font-size: 1.4rem;
@@ -151,28 +151,28 @@ html {
     padding: 4px 0;
 }
 
-.select-input__link:hover{
+.select-input__link:hover {
     color: var(--primary-color);
 }
 
-.select-input:hover{
+.select-input:hover {
     cursor: pointer;
 }
 
 /* Pagination Bottom */
 
-.pagination{
+.pagination {
     display: flex;
     align-items: center;
     justify-content: center;
     list-style: none;
 }
 
-.pagination-item{
+.pagination-item {
     margin: 0 12px;
 }
 
-.pagination-item__link{
+.pagination-item__link {
     --height: 30px;
     display: block;
     text-align: center;
@@ -185,17 +185,272 @@ html {
     border-radius: 2px;
 }
 
-.current-page{
+.current-page {
     background-color: var(--primary-color);
     color: var(--white-color);
 }
 
-.current-page:hover{
+.current-page:hover {
     background-color: var(--primary-color) !important;
     color: var(--white-color) !important;
     opacity: 0.9;
 }
 
-.pagination-item__link:hover{
+.pagination-item__link:hover {
     color: var(--primary-color);
 }
+
+.highlight-base {
+    background-color: #F79036;
+    border-radius: 8px;
+    color: white;
+    padding: 0px 8px;
+
+}
+
+/* Purchased Box CSS */
+.box--purchased {
+    display: none;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.purchased {
+    background-color: var(--white-color);
+    /* min-width: 400px; */
+    /* min-height: 300px; */
+    /* width: 30vw; */
+    /* height: 50vh; */
+}
+
+.Fadeout {
+    animation: hide .3s linear forwards;
+}
+
+@keyframes hide {
+    from {
+
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+}
+
+.Fadein {
+    animation: reveal .3s linear alternate;
+}
+
+@keyframes reveal {
+    from {
+
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+/* Button Purchase CSS */
+.close {
+    background-color: #F0F0F0;
+    color: #333333;
+}
+
+.close:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Purchases Cart Box*/
+
+.header__cart-list--special {
+    background-color: var(--white-color);
+    width: 680px;
+    border-radius: 2px;
+    animation: fadeIn ease-in 0.2s;
+    display: block;
+    cursor: default;
+    z-index: 6;
+    transition: all linear 0.3s;
+}
+
+.cart__heading--special {
+    color: var(--primary-color);
+    text-align: center;
+    /* margin-top: 8px; */
+    margin: 16px 0 0 0;
+    font-size: 2.6rem;
+    font-weight: 400;
+    opacity: 0.9;
+    padding: 10px 0;
+}
+
+.button-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px;
+}
+
+.close {
+    margin-right: 20px;
+}
+
+.cart__item-list--special {
+    padding: 0 40px;
+    list-style: none;
+    max-height: 56.5vh;
+    overflow-y: auto;
+    border-bottom: 1px solid #f1f0ed;
+}
+
+.cart__item-name--special {
+    font-size: 1.8rem;
+    overflow: hidden;
+    font-weight: 400;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.box--purchased .cart__item-descript {
+    font-size: 1.4rem;
+}
+
+.box--purchased .cart__item-price {
+    font-size: 1.6rem;
+    opacity: 0.9;
+}
+
+.box--purchased .cart__item-multiply,
+.box--purchased .cart__item-quantity {
+    font-size: 1.4rem;
+}
+
+.cart__item--img--special {
+    border: 1px solid #ccc;
+    width: 54px;
+    height: 54px;
+    margin: 12px;
+}
+
+.total-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 64px 0 50px;
+    font-size: 2rem;
+}
+
+.total-price__amount {
+    font-size: 2.8rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.product-category--special {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.border-right {
+    border-right: 2px solid rgb(219, 219, 219);
+    margin-right: 10px;
+}
+
+#toast{
+    position: fixed;
+    top: 20vh;
+    right:2vw;
+}
+
+.toast{
+    border-left: 0.4vw solid;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
+    background-color: var(--white-color);
+    animation: SlideIn .5s ease-in, Fadeout .5s 3s forwards; 
+}
+.toast--content{
+    display:flex;
+    align-items: center;
+    min-width: 400px;
+    max-width: 20vw;
+    border-radius: 5px;
+    padding: 20px 0;
+    
+    line-height: 28px;
+    
+}
+
+@keyframes SlideIn{
+    from{
+        opacity: 0;
+        translate: calc(100% + 32px);
+    }to{
+        opacity:1;
+        translate: 0;
+    }
+}
+
+@keyframes Fadeout {
+    to{
+        opacity: 0;
+    }
+    
+}
+
+.toast--icon,.toast--close{
+  
+    font-size: 3rem;
+    padding: 0 16px;
+}
+.toast--body{
+    flex:1;
+    font-size: 2rem;
+}
+
+.toast--close{
+    opacity: 0.4;
+    cursor: pointer;
+}
+.toast--runtime{
+    width: 100%;
+    border-radius: 5px;
+    height:0.3vh;
+    background-color: black;
+    animation: Runtime 2s linear forwards;
+}
+
+@keyframes Runtime{
+    from{
+        width:100%;
+    }
+    to{
+        width:0%;
+    }
+
+}
+.toast--buynow{
+    border-color:var(--primary-color);
+}
+
+.toast--buynow .toast--icon{
+    color: var(--primary-color);
+}
+

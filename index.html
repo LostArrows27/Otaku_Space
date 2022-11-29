@@ -27,6 +27,23 @@
 </head>
 
 <body>
+    <div id="toast">
+        <!-- <div class="toast toast--buynow">
+            <div class="toast--content">
+                <div class="toast--icon">
+                    <i class="fa-sharp fa-solid fa-shield-check"></i>
+                </div>
+                <div class="toast--body">
+                    Thanh toán thành công
+                </div>
+                <div class="toast--close">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </div>
+            </div>
+            <div class="toast--runtime"></div>
+        </div> -->
+        
+    </div>
     <div class="app">
         <!-- Header: start -->
         <header class="header">
@@ -148,7 +165,7 @@
                             <!-- User Account Menu -->
                             <ul class="navbar__menu">
                                 <li class="navbar__menu-item">
-                                    <a href="">
+                                    <a href="./user.html">
                                         Tài khoản của tôi
                                     </a>
                                 </li>
@@ -163,7 +180,7 @@
                                     </a>
                                 </li>
                                 <li class="navbar__menu-item menu-item--seperate">
-                                    <a href="no_logIn.html">
+                                    <a href="no_logIn.html" class="logOut">
                                         Đăng xuất
                                     </a>
                                 </li>
@@ -226,7 +243,7 @@
                     <div class="header-search__cart">
                         <div class="cart-wrap">
                             <i class="fa-solid fa-cart-shopping header-search__cart-icon"></i>
-                            <span class="cart-notice">7</span>
+                            <span class="cart-notice"></span>
                             <!-- No-cart: add class header__cart-list--no-cart  -->
                             <div class="header__cart-list">
                                 <img src="./assets/img/no-cart.png" alt="" class="header__cart--no-cart--img">
@@ -250,7 +267,7 @@
                                             </div>
                                             <div class="cart__item-body">
                                                 <span class="cart__item-descript">
-                                                    Phân loại: Light Novel - Bản thường
+                                                    Phân loại: <span class="product-category">Light Novel</span>
                                                 </span>
                                                 <span class="cart__item-remove">Xóa</span>
                                             </div>
@@ -270,7 +287,7 @@
                                             </div>
                                             <div class="cart__item-body">
                                                 <span class="cart__item-descript">
-                                                    Phân loại: Light Novel - Bản Giới Hạn
+                                                    Phân loại: <span class="product-category">Light Novel</span>
                                                 </span>
                                                 <span class="cart__item-remove">Xóa</span>
                                             </div>
@@ -290,7 +307,7 @@
                                             </div>
                                             <div class="cart__item-body">
                                                 <span class="cart__item-descript">
-                                                    Phân loại: Manga - bản thường
+                                                    Phân loại: <span class="product-category">Manga Nhật</span>
                                                 </span>
                                                 <span class="cart__item-remove">Xóa</span>
                                             </div>
@@ -310,7 +327,7 @@
                                             </div>
                                             <div class="cart__item-body">
                                                 <span class="cart__item-descript">
-                                                    Phân loại: Figure chính hãng
+                                                    Phân loại: <span class="product-category">Figure - Đồ chơi</span>
                                                 </span>
                                                 <span class="cart__item-remove">Xóa</span>
                                             </div>
@@ -330,7 +347,7 @@
                                             </div>
                                             <div class="cart__item-body">
                                                 <span class="cart__item-descript">
-                                                    Phân loại: Figure chính hãng
+                                                    Phân loại: <span class="product-category">Figure - Đồ chơi</span>
                                                 </span>
                                                 <span class="cart__item-remove">Xóa</span>
                                             </div>
@@ -350,7 +367,7 @@
                                             </div>
                                             <div class="cart__item-body">
                                                 <span class="cart__item-descript">
-                                                    Phân loại: Light Novel - Bản thường
+                                                    Phân loại: <span class="product-category">Light Novel</span>
                                                 </span>
                                                 <span class="cart__item-remove">Xóa</span>
                                             </div>
@@ -370,7 +387,7 @@
                                             </div>
                                             <div class="cart__item-body">
                                                 <span class="cart__item-descript">
-                                                    Phân loại: Light Novel - Bản giới hạn
+                                                    Phân loại: <span class="product-category">Light Novel</span>
                                                 </span>
                                                 <span class="cart__item-remove">Xóa</span>
                                             </div>
@@ -432,6 +449,9 @@
                             </h3>
                             <ul class="category-list">
                                 <li class="category-item category-item--active">
+                                    <a href="#" class="category-item__link">Tất Cả</a>
+                                </li>
+                                <li class="category-item">
                                     <a href="#" class="category-item__link">Light Novel</a>
                                 </li>
                                 <li class="category-item">
@@ -526,9 +546,9 @@
                         <!-- App Product -->
                         <div class="home-product">
                             <div class="row sm-gutter">
-                                <div class="col l-2-4 m-4 c-6">
+                                <div class="col l-2-4 m-4 c-6" productType="Văn Phòng Phẩm">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="/productPage.html">
+                                    <a class="home-product-item" href="./productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/50d88e26f112646c7add7ff75f584432_tn);">
                                         </div>
@@ -568,9 +588,9 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6">
+                                <div class="col l-2-4 m-4 c-6" productType="Tiểu Thuyết">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="/productPage.html">
+                                    <a class="home-product-item" href="./productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/19282624bb5b6233e1eb5d882a1b041a_tn);">
                                         </div>
@@ -611,9 +631,9 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6">
+                                <div class="col l-2-4 m-4 c-6" productType="Light Novel">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="/productPage.html">
+                                    <a class="home-product-item" href="./productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/ba0f726d881d9f650309131bb05d51fe_tn);">
                                         </div>
@@ -653,9 +673,9 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6">
+                                <div class="col l-2-4 m-4 c-6" productType="Manga Nhật">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="/productPage.html">
+                                    <a class="home-product-item" href="./productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/3c1b2d78d167cb69822f908323610d92_tn);">
                                         </div>
@@ -695,9 +715,9 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6">
+                                <div class="col l-2-4 m-4 c-6" productType="Manga Nhật">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="/productPage.html">
+                                    <a class="home-product-item" href="./productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/201303282b536c7ba87efe13e27aa1e8_tn);">
                                         </div>
@@ -737,9 +757,9 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6">
+                                <div class="col l-2-4 m-4 c-6" productType="Light Novel">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="/productPage.html">
+                                    <a class="home-product-item" href="./productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/2b351532041cb08eb2337e918f60777a_tn);">
                                         </div>
@@ -779,9 +799,9 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6">
+                                <div class="col l-2-4 m-4 c-6" productType="Tiểu Thuyết">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="/productPage.html">
+                                    <a class="home-product-item" href="./productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/c9951212162b35e10a8fbf5dce170816_tn);">
                                         </div>
@@ -821,9 +841,9 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6">
+                                <div class="col l-2-4 m-4 c-6" productType="Văn Phòng Phẩm">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="/productPage.html">
+                                    <a class="home-product-item" href="./productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/4f533ed35a1588e9cb1d9d43a714fc36_tn);">
                                         </div>
@@ -863,9 +883,9 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6">
+                                <div class="col l-2-4 m-4 c-6" productType="Figure - Đồ chơi">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="/productPage.html">
+                                    <a class="home-product-item" href="./productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/9f486b740d4e4f24639fed732b3b1608_tn);">
                                         </div>
@@ -905,9 +925,9 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6">
+                                <div class="col l-2-4 m-4 c-6" productType="Light Novel">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="/productPage.html">
+                                    <a class="home-product-item" href="./productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/270e91991045c286ff03090f21366d5e_tn);">
                                         </div>
@@ -947,9 +967,9 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6">
+                                <div class="col l-2-4 m-4 c-6" productType="Figure - Đồ chơi">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="/productPage.html">
+                                    <a class="home-product-item" href="./productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/fdab33b1aa66f503c5eb56f1b8fdbe52_tn);">
                                         </div>
@@ -989,9 +1009,9 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6">
+                                <div class="col l-2-4 m-4 c-6" productType="Figure - Đồ chơi">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="/productPage.html">
+                                    <a class="home-product-item" href="./productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/9ce71203fb14642931c60a739a09e96d_tn);">
                                         </div>
@@ -1031,9 +1051,9 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6">
+                                <div class="col l-2-4 m-4 c-6" productType="Light Novel">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="/productPage.html">
+                                    <a class="home-product-item" href="./productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/290f789a18176f2dd6cb0f181419eea7_tn);">
                                         </div>
@@ -1073,9 +1093,9 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6">
+                                <div class="col l-2-4 m-4 c-6" productType="Light Novel">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="/productPage.html">
+                                    <a class="home-product-item" href="./productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/7ce5d282e6ef21b7a39386790106e5a0_tn);">
                                         </div>
@@ -1115,9 +1135,9 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6">
+                                <div class="col l-2-4 m-4 c-6" productType="Văn Phòng Phẩm">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="/productPage.html">
+                                    <a class="home-product-item" href="./productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/a4b78c733d882ef254edbb9b6276dbc0_tn);">
                                         </div>
@@ -1157,9 +1177,9 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-0 m-0 c-6">
+                                <div class="col l-0 m-0 c-6" productType="Manga Nhật">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="/productPage.html">
+                                    <a class="home-product-item" href="./productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/014f816dea51c76c3e794785d869176f_tn);">
                                         </div>
@@ -1240,7 +1260,164 @@
         </div>
     </div>
     <!-- Container: end -->
-
+    <!-- Purchased-box: start -->
+    <div class="box--purchased">
+        <div class="purchased">
+            <div class="header__cart-list--special">
+                <h4 class="cart__heading--special">ĐƠN THANH TOÁN</h4>
+                <ul class="cart__item-list--special">
+                    <!-- Cart item -->
+                    <!-- Khi sản phẩm có tên dài có thể add class long-name vào thẻ chứa sản phẩm -->
+                    <!-- <li class="cart__item">
+                        <img src="https://vn-live-02.slatic.net/p/06399e99f48f6c77ba6b376a3305beaa.jpg" alt=""
+                            class="cart__item--img--special">
+                        <div class="cart__item--info">
+                            <div class="cart__item-head">
+                                <h5 class="cart__item-name--special long-name"></h5>
+                                <div class="cart__item-price-wrap">
+                                    <span class="cart__item-price"></span>
+                                    <span class="cart__item-multiply">x</span>
+                                    <span class="cart__item-quantity"></span>
+                                </div>
+                            </div>
+                            <div class="cart__item-body">
+                                <span class="cart__item-descript">
+                                    Phân loại: <span class="product-category--special purchased-box"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </li> -->
+                    <!-- <li class="cart__item">
+                        <img src="https://product.hstatic.net/200000343865/product/7_ban-pho-thong_poster_6933b5b6343a4c828d614ae9bec694a5_large.jpg"
+                            class="cart__item--img--special">
+                        <div class="cart__item--info">
+                            <div class="cart__item-head">
+                                <h5 class="cart__item-name--special">Hội chứng tuổi thanh xuân tập 7</h5>
+                                <div class="cart__item-price-wrap">
+                                    <span class="cart__item-price">270.000đ</span>
+                                    <span class="cart__item-multiply">x</span>
+                                    <span class="cart__item-quantity">3</span>
+                                </div>
+                            </div>
+                            <div class="cart__item-body">
+                                <span class="cart__item-descript">
+                                    Phân loại: <span class="product-category">Light Novel</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cart__item">
+                        <img src="https://cf.shopee.vn/file/512cde2f496fc83e8278a76b5bc36876_tn"
+                            class="cart__item--img--special">
+                        <div class="cart__item--info">
+                            <div class="cart__item-head">
+                                <h5 class="cart__item-name--special">Nhà có 5 nàng dâu Tập 13</h5>
+                                <div class="cart__item-price-wrap">
+                                    <span class="cart__item-price">60.000đ</span>
+                                    <span class="cart__item-multiply">x</span>
+                                    <span class="cart__item-quantity">2</span>
+                                </div>
+                            </div>
+                            <div class="cart__item-body">
+                                <span class="cart__item-descript">
+                                    Phân loại: <span class="product-category">Manga Nhật</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cart__item">
+                        <img src="https://cf.shopee.vn/file/8f457932ad0d02d169197ab224b739fc_tn"
+                            class="cart__item--img--special">
+                        <div class="cart__item--info">
+                            <div class="cart__item-head">
+                                <h5 class="cart__item-name--special">Figure Mai Sakurajima 80cm</h5>
+                                <div class="cart__item-price-wrap">
+                                    <span class="cart__item-price">580.000đ</span>
+                                    <span class="cart__item-multiply">x</span>
+                                    <span class="cart__item-quantity">1</span>
+                                </div>
+                            </div>
+                            <div class="cart__item-body">
+                                <span class="cart__item-descript">
+                                    Phân loại: <span class="product-category">Figure - Đồ chơi</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cart__item">
+                        <img src="https://cf.shopee.vn/file/39be19cc80a4ed52a8a38321ed50b711_tn"
+                            class="cart__item--img--special">
+                        <div class="cart__item--info">
+                            <div class="cart__item-head">
+                                <h5 class="cart__item-name--special">Figure K-On! Mio Akiyama</h5>
+                                <div class="cart__item-price-wrap">
+                                    <span class="cart__item-price">450.000đ</span>
+                                    <span class="cart__item-multiply">x</span>
+                                    <span class="cart__item-quantity">2</span>
+                                </div>
+                            </div>
+                            <div class="cart__item-body">
+                                <span class="cart__item-descript">
+                                    Phân loại: <span class="product-category">Figure - Đồ chơi</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cart__item">
+                        <img src="https://cf.shopee.vn/file/798fc4169d4000602146611d0578e04e" alt=""
+                            class="cart__item--img--special">
+                        <div class="cart__item--info">
+                            <div class="cart__item-head">
+                                <h5 class="cart__item-name--special">Nhân vật hạ cấp Tomozaki tập 1</h5>
+                                <div class="cart__item-price-wrap">
+                                    <span class="cart__item-price">500.000đ</span>
+                                    <span class="cart__item-multiply">x</span>
+                                    <span class="cart__item-quantity">5</span>
+                                </div>
+                            </div>
+                            <div class="cart__item-body">
+                                <span class="cart__item-descript">
+                                    Phân loại: <span class="product-category">Light Novel</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cart__item">
+                        <img src="https://product.hstatic.net/200000343865/product/thien-su-nha-ben_pho-thong_poster_355243c434124939b5921cb29f88a051_large.jpg"
+                            class="cart__item--img--special">
+                        <div class="cart__item--info">
+                            <div class="cart__item-head">
+                                <h5 class="cart__item-name--special">Thiên sứ nhà bên tập 3</h5>
+                                <div class="cart__item-price-wrap">
+                                    <span class="cart__item-price">450.000đ</span>
+                                    <span class="cart__item-multiply">x</span>
+                                    <span class="cart__item-quantity">5</span>
+                                </div>
+                            </div>
+                            <div class="cart__item-body">
+                                <span class="cart__item-descript">
+                                    Phân loại: <span class="product-category">Light Novel</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li> -->
+                </ul>
+                <div class="total-price">
+                    <div class="total-price__title">Tổng thanh toán: </div>
+                    <div class="total-price__amount">
+                        40.000đ
+                    </div>
+                </div>
+                <div class="button-wrap">
+                    <button class="btn btn--normal close">Trở lại</button>
+                    <button class="btn btn--primary confirm">Mua Hàng</button>
+                </div>
+            </div>
+            <!-- <button class = "btn btn--normal close">Trở lại</button>
+            <button class = "btn btn--primary confirm">Thanh toán</button> -->
+        </div>
+    </div>
+    <!-- Purchased-box: end -->
     <!-- Footer: start -->
     <footer class="footer">
         <div class="grid grid-footer wide">
@@ -1395,7 +1572,7 @@
 
                     <div class="auth-form__form">
                         <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" placeholder="Email của bạn">
+                            <input type="text" class="auth-form__input" placeholder="Tên đăng nhập của bạn">
                         </div>
                         <div class="auth-form__group">
                             <input type="password" class="auth-form__input" placeholder="Mật khẩu của bạn">
@@ -1429,8 +1606,9 @@
         </div>
     </div>
     <script src="./assets/jQuery/jquery-3.6.0.js"></script>
+    <script src="./assets/js/common.js"></script>
     <script src="./assets/js/main.js"></script>
-    <script src="./assets/js/main_page.js"></script>
+    <script src="./assets/js/purchased.js"></script>
 </body>
 
 </html>

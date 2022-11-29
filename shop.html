@@ -14,17 +14,20 @@
         integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Link Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
     <!-- End Link Font -->
+    <link rel="stylesheet" href="./assets/fonts/FontAwesome.Pro.6.1.1/fontawesome-pro-6.1.1-web/css/all.css">
+    <link rel="stylesheet" href="./assets/fonts/FontAwesome.Pro.6.1.1/fontawesome-pro-6.1.1-web/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/grid.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="./assets/css/no_login.css">
-    <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/all.css">
-    <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/product-page.css">
+    <link rel="stylesheet" href="./assets/css/shop.css">
+    <!-- <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/all.css">
+    <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/all.min.css"> -->
 </head>
 
 <body>
@@ -250,9 +253,156 @@
                             <i class="fa-solid fa-cart-shopping header-search__cart-icon"></i>
                             <span class="cart-notice"></span>
                             <!-- No-cart: add class header__cart-list--no-cart  -->
-                            <div class="header__cart-list header__cart-list--no-cart">
+                            <div class="header__cart-list">
                                 <img src="./assets/img/no-cart.png" alt="" class="header__cart--no-cart--img">
                                 <span class="header__cart-list--no-cart-msg">Chưa có sản phẩm</span>
+
+                                <h4 class="cart__heading">Sản phẩm đã thêm</h4>
+                                <ul class="cart__item-list">
+                                    <!-- Cart item -->
+                                    <!-- Khi sản phẩm có tên dài có thể add class long-name vào thẻ chứa sản phẩm -->
+                                    <li class="cart__item">
+                                        <img src="https://vn-live-02.slatic.net/p/06399e99f48f6c77ba6b376a3305beaa.jpg"
+                                            alt="" class="cart__item--img">
+                                        <div class="cart__item--info">
+                                            <div class="cart__item-head">
+                                                <h5 class="cart__item-name">Thiên sứ nhà bên tập 1</h5>
+                                                <div class="cart__item-price-wrap">
+                                                    <span class="cart__item-price">180.000đ</span>
+                                                    <span class="cart__item-multiply">x</span>
+                                                    <span class="cart__item-quantity">2</span>
+                                                </div>
+                                            </div>
+                                            <div class="cart__item-body">
+                                                <span class="cart__item-descript">
+                                                    Phân loại: <span class="product-category">Light Novel</span>
+                                                </span>
+                                                <span class="cart__item-remove">Xóa</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="cart__item">
+                                        <img src="https://product.hstatic.net/200000343865/product/7_ban-pho-thong_poster_6933b5b6343a4c828d614ae9bec694a5_large.jpg"
+                                            class="cart__item--img">
+                                        <div class="cart__item--info">
+                                            <div class="cart__item-head">
+                                                <h5 class="cart__item-name">Hội chứng tuổi thanh xuân tập 7</h5>
+                                                <div class="cart__item-price-wrap">
+                                                    <span class="cart__item-price">270.000đ</span>
+                                                    <span class="cart__item-multiply">x</span>
+                                                    <span class="cart__item-quantity">3</span>
+                                                </div>
+                                            </div>
+                                            <div class="cart__item-body">
+                                                <span class="cart__item-descript">
+                                                    Phân loại: <span class="product-category">Light Novel</span>
+                                                </span>
+                                                <span class="cart__item-remove">Xóa</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="cart__item">
+                                        <img src="https://cf.shopee.vn/file/512cde2f496fc83e8278a76b5bc36876_tn"
+                                            class="cart__item--img">
+                                        <div class="cart__item--info">
+                                            <div class="cart__item-head">
+                                                <h5 class="cart__item-name">Nhà có 5 nàng dâu Tập 13</h5>
+                                                <div class="cart__item-price-wrap">
+                                                    <span class="cart__item-price">60.000đ</span>
+                                                    <span class="cart__item-multiply">x</span>
+                                                    <span class="cart__item-quantity">2</span>
+                                                </div>
+                                            </div>
+                                            <div class="cart__item-body">
+                                                <span class="cart__item-descript">
+                                                    Phân loại: <span class="product-category">Manga Nhật</span>
+                                                </span>
+                                                <span class="cart__item-remove">Xóa</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="cart__item">
+                                        <img src="https://cf.shopee.vn/file/8f457932ad0d02d169197ab224b739fc_tn"
+                                            class="cart__item--img">
+                                        <div class="cart__item--info">
+                                            <div class="cart__item-head">
+                                                <h5 class="cart__item-name">Figure Mai Sakurajima 80cm</h5>
+                                                <div class="cart__item-price-wrap">
+                                                    <span class="cart__item-price">580.000đ</span>
+                                                    <span class="cart__item-multiply">x</span>
+                                                    <span class="cart__item-quantity">1</span>
+                                                </div>
+                                            </div>
+                                            <div class="cart__item-body">
+                                                <span class="cart__item-descript">
+                                                    Phân loại: <span class="product-category">Figure - Đồ chơi</span>
+                                                </span>
+                                                <span class="cart__item-remove">Xóa</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="cart__item">
+                                        <img src="https://cf.shopee.vn/file/39be19cc80a4ed52a8a38321ed50b711_tn"
+                                            class="cart__item--img">
+                                        <div class="cart__item--info">
+                                            <div class="cart__item-head">
+                                                <h5 class="cart__item-name">Figure K-On! Mio Akiyama</h5>
+                                                <div class="cart__item-price-wrap">
+                                                    <span class="cart__item-price">450.000đ</span>
+                                                    <span class="cart__item-multiply">x</span>
+                                                    <span class="cart__item-quantity">2</span>
+                                                </div>
+                                            </div>
+                                            <div class="cart__item-body">
+                                                <span class="cart__item-descript">
+                                                    Phân loại: <span class="product-category">Figure - Đồ chơi</span>
+                                                </span>
+                                                <span class="cart__item-remove">Xóa</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="cart__item">
+                                        <img src="https://cf.shopee.vn/file/798fc4169d4000602146611d0578e04e" alt=""
+                                            class="cart__item--img">
+                                        <div class="cart__item--info">
+                                            <div class="cart__item-head">
+                                                <h5 class="cart__item-name">Nhân vật hạ cấp Tomozaki tập 1</h5>
+                                                <div class="cart__item-price-wrap">
+                                                    <span class="cart__item-price">500.000đ</span>
+                                                    <span class="cart__item-multiply">x</span>
+                                                    <span class="cart__item-quantity">5</span>
+                                                </div>
+                                            </div>
+                                            <div class="cart__item-body">
+                                                <span class="cart__item-descript">
+                                                    Phân loại: <span class="product-category">Light Novel</span>
+                                                </span>
+                                                <span class="cart__item-remove">Xóa</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="cart__item">
+                                        <img src="https://product.hstatic.net/200000343865/product/thien-su-nha-ben_pho-thong_poster_355243c434124939b5921cb29f88a051_large.jpg"
+                                            class="cart__item--img">
+                                        <div class="cart__item--info">
+                                            <div class="cart__item-head">
+                                                <h5 class="cart__item-name">Thiên sứ nhà bên tập 3</h5>
+                                                <div class="cart__item-price-wrap">
+                                                    <span class="cart__item-price">450.000đ</span>
+                                                    <span class="cart__item-multiply">x</span>
+                                                    <span class="cart__item-quantity">5</span>
+                                                </div>
+                                            </div>
+                                            <div class="cart__item-body">
+                                                <span class="cart__item-descript">
+                                                    Phân loại: <span class="product-category">Light Novel</span>
+                                                </span>
+                                                <span class="cart__item-remove">Xóa</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <a class="btn btn--primary header-cart-btn" href="">Mua ngay</a>
                             </div>
                         </div>
                     </div>
@@ -295,8 +445,306 @@
 
         <!-- Container: start -->
         <div class="app__container">
+            <div class="grid wide wrapper-product shop-push">
+                <div class="title-wrap">
+                    <div class="similar-title pushing">THÔNG TIN SHOP </div>
+                    <div class="str-line"></div>
+                </div>
+                <div class="row sm-gutter product__shop">
+                    <div class="col l-4 shop__image">
+                        <div class="shop__image-logo set-bg" onclick = "redirection()"></div>
+                        <div class="shop__image-subwrapper">
+                            <div class="shop__image-name" onclick = "redirection()">thanhdung0207</div>
+                            <div class="shop__btn btn">
+                                <i class="fa-light fa-shop shop__btn-icon"></i>
+                                <span class="shop__btn-title">Xem shop</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col l-8 shop__information">
+                        <div class="info-first">
+                            <div class="info-rate">
+                                Đánh giá: <span class="rate-start">4.8</span>
+                                <i class="fa-solid fa-star home-product-item__gold"></i>
+                            </div>
+                            <div class="info-product">
+                                Sản phẩm: <span class="product-count">20</span>
+                            </div>
+                        </div>
+                        <div class="info-second">
+                            <div class="info-sold">
+                                Đã bán: <span class="sold-count">40</span> sản phẩm
+                            </div>
+                            <div class="info-customer">
+                                Khách hàng: <span class="customer-count">40</span> người đã mua
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="grid wide">
-                <div class="row contain-push sm-gutter">
+                <div class="title-wrap highlight-base">
+                    <div class="similar-title pushing">TOP SẢN PHẨM BÁN CHẠY</div>
+                    <div class="str-line highlight-border"></div>
+                </div>
+                <div class="row sm-gutter shop-pull">
+                    <div class="col l-2 m-4 c-6">
+                        <!-- Product Item -->
+                        <a class="home-product-item" href="/productPage.html">
+                            <div class="home-product-item__img"
+                                style="background-image: url(https://cf.shopee.vn/file/50d88e26f112646c7add7ff75f584432_tn);">
+                            </div>
+                            <h4 class="home-product-item__name">
+                                Truyện - Thiên sứ nhà bên tập 3 (Bản Giới Hạn)
+                            </h4>
+                            <div class="home-product-item__price">
+                                <span class="home-prodct-item__price--old">120.000đ</span>
+                                <span class="home-prodct-item__price--new">96.000đ</span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <span class="home-product-item__heart home-product-item__heart--liked">
+                                    <i class="fa-regular fa-heart"></i>
+                                    <!-- Heart Tim -->
+                                    <i class="fa-solid fa-heart home-product-item__heart--liked-heart"></i>
+                                </span>
+                                <div class="home-product-item__rating">
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span class="sold-item">30 đã bán</span>
+                                </div>
+                            </div>
+                            <div class="home-product-item__origin">
+                                <span class="home-product-item__brand">Kim Đồng</span>
+                                <span class="home-product-item__name-city">Việt Nam</span>
+                            </div>
+                            <div class="home-product-item__favortie">
+                                <i class="fa-solid fa-check"></i>
+                                <span>Yêu thích</span>
+                            </div>
+                            <div class="home-product-item__sale-off">
+                                <span class="home-product-item__sale-off-percent">20%</span>
+                                <span class="home-product-item__sale-off-label">GIẢM</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col l-2 m-4 c-6">
+                        <!-- Product Item -->
+                        <a class="home-product-item" href="/productPage.html">
+                            <div class="home-product-item__img"
+                                style="background-image: url(https://cf.shopee.vn/file/ba0f726d881d9f650309131bb05d51fe_tn);">
+                            </div>
+                            <h4 class="home-product-item__name">
+                                Sách Hội Chứng Tuổi Thanh Xuân - Tập 1
+                            </h4>
+                            <div class="home-product-item__price">
+                                <span class="home-prodct-item__price--old">105.000đ</span>
+                                <span class="home-prodct-item__price--new">95.000đ</span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <span class="home-product-item__heart home-product-item__heart--liked">
+                                    <i class="fa-regular fa-heart"></i>
+                                    <!-- Heart Tim -->
+                                    <i class="fa-solid fa-heart home-product-item__heart--liked-heart"></i>
+                                </span>
+                                <div class="home-product-item__rating">
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span class="sold-item">99+ đã bán</span>
+                                </div>
+                            </div>
+                            <div class="home-product-item__origin">
+                                <span class="home-product-item__brand">Kim Đồng</span>
+                                <span class="home-product-item__name-city">Việt Nam</span>
+                            </div>
+                            <div class="home-product-item__favortie">
+                                <i class="fa-solid fa-check"></i>
+                                <span>Yêu thích</span>
+                            </div>
+                            <div class="home-product-item__sale-off">
+                                <span class="home-product-item__sale-off-percent">5%</span>
+                                <span class="home-product-item__sale-off-label">GIẢM</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col l-2 m-4 c-6">
+                        <!-- Product Item --> <a class="home-product-item" href="/productPage.html">
+                            <div class="home-product-item__img"
+                                style="background-image: url(https://cf.shopee.vn/file/3c1b2d78d167cb69822f908323610d92_tn);">
+                            </div>
+                            <h4 class="home-product-item__name">
+                                Sách - Postcard Book Nhà Có 5 Nàng Dâu Chính Hãng Từ Nhật
+                            </h4>
+                            <div class="home-product-item__price">
+                                <span class="home-prodct-item__price--old">500.000đ</span>
+                                <span class="home-prodct-item__price--new">450.000đ</span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <span class="home-product-item__heart home-product-item__heart--liked">
+                                    <i class="fa-regular fa-heart"></i>
+                                    <!-- Heart Tim -->
+                                    <i class="fa-solid fa-heart home-product-item__heart--liked-heart"></i>
+                                </span>
+                                <div class="home-product-item__rating">
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span class="sold-item">5 đã bán</span>
+                                </div>
+                            </div>
+                            <div class="home-product-item__origin">
+                                <span class="home-product-item__brand">Tokyo</span>
+                                <span class="home-product-item__name-city">Nhật Bản</span>
+                            </div>
+                            <div class="home-product-item__favortie">
+                                <i class="fa-solid fa-check"></i>
+                                <span>Yêu thích</span>
+                            </div>
+                            <div class="home-product-item__sale-off">
+                                <span class="home-product-item__sale-off-percent">10%</span>
+                                <span class="home-product-item__sale-off-label">GIẢM</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col l-2 m-4 c-6">
+                        <!-- Product Item -->
+                        <a class="home-product-item" href="/productPage.html">
+                            <div class="home-product-item__img"
+                                style="background-image: url(https://cf.shopee.vn/file/201303282b536c7ba87efe13e27aa1e8_tn);">
+                            </div>
+                            <h4 class="home-product-item__name">
+                                Truyện - Nhân Vật Hạ Cấp Tomozaki - Tập 3 (Bản Giới Hạn)
+                            </h4>
+                            <div class="home-product-item__price">
+                                <span class="home-prodct-item__price--old">111.000đ</span>
+                                <span class="home-prodct-item__price--new">90.000đ</span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <span class="home-product-item__heart home-product-item__heart--liked">
+                                    <i class="fa-regular fa-heart"></i>
+                                    <!-- Heart Tim -->
+                                    <i class="fa-solid fa-heart home-product-item__heart--liked-heart"></i>
+                                </span>
+                                <div class="home-product-item__rating">
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span class="sold-item">280 đã bán</span>
+                                </div>
+                            </div>
+                            <div class="home-product-item__origin">
+                                <span class="home-product-item__brand">Kim Đồng</span>
+                                <span class="home-product-item__name-city">Việt Nam</span>
+                            </div>
+                            <div class="home-product-item__favortie">
+                                <i class="fa-solid fa-check"></i>
+                                <span>Yêu thích</span>
+                            </div>
+                            <div class="home-product-item__sale-off">
+                                <span class="home-product-item__sale-off-percent">15%</span>
+                                <span class="home-product-item__sale-off-label">GIẢM</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col l-2 m-4 c-6">
+                        <!-- Product Item -->
+                        <a class="home-product-item" href="/productPage.html">
+                            <div class="home-product-item__img"
+                                style="background-image: url(https://cf.shopee.vn/file/2b351532041cb08eb2337e918f60777a_tn);">
+                            </div>
+                            <h4 class="home-product-item__name">
+                                Sách Thần Chết Làm Thêm 300 Yên/Giờ
+                            </h4>
+                            <div class="home-product-item__price">
+                                <span class="home-prodct-item__price--old">94.000đ</span>
+                                <span class="home-prodct-item__price--new">75.000đ</span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <span class="home-product-item__heart home-product-item__heart--liked">
+                                    <i class="fa-regular fa-heart"></i>
+                                    <!-- Heart Tim -->
+                                    <i class="fa-solid fa-heart home-product-item__heart--liked-heart"></i>
+                                </span>
+                                <div class="home-product-item__rating">
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span class="sold-item">99+ đã bán</span>
+                                </div>
+                            </div>
+                            <div class="home-product-item__origin">
+                                <span class="home-product-item__brand">Thái Hà</span>
+                                <span class="home-product-item__name-city">Việt Nam</span>
+                            </div>
+                            <div class="home-product-item__favortie">
+                                <i class="fa-solid fa-check"></i>
+                                <span>Yêu thích</span>
+                            </div>
+                            <div class="home-product-item__sale-off">
+                                <span class="home-product-item__sale-off-percent">20%</span>
+                                <span class="home-product-item__sale-off-label">GIẢM</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col l-2 m-4 c-6">
+                        <!-- Product Item -->
+                        <a class="home-product-item" href="/productPage.html">
+                            <div class="home-product-item__img"
+                                style="background-image: url(https://cf.shopee.vn/file/c9951212162b35e10a8fbf5dce170816_tn);">
+                            </div>
+                            <h4 class="home-product-item__name">
+                                Sách - Khi Bình Minh Tới Tớ Sẽ Đến Gặp Cậu Đầu Tiên
+                            </h4>
+                            <div class="home-product-item__price">
+                                <span class="home-prodct-item__price--old">129.000đ</span>
+                                <span class="home-prodct-item__price--new">96.000đ</span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <span class="home-product-item__heart home-product-item__heart--liked">
+                                    <i class="fa-regular fa-heart"></i>
+                                    <!-- Heart Tim -->
+                                    <i class="fa-solid fa-heart home-product-item__heart--liked-heart"></i>
+                                </span>
+                                <div class="home-product-item__rating">
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span class="sold-item">150 đã bán</span>
+                                </div>
+                            </div>
+                            <div class="home-product-item__origin">
+                                <span class="home-product-item__brand">AZ Books</span>
+                                <span class="home-product-item__name-city">Việt Nam</span>
+                            </div>
+                            <div class="home-product-item__favortie">
+                                <i class="fa-solid fa-check"></i>
+                                <span>Yêu thích</span>
+                            </div>
+                            <div class="home-product-item__sale-off">
+                                <span class="home-product-item__sale-off-percent">25%</span>
+                                <span class="home-product-item__sale-off-label">GIẢM</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="title-wrap shop-push">
+                    <div class="similar-title pushing">TẤT CẢ SẢN PHẨM </div>
+                    <div class="str-line"></div>
+                </div>
+                <div class="row sm-gutter">
                     <div class="col l-2 m-0 c-0">
                         <nav class="category">
                             <h3 class="category__heading">
@@ -404,7 +852,7 @@
                             <div class="row sm-gutter">
                                 <div class="col l-2-4 m-4 c-6" productType = "Văn Phòng Phẩm">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="./productPage.html">
+                                    <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/50d88e26f112646c7add7ff75f584432_tn);">
                                         </div>
@@ -446,7 +894,7 @@
                                 </div>
                                 <div class="col l-2-4 m-4 c-6" productType = "Tiểu Thuyết">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="./productPage.html">
+                                    <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/19282624bb5b6233e1eb5d882a1b041a_tn);">
                                         </div>
@@ -489,7 +937,7 @@
                                 </div>
                                 <div class="col l-2-4 m-4 c-6" productType = "Light Novel">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="./productPage.html">
+                                    <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/ba0f726d881d9f650309131bb05d51fe_tn);">
                                         </div>
@@ -531,7 +979,7 @@
                                 </div>
                                 <div class="col l-2-4 m-4 c-6" productType = "Manga Nhật">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="./productPage.html">
+                                    <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/3c1b2d78d167cb69822f908323610d92_tn);">
                                         </div>
@@ -573,7 +1021,7 @@
                                 </div>
                                 <div class="col l-2-4 m-4 c-6" productType = "Manga Nhật">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="./productPage.html">
+                                    <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/201303282b536c7ba87efe13e27aa1e8_tn);">
                                         </div>
@@ -615,7 +1063,7 @@
                                 </div>
                                 <div class="col l-2-4 m-4 c-6" productType = "Light Novel">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="./productPage.html">
+                                    <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/2b351532041cb08eb2337e918f60777a_tn);">
                                         </div>
@@ -657,7 +1105,7 @@
                                 </div>
                                 <div class="col l-2-4 m-4 c-6" productType = "Tiểu Thuyết">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="./productPage.html">
+                                    <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/c9951212162b35e10a8fbf5dce170816_tn);">
                                         </div>
@@ -699,7 +1147,7 @@
                                 </div>
                                 <div class="col l-2-4 m-4 c-6" productType = "Văn Phòng Phẩm">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="./productPage.html">
+                                    <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/4f533ed35a1588e9cb1d9d43a714fc36_tn);">
                                         </div>
@@ -741,7 +1189,7 @@
                                 </div>
                                 <div class="col l-2-4 m-4 c-6" productType = "Figure - Đồ chơi">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="./productPage.html">
+                                    <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/9f486b740d4e4f24639fed732b3b1608_tn);">
                                         </div>
@@ -783,7 +1231,7 @@
                                 </div>
                                 <div class="col l-2-4 m-4 c-6" productType = "Light Novel">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="./productPage.html">
+                                    <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/270e91991045c286ff03090f21366d5e_tn);">
                                         </div>
@@ -825,7 +1273,7 @@
                                 </div>
                                 <div class="col l-2-4 m-4 c-6" productType = "Figure - Đồ chơi">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="./productPage.html">
+                                    <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/fdab33b1aa66f503c5eb56f1b8fdbe52_tn);">
                                         </div>
@@ -867,7 +1315,7 @@
                                 </div>
                                 <div class="col l-2-4 m-4 c-6" productType = "Figure - Đồ chơi">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="./productPage.html">
+                                    <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/9ce71203fb14642931c60a739a09e96d_tn);">
                                         </div>
@@ -909,7 +1357,7 @@
                                 </div>
                                 <div class="col l-2-4 m-4 c-6" productType = "Light Novel">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="./productPage.html">
+                                    <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/290f789a18176f2dd6cb0f181419eea7_tn);">
                                         </div>
@@ -951,7 +1399,7 @@
                                 </div>
                                 <div class="col l-2-4 m-4 c-6" productType = "Light Novel">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="./productPage.html">
+                                    <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/7ce5d282e6ef21b7a39386790106e5a0_tn);">
                                         </div>
@@ -993,7 +1441,7 @@
                                 </div>
                                 <div class="col l-2-4 m-4 c-6" productType = "Văn Phòng Phẩm">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="./productPage.html">
+                                    <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/a4b78c733d882ef254edbb9b6276dbc0_tn);">
                                         </div>
@@ -1035,7 +1483,7 @@
                                 </div>
                                 <div class="col l-0 m-0 c-6" productType = "Manga Nhật">
                                     <!-- Product Item -->
-                                    <a class="home-product-item" href="./productPage.html">
+                                    <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://cf.shopee.vn/file/014f816dea51c76c3e794785d869176f_tn);">
                                         </div>
@@ -1114,9 +1562,9 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Container: end -->
 
+        <!-- Container: end -->
+    </div>
     <!-- Footer: start -->
     <footer class="footer">
         <div class="grid grid-footer wide">
@@ -1302,14 +1750,14 @@
                     </a>
                 </div>
             </div>
-
         </div>
+
     </div>
     <!-- JQuery -->
     <script src="./assets/jQuery/jquery-3.6.0.js"></script>
     <!-- JS rieng -->
     <script src="./assets/js/common.js"></script>
     <script src="./assets/js/main.js"></script>
-</body>
+    <script src="./assets/js/shop.js"></script>
 
-</html>
+</body>

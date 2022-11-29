@@ -25,3 +25,10 @@ heartButton.onclick = (k) => {
     }
     likeCount.textContent = like + "";
 }
+
+// Navigate to shop page JS
+query('.shop__btn.btn').onclick = e => {
+    setTimeout(() => {
+        window.location.href = "shop.html";
+    }, 200)
+}

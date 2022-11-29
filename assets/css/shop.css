@@ -1,0 +1,18 @@
+.shop-push{
+    margin-top: 20px;
+}
+
+.shop-pull{
+    margin-top: 10px;
+}
+
+.highlight{
+    color: var(--primary-color);
+}
+
+
+.highlight-border{
+    border-color:white;
+}
+
+
