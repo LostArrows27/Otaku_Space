@@ -1,5 +1,5 @@
 // You have to saved all your product here before classify other function
-const productNLArray = queryAll('.home-product .row .col.l-2-4.m-4.c-6');
+
 
 $(document).ready(function () {
     initEvents();
@@ -20,7 +20,7 @@ function initEvents() {
 
     function classifyProduct(productType) {
         const productArr = Array.prototype.slice.call(productNLArray);
-        if(productType == "Tất Cả") return productArr;
+        if (productType == "Tất Cả") return productArr;
         const newArr = productArr.filter(e => {
             return e.getAttribute("producttype") == productType;
         })

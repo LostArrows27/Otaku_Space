@@ -11,6 +11,11 @@ const productBGNode = query('.set-bg.info-sub-1');
 const count_num = document.getElementsByClassName('count-num');
 const datacount = query('.data-count');
 
+// Load Product based on product information
+// window.onload = e => {
+//     console.log(localStorage.getItem("productID"));
+// }
+
 // Phan cua Minh
 let itemFigure = 0;
 count_num[0].innerHTML = itemFigure;

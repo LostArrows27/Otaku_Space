@@ -2,7 +2,9 @@
     --white-color: #fff;
     --black-color: #000;
     --text-color: #333;
+    --theme-color: #ffeba7;
     --primary-color: #ee4d2d;
+    --saleOff-color: rgba(255, 216, 64, 0.93);
     --primary-color-rgba: rgb(238, 77, 45);
     --navbar-height: 32px;
     --header-height: 120px;
@@ -201,7 +203,7 @@ html {
 }
 
 .highlight-base {
-    background-color: #F79036;
+    background-color: var(--primary-color);
     border-radius: 8px;
     color: white;
     padding: 0px 8px;
@@ -373,84 +375,236 @@ html {
     margin-right: 10px;
 }
 
-#toast{
+#toast {
     position: fixed;
     top: 20vh;
-    right:2vw;
+    right: 2vw;
+    z-index: 999999;
 }
 
-.toast{
+.toast {
     border-left: 0.4vw solid;
     border-radius: 5px;
-    box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
     background-color: var(--white-color);
-    animation: SlideIn .5s ease-in, Fadeout .5s 3s forwards; 
+    /* animation: SlideIn .5s ease-in, Fadeout .5s 3s forwards;  */
 }
-.toast--content{
-    display:flex;
+
+.toast--content {
+    display: flex;
     align-items: center;
     min-width: 400px;
     max-width: 20vw;
     border-radius: 5px;
     padding: 20px 0;
-    
+
     line-height: 28px;
-    
+
 }
 
-@keyframes SlideIn{
-    from{
+@keyframes SlideIn {
+    from {
         opacity: 0;
         translate: calc(100% + 32px);
-    }to{
-        opacity:1;
+    }
+
+    to {
+        opacity: 1;
         translate: 0;
     }
 }
 
 @keyframes Fadeout {
-    to{
+    to {
         opacity: 0;
     }
-    
+
 }
 
-.toast--icon,.toast--close{
-  
+.toast--icon,
+.toast--close {
+
     font-size: 3rem;
     padding: 0 16px;
 }
-.toast--body{
-    flex:1;
+
+.toast--body {
+    flex: 1;
     font-size: 2rem;
 }
 
-.toast--close{
+.toast--close {
     opacity: 0.4;
     cursor: pointer;
 }
-.toast--runtime{
+
+.toast--runtime {
     width: 100%;
     border-radius: 5px;
-    height:0.3vh;
+    height: 0.3vh;
     background-color: black;
-    animation: Runtime 2s linear forwards;
+    animation: Runtime 3s linear forwards;
 }
 
-@keyframes Runtime{
-    from{
-        width:100%;
-    }
-    to{
-        width:0%;
+@keyframes Runtime {
+    from {
+        width: 100%;
     }
 
-}
-.toast--buynow{
-    border-color:var(--primary-color);
+    to {
+        width: 0%;
+    }
+
 }
 
-.toast--buynow .toast--icon{
+.toast--buynow {
+    border-color: var(--primary-color);
+}
+
+.toast--buynow .toast--icon {
     color: var(--primary-color);
 }
 
+.toast--loginPls {
+    border-color: var(--primary-color);
+}
+
+.toast--loginPls .toast--icon {
+    color: var(--primary-color);
+}
+
+.toast--login {
+    border-color: #71be34;
+}
+
+.toast--login .toast--icon {
+    color: #71be34;
+}
+
+.toast--logout {
+    border-color: #ffc021;
+}
+
+.toast--logout .toast--icon {
+    color: #ffc021;
+}
+
+.toast--salenow {
+    border-color: rgb(43, 140, 220);
+}
+
+.toast--salenow .toast--icon {
+    color: rgb(43, 140, 220);
+}
+
+.input-error {
+    font-size: 1.3rem;
+    color: red;
+    margin-top: 4px;
+    margin-left: 2px;
+}
+
+.text-left{
+    text-align: left;
+}
+
+/* Form CSS */
+
+#auth-form--sign-up .form {
+    min-width: 600px;
+    min-height: 100px;
+    /* padding: 32px 24px; */
+    text-align: center;
+    background: #fff;
+    border-radius: 2px;
+    margin: 0 24px;
+    align-self: center;
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-wrapper > div {
+    flex: 1;
+    padding: 20px;
+}
+
+.form .heading {
+    font-size: 2rem;
+}
+
+.form .desc {
+    text-align: center;
+    color: #636d77;
+    font-size: 1.6rem;
+    font-weight: lighter;
+    line-height: 2.4rem;
+    margin-top: 16px;
+    font-weight: 300;
+}
+
+.form-group {
+    display: flex;
+    margin-bottom: 12px;
+    flex-direction: column;
+}
+
+.form-label,
+.form-message {
+    text-align: left;
+}
+
+.form-label {
+    font-weight: 700;
+    padding-bottom: 6px;
+    line-height: 1.8rem;
+    font-size: 1.4rem;
+}
+
+.form-control {
+    height: 40px;
+    /* min-width: 200px; */
+    padding: 8px 12px;
+    border: 1px solid #b3b3b3;
+    border-radius: 3px;
+    outline: none;
+    font-size: 1.4rem;
+}
+
+.form-control:hover {
+    border-color: #1dbfaf;
+}
+
+.form-group.invalid .form-control {
+    border-color: #f33a58;
+}
+
+.form-group.invalid .form-message {
+    color: #f33a58;
+}
+
+.form-message {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    padding: 4px 0 0;
+}
+
+#auth-form--sign-in .auth-form__heading{
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+#auth-form--sign-in .form-control {
+    min-width: 300px;
+    margin-top: 4px;
+}
+
+#auth-form--sign-in .form-group{
+    padding: 6px 10px;
+}
+
+#auth-form--sign-in{
+    padding: 20px;
+}

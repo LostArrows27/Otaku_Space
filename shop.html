@@ -19,7 +19,8 @@
     <!-- End Link Font -->
     <!-- <link rel="stylesheet" href="./assets/fonts/FontAwesome.Pro.6.1.1/fontawesome-pro-6.1.1-web/css/all.css">
     <link rel="stylesheet" href="./assets/fonts/FontAwesome.Pro.6.1.1/fontawesome-pro-6.1.1-web/css/all.min.css"> -->
-    <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css" rel="stylesheet"
+        type="text/css" />
     <link rel="stylesheet" href="./assets/css/grid.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
@@ -32,23 +33,8 @@
 </head>
 
 <body>
-    <div id="toast">
-        <!-- <div class="toast toast--buynow">
-            <div class="toast--content">
-                <div class="toast--icon">
-                    <i class="fa-sharp fa-solid fa-shield-check"></i>
-                </div>
-                <div class="toast--body">
-                    Thanh toán thành công
-                </div>
-                <div class="toast--close">
-                    <i class="fa-regular fa-circle-xmark"></i>
-                </div>
-            </div>
-            <div class="toast--runtime"></div>
-        </div> -->
-        
-    </div>
+    <!-- Toast Notify -->
+    <div id="toast"></div>
     <div class="app">
         <!-- Header: start -->
         <header class="header" id="header">
@@ -80,7 +66,7 @@
                         </li>
                     </ul>
 
-                    <ul class="navbar-list navbar-list--no-login">
+                    <ul class="navbar-list navbar-list--no-login--special">
                         <li class="navbar-list__item notify">
                             <a href="" class="item__link">
                                 <a href="" class="navbar__iconlink"><i class="fa-regular fa-bell"></i></a>
@@ -163,18 +149,18 @@
                         </li>
                         <!-- Login form  -->
                         <li
-                            class="navbar-list__item navbar-list__item--bold navbar-list__item--separate navbar-list__item--signUp">
+                            class="not-login navbar-list__item navbar-list__item--bold navbar-list__item--separate navbar-list__item--signUp">
                             Đăng ký</li>
-                        <li class="navbar-list__item navbar-list__item--bold navbar-list__item--login">Đăng nhập</li>
+                        <li class="not-login navbar-list__item navbar-list__item--bold navbar-list__item--login">Đăng
+                            nhập</li>
                         <!-- User menu account after login -->
                         <li class="navbar-list__item navbar-user" style="display: none;">
                             <img src="https://i.pinimg.com/originals/28/af/08/28af086c0505916ed41e9ca42850e635.jpg"
                                 alt="" class="navbar-user__avatar">
-                            <span class="navbar-user__name">Thành Dũng</span>
-                            <!-- User Account Menu -->
+                            <span class="navbar-user__name user-login-name">Thành Dũng</span>
                             <ul class="navbar__menu">
                                 <li class="navbar__menu-item">
-                                    <a href="">
+                                    <a href="./user.html">
                                         Tài khoản của tôi
                                     </a>
                                 </li>
@@ -189,7 +175,7 @@
                                     </a>
                                 </li>
                                 <li class="navbar__menu-item menu-item--seperate">
-                                    <a href="">
+                                    <a href="" class="logOut">
                                         Đăng xuất
                                     </a>
                                 </li>
@@ -254,179 +240,58 @@
                             <i class="fa-solid fa-cart-shopping header-search__cart-icon"></i>
                             <span class="cart-notice"></span>
                             <!-- No-cart: add class header__cart-list--no-cart  -->
-                            <div class="header__cart-list">
+                            <div class="header__cart-list header__cart-list--no-cart">
                                 <img src="./assets/img/no-cart.png" alt="" class="header__cart--no-cart--img">
                                 <span class="header__cart-list--no-cart-msg">Chưa có sản phẩm</span>
-
                                 <h4 class="cart__heading">Sản phẩm đã thêm</h4>
-                                <ul class="cart__item-list">
-                                    <!-- Cart item -->
-                                    <!-- Khi sản phẩm có tên dài có thể add class long-name vào thẻ chứa sản phẩm -->
-                                    <li class="cart__item">
-                                        <img src="https://vn-live-02.slatic.net/p/06399e99f48f6c77ba6b376a3305beaa.jpg"
-                                            alt="" class="cart__item--img">
-                                        <div class="cart__item--info">
-                                            <div class="cart__item-head">
-                                                <h5 class="cart__item-name">Thiên sứ nhà bên tập 1</h5>
-                                                <div class="cart__item-price-wrap">
-                                                    <span class="cart__item-price">180.000đ</span>
-                                                    <span class="cart__item-multiply">x</span>
-                                                    <span class="cart__item-quantity">2</span>
-                                                </div>
-                                            </div>
-                                            <div class="cart__item-body">
-                                                <span class="cart__item-descript">
-                                                    Phân loại: <span class="product-category">Light Novel</span>
-                                                </span>
-                                                <span class="cart__item-remove">Xóa</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="cart__item">
-                                        <img src="https://product.hstatic.net/200000343865/product/7_ban-pho-thong_poster_6933b5b6343a4c828d614ae9bec694a5_large.jpg"
-                                            class="cart__item--img">
-                                        <div class="cart__item--info">
-                                            <div class="cart__item-head">
-                                                <h5 class="cart__item-name">Hội chứng tuổi thanh xuân tập 7</h5>
-                                                <div class="cart__item-price-wrap">
-                                                    <span class="cart__item-price">270.000đ</span>
-                                                    <span class="cart__item-multiply">x</span>
-                                                    <span class="cart__item-quantity">3</span>
-                                                </div>
-                                            </div>
-                                            <div class="cart__item-body">
-                                                <span class="cart__item-descript">
-                                                    Phân loại: <span class="product-category">Light Novel</span>
-                                                </span>
-                                                <span class="cart__item-remove">Xóa</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="cart__item">
-                                        <img src="https://cf.shopee.vn/file/512cde2f496fc83e8278a76b5bc36876_tn"
-                                            class="cart__item--img">
-                                        <div class="cart__item--info">
-                                            <div class="cart__item-head">
-                                                <h5 class="cart__item-name">Nhà có 5 nàng dâu Tập 13</h5>
-                                                <div class="cart__item-price-wrap">
-                                                    <span class="cart__item-price">60.000đ</span>
-                                                    <span class="cart__item-multiply">x</span>
-                                                    <span class="cart__item-quantity">2</span>
-                                                </div>
-                                            </div>
-                                            <div class="cart__item-body">
-                                                <span class="cart__item-descript">
-                                                    Phân loại: <span class="product-category">Manga Nhật</span>
-                                                </span>
-                                                <span class="cart__item-remove">Xóa</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="cart__item">
-                                        <img src="https://cf.shopee.vn/file/8f457932ad0d02d169197ab224b739fc_tn"
-                                            class="cart__item--img">
-                                        <div class="cart__item--info">
-                                            <div class="cart__item-head">
-                                                <h5 class="cart__item-name">Figure Mai Sakurajima 80cm</h5>
-                                                <div class="cart__item-price-wrap">
-                                                    <span class="cart__item-price">580.000đ</span>
-                                                    <span class="cart__item-multiply">x</span>
-                                                    <span class="cart__item-quantity">1</span>
-                                                </div>
-                                            </div>
-                                            <div class="cart__item-body">
-                                                <span class="cart__item-descript">
-                                                    Phân loại: <span class="product-category">Figure - Đồ chơi</span>
-                                                </span>
-                                                <span class="cart__item-remove">Xóa</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="cart__item">
-                                        <img src="https://cf.shopee.vn/file/39be19cc80a4ed52a8a38321ed50b711_tn"
-                                            class="cart__item--img">
-                                        <div class="cart__item--info">
-                                            <div class="cart__item-head">
-                                                <h5 class="cart__item-name">Figure K-On! Mio Akiyama</h5>
-                                                <div class="cart__item-price-wrap">
-                                                    <span class="cart__item-price">450.000đ</span>
-                                                    <span class="cart__item-multiply">x</span>
-                                                    <span class="cart__item-quantity">2</span>
-                                                </div>
-                                            </div>
-                                            <div class="cart__item-body">
-                                                <span class="cart__item-descript">
-                                                    Phân loại: <span class="product-category">Figure - Đồ chơi</span>
-                                                </span>
-                                                <span class="cart__item-remove">Xóa</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="cart__item">
-                                        <img src="https://cf.shopee.vn/file/798fc4169d4000602146611d0578e04e" alt=""
-                                            class="cart__item--img">
-                                        <div class="cart__item--info">
-                                            <div class="cart__item-head">
-                                                <h5 class="cart__item-name">Nhân vật hạ cấp Tomozaki tập 1</h5>
-                                                <div class="cart__item-price-wrap">
-                                                    <span class="cart__item-price">500.000đ</span>
-                                                    <span class="cart__item-multiply">x</span>
-                                                    <span class="cart__item-quantity">5</span>
-                                                </div>
-                                            </div>
-                                            <div class="cart__item-body">
-                                                <span class="cart__item-descript">
-                                                    Phân loại: <span class="product-category">Light Novel</span>
-                                                </span>
-                                                <span class="cart__item-remove">Xóa</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="cart__item">
-                                        <img src="https://product.hstatic.net/200000343865/product/thien-su-nha-ben_pho-thong_poster_355243c434124939b5921cb29f88a051_large.jpg"
-                                            class="cart__item--img">
-                                        <div class="cart__item--info">
-                                            <div class="cart__item-head">
-                                                <h5 class="cart__item-name">Thiên sứ nhà bên tập 3</h5>
-                                                <div class="cart__item-price-wrap">
-                                                    <span class="cart__item-price">450.000đ</span>
-                                                    <span class="cart__item-multiply">x</span>
-                                                    <span class="cart__item-quantity">5</span>
-                                                </div>
-                                            </div>
-                                            <div class="cart__item-body">
-                                                <span class="cart__item-descript">
-                                                    Phân loại: <span class="product-category">Light Novel</span>
-                                                </span>
-                                                <span class="cart__item-remove">Xóa</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
+                                <ul class="cart__item-list"></ul>
                                 <a class="btn btn--primary header-cart-btn" href="">Mua ngay</a>
                             </div>
                         </div>
                     </div>
-                    <div class="navbar-list__item navbar-user hide user-menu">
-                        <div class="navbar-user__menu-login">
-                            <i class="fa-solid fa-bars"></i>
-                        </div>
-                        <!-- User Account Menu -->
-                        <ul class="navbar__menu">
+                    <!-- Menu On Mobile (After log in) -->
+                    <div class="navbar-list__item navbar-user hide hide-special">
+                        <img src="https://i.pinimg.com/originals/28/af/08/28af086c0505916ed41e9ca42850e635.jpg" alt=""
+                            class="navbar-user__avatar">
+                        <ul class="navbar__menu margin-down">
                             <li class="navbar__menu-item">
-                                <a href="index.html">
-                                    Đăng nhập
+                                <a href="./user.html">
+                                    Tài khoản của tôi
+                                </a>
+                            </li>
+                            <li class="navbar__menu-item">
+                                <a href="">
+                                    Địa chỉ của tôi
+                                </a>
+                            </li>
+                            <li class="navbar__menu-item">
+                                <a href="">
+                                    Đơn mua
                                 </a>
                             </li>
                             <li class="navbar__menu-item menu-item--seperate">
-                                <a href="index.html">
-                                    Đăng ký
+                                <a href="no_logIn.html" class="logOut">
+                                    Đăng xuất
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <ul class="navbar-list navbar-list--no-login hide-now">
-                        <!-- Login form  -->
+                    <div class="mobile-menu-not-log-in navbar-list__item navbar-user hide user-menu not-hide">
+                        <div class="navbar-user__menu-login">
+                            <i class="fa-solid fa-bars"></i>
+                        </div>
+                        <!-- User Account Menu on mobile -->
+                        <ul class="navbar__menu">
+                            <li class="navbar__menu-item">
+                                <a href="no_logIn.html">Đăng nhập</a>
+                            </li>
+                            <li class="navbar__menu-item menu-item--seperate">
+                                <a href="no_logIn.html">Đăng ký</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="navbar-list navbar-list--no-login hide-now not-log-in-tablet">
+                        <!-- Login form on tablet -->
                         <li
                             class="navbar-list__item navbar-list__item--bold navbar-list__item--separate navbar-list__item--signUp">
                             Đăng ký</li>
@@ -453,9 +318,9 @@
                 </div>
                 <div class="row sm-gutter product__shop">
                     <div class="col l-4 shop__image">
-                        <div class="shop__image-logo set-bg" onclick = "redirection()"></div>
+                        <div class="shop__image-logo set-bg" onclick="redirection()"></div>
                         <div class="shop__image-subwrapper">
-                            <div class="shop__image-name" onclick = "redirection()">thanhdung0207</div>
+                            <div class="shop__image-name" onclick="redirection()">thanhdung0207</div>
                             <div class="shop__btn btn">
                                 <i class="fa-light fa-shop shop__btn-icon"></i>
                                 <span class="shop__btn-title">Xem shop</span>
@@ -851,7 +716,7 @@
                         <!-- App Product -->
                         <div class="home-product">
                             <div class="row sm-gutter">
-                                <div class="col l-2-4 m-4 c-6" productType = "Văn Phòng Phẩm">
+                                <div class="col l-2-4 m-4 c-6" productType="Văn Phòng Phẩm">
                                     <!-- Product Item -->
                                     <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
@@ -893,7 +758,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6" productType = "Tiểu Thuyết">
+                                <div class="col l-2-4 m-4 c-6" productType="Tiểu Thuyết">
                                     <!-- Product Item -->
                                     <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
@@ -936,7 +801,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6" productType = "Light Novel">
+                                <div class="col l-2-4 m-4 c-6" productType="Light Novel">
                                     <!-- Product Item -->
                                     <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
@@ -978,7 +843,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6" productType = "Manga Nhật">
+                                <div class="col l-2-4 m-4 c-6" productType="Manga Nhật">
                                     <!-- Product Item -->
                                     <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
@@ -1020,7 +885,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6" productType = "Manga Nhật">
+                                <div class="col l-2-4 m-4 c-6" productType="Manga Nhật">
                                     <!-- Product Item -->
                                     <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
@@ -1062,7 +927,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6" productType = "Light Novel">
+                                <div class="col l-2-4 m-4 c-6" productType="Light Novel">
                                     <!-- Product Item -->
                                     <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
@@ -1104,7 +969,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6" productType = "Tiểu Thuyết">
+                                <div class="col l-2-4 m-4 c-6" productType="Tiểu Thuyết">
                                     <!-- Product Item -->
                                     <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
@@ -1146,7 +1011,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6" productType = "Văn Phòng Phẩm">
+                                <div class="col l-2-4 m-4 c-6" productType="Văn Phòng Phẩm">
                                     <!-- Product Item -->
                                     <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
@@ -1188,7 +1053,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6" productType = "Figure - Đồ chơi">
+                                <div class="col l-2-4 m-4 c-6" productType="Figure - Đồ chơi">
                                     <!-- Product Item -->
                                     <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
@@ -1230,7 +1095,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6" productType = "Light Novel">
+                                <div class="col l-2-4 m-4 c-6" productType="Light Novel">
                                     <!-- Product Item -->
                                     <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
@@ -1272,7 +1137,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6" productType = "Figure - Đồ chơi">
+                                <div class="col l-2-4 m-4 c-6" productType="Figure - Đồ chơi">
                                     <!-- Product Item -->
                                     <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
@@ -1314,7 +1179,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6" productType = "Figure - Đồ chơi">
+                                <div class="col l-2-4 m-4 c-6" productType="Figure - Đồ chơi">
                                     <!-- Product Item -->
                                     <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
@@ -1356,7 +1221,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6" productType = "Light Novel">
+                                <div class="col l-2-4 m-4 c-6" productType="Light Novel">
                                     <!-- Product Item -->
                                     <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
@@ -1398,7 +1263,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6" productType = "Light Novel">
+                                <div class="col l-2-4 m-4 c-6" productType="Light Novel">
                                     <!-- Product Item -->
                                     <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
@@ -1440,7 +1305,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-2-4 m-4 c-6" productType = "Văn Phòng Phẩm">
+                                <div class="col l-2-4 m-4 c-6" productType="Văn Phòng Phẩm">
                                     <!-- Product Item -->
                                     <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
@@ -1482,7 +1347,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col l-0 m-0 c-6" productType = "Manga Nhật">
+                                <div class="col l-0 m-0 c-6" productType="Manga Nhật">
                                     <!-- Product Item -->
                                     <a class="home-product-item" href="/productPage.html">
                                         <div class="home-product-item__img"
@@ -1564,7 +1429,26 @@
             </div>
         </div>
 
-        <!-- Container: end -->
+    </div>
+    <!-- Container: end -->
+    <!-- Model Box buy -->
+    <div class="box--purchased">
+        <div class="purchased">
+            <div class="header__cart-list--special">
+                <h4 class="cart__heading--special">ĐƠN THANH TOÁN</h4>
+                <ul class="cart__item-list--special"></ul>
+                <div class="total-price">
+                    <div class="total-price__title">Tổng thanh toán: </div>
+                    <div class="total-price__amount">
+                        40.000đ
+                    </div>
+                </div>
+                <div class="button-wrap">
+                    <button class="btn btn--normal close">Trở lại</button>
+                    <button class="btn btn--primary confirm" onclick="">Mua Hàng</button>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- Footer: start -->
     <footer class="footer">
@@ -1671,94 +1555,98 @@
                 <div class="auth-form__container">
                     <div class="auth-form__header">
                         <h3 class="auth-form__heading">Đăng Ký</h3>
-                        <span class="auth-form__btn">Đăng Nhập</span>
                     </div>
-
-                    <div class="auth-form__form">
-                        <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" placeholder="Nhập tên đăng nhập của bạn">
-                        </div>
-                        <div class="auth-form__group">
-                            <input type="password" class="auth-form__input" placeholder="Mật khẩu của bạn">
-                        </div>
-                        <div class="auth-form__group">
-                            <input type="password" class="auth-form__input" placeholder="Nhập lại mật khẩu">
-                        </div>
+                    <div class="main">
+                        <form class="form" id="form-1">
+                            <div class="form-wrapper">
+                                <div class="form-divider">
+                                    <div class="form-group" id="signup-input">
+                                        <label for="username" class="form-label">Tên đăng nhập của bạn</label>
+                                        <input id="username" name="username" type="text" placeholder="VD: dungkhoaito1"
+                                            class="form-control">
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="form-label">Mật khẩu</label>
+                                        <input id="password" name="password" type="password" placeholder="Nhập mật khẩu"
+                                            class="form-control">
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
+                                        <input id="password_confirmation" placeholder="Nhập lại mật khẩu"
+                                            type="password" class="form-control">
+                                        <span class="form-message"></span>
+                                    </div>
+                                </div>
+                                <div class="form-divider">
+                                    <div class="form-group">
+                                        <label for="fullname" class="form-label">Tên đầy đủ</label>
+                                        <input id="fullname" name="fullname" type="text" placeholder="VD: Sơn Đặng"
+                                            class="form-control">
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dob" class="form-label">Ngày sinh của bạn</label>
+                                        <input id="dob" name="dob" type="text" placeholder="VD: 02/07/2003"
+                                            class="form-control">
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="img" class="form-label">Link ảnh profile của bạn</label>
+                                        <input id="img" name="img" type="text" placeholder="VD: http://a.jpg"
+                                            class="form-control">
+                                        <span class="form-message"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="auth-form__controls">
+                                <button class="btn auth-form__controls-back btn-normal">TRỞ LẠI</button>
+                                <button class="btn btn--primary btn--login form-submit" type="submit">ĐĂNG KÝ</button>
+                            </div>
+                        </form>
                     </div>
-
-                    <div class="auth-form__aside">
-                        <p class="auth-form__policy-text">
-                            Bằng việc đăng ký, bạn đã đồng ý với Shopee về
-                            <a href="" class="auth-form__text-link">Điều khoản dịch vụ</a> &
-                            <a href="" class="auth-form__text-link">Chính sách bảo mật</a>
-                        </p>
-                    </div>
-
-                    <div class="auth-form__controls">
-                        <button class="btn auth-form__controls-back btn-normal">TRỞ LẠI</button>
-                        <a class="btn btn--primary btn--login" href="index.html">ĐĂNG KÝ</a>
-                    </div>
-                </div>
-                <div class="auth-form__social">
-                    <a class="btn btn--with-icon btn--size-s auth-form__social-icon--facebook">
-                        <i class="auth-form__social-icon fa-brands fa-facebook-square"></i>
-                        <span class="auth-form__social-label">Kết nối với Facebook</span>
-                    </a>
-                    <a class="btn btn--with-icon btn--size-s auth-form__social-icon--google">
-                        <i class="auth-form__social-icon fa-brands fa-google"></i>
-                        <span class="auth-form__social-label">Kết nối với Google</span>
-                    </a>
                 </div>
             </div>
-            <!-- Login Form -->
+            <!-- LogIn Form -->
             <div class="auth-form" id="auth-form--sign-in">
                 <div class="auth-form__container">
                     <div class="auth-form__header">
-                        <h3 class="auth-form__btn" style="color: var(--text-color)">Đăng Ký</h3>
-                        <span class="auth-form__heading" style="color: var(--primary-color)">Đăng Nhập</span>
+                        <h3 class="auth-form__heading">Đăng Nhập</h3>
                     </div>
-
-                    <div class="auth-form__form">
-                        <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" placeholder="Tên đăng nhập của bạn">
-                        </div>
-                        <div class="auth-form__group">
-                            <input type="password" class="auth-form__input" placeholder="Mật khẩu của bạn">
-                        </div>
+                    <div class="main">
+                        <form class="form" id="form-2">
+                            <div class="form-group" id="login-input">
+                                <label for="usernameLogIn" class="form-label">Tên đăng nhập của bạn</label>
+                                <input id="usernameLogIn" name="usernameLogIn" type="text"
+                                    placeholder="VD: dungkhoaito1" class="form-control">
+                                <span class="form-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordLogIn" class="form-label">Mật khẩu</label>
+                                <input id="passwordLogIn" name="passwordLogIn" type="password"
+                                    placeholder="Nhập mật khẩu" class="form-control">
+                                <span class="form-message"></span>
+                            </div>
+                            <div class="auth-form__controls">
+                                <button class="btn auth-form__controls-back btn-normal">TRỞ LẠI</button>
+                                <button class="btn btn--primary btn--login form-submit" type="submit">ĐĂNG KÝ</button>
+                            </div>
+                        </form>
                     </div>
-
-                    <div class="auth-form__aside">
-                        <div class="auth-form__help">
-                            <a href="" class="auth-form__help-link auth-form__help-link--forgot">Quên mật khẩu</a>
-                            <span class="auth-form__help-seperate"></span>
-                            <a href="" class="auth-form__help-link auth-form__help-link--help">Cần trợ giúp?</a>
-                        </div>
-                    </div>
-
-                    <div class="auth-form__controls">
-                        <button class="btn auth-form__controls-back btn-normal">TRỞ LẠI</button>
-                        <a class="btn btn--primary btn--login" href="index.html">ĐĂNG NHẬP</a>
-                    </div>
-                </div>
-                <div class="auth-form__social">
-                    <a class="btn btn--with-icon btn--size-s auth-form__social-icon--facebook">
-                        <i class="auth-form__social-icon fa-brands fa-facebook-square"></i>
-                        <span class="auth-form__social-label">Kết nối với Facebook</span>
-                    </a>
-                    <a class="btn btn--with-icon btn--size-s auth-form__social-icon--google">
-                        <i class="auth-form__social-icon fa-brands fa-google"></i>
-                        <span class="auth-form__social-label">Kết nối với Google</span>
-                    </a>
                 </div>
             </div>
-        </div>
 
+        </div>
     </div>
     <!-- JQuery -->
     <script src="./assets/jQuery/jquery-3.6.0.js"></script>
     <!-- JS rieng -->
     <script src="./assets/js/common.js"></script>
+    <script src="./assets/js/purchased.js"></script>
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/shop.js"></script>
+    <script src="./assets/js/validator.js"></script>
+
 
 </body>

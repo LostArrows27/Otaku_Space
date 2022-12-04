@@ -20,6 +20,7 @@ if(closeBox) {
 
 // Cart purchased handle
 if(cartBtn) {
+    console.log(cartBtn);
     cartBtn.onclick = (e) => {
         e.preventDefault();
         buyFromCart = true;
@@ -69,40 +70,11 @@ if(cartBtn) {
 var confirmBox = query('.confirm');
 if(confirmBox) {
     confirmBox.onclick = () => {
-        const main = query('#toast');
         box.classList.add('Fadeout');
         setTimeout(() => {
             box.classList.remove('Fadeout');
             purchased_box.style.display = 'none';
-            if(main){
-                let toast = document.createElement('div');
-                toast.onclick = function(e) {
-                    if(e.target.closest(".toast--close")){
-                            main.removeChild(toast);
-                    }
-                }
-                toast.classList.add('toast','toast--buynow');
-    
-                toast.innerHTML = `<div class="toast--content">
-                                    <div class="toast--icon">
-                                        <i class="fa-sharp fa-solid fa-shield-check"></i>
-                                    </div>
-                                    <div class="toast--body">
-                                        Thanh toán thành công
-                                    </div>
-                                    <div class="toast--close">
-                                        <i class="fa-regular fa-circle-xmark"></i>
-                                    </div>
-                                </div>
-                                <div class="toast--runtime"></div>`;
-                
-                main.appendChild(toast);
-                setTimeout(()  => {
-                    if(main.childNodes.length > 0){
-                        main.removeChild(toast);
-                    }
-                },3500);
-            }
+            toast_message({type:"buynow",msg:"Thanh toán thành công"});
         }, 300)
         if(buyNow) {
             datacount.textContent = parseInt(datacount.innerHTML) - itemFigure;

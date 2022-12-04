@@ -10,6 +10,15 @@
     background-position: center;
 }
 
+.image-info{
+    width: 90%;
+}
+
+.set-mid{
+    display: flex;
+    justify-content: center;
+}
+
 /* Product Info CSS */
 .pushing {
     margin: 16px 0 16px 0;
@@ -122,15 +131,21 @@
 }
 
 .product-info {
-    font-size: 3rem;
-    font-weight: 300;
+    font-size: 3.4rem;
+    font-weight: 400;
     line-height: normal;
+    margin-bottom: 20px;
 }
 
 .product-rating {
     justify-content: flex-start;
     line-height: normal;
     margin: 10px;
+}
+
+.sold-count{
+    color: var(--primary-color);
+    font-weight: 500;
 }
 
 .product-price {

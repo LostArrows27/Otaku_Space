@@ -1,5 +1,16 @@
-.navbar-list--no-login {
+/* .navbar-list--no-login {
     display: block;
+} */
+
+
+/* Khi dang nhap thi display: unset */
+/* Khi chua dang nhap thi display: ''*/
+.navbar-list--no-login--special {
+    display: unset;
+}
+
+.navbar-list__item.navbar-user.hide-special {
+    display: none;
 }
 
 #auth-form--sign-up,
@@ -62,6 +73,11 @@
 
     .navbar__menu li{
         padding: 6px;
+    }
+
+    .margin-down {
+        top: 42px;
+        right: 0;
     }
 
     .navbar__menu a{
