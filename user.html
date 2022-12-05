@@ -188,7 +188,7 @@
                                     </a>
                                 </li>
                                 <li class="navbar__menu-item menu-item--seperate">
-                                    <a href="" class = "logOut">
+                                    <a href="" class="logOut">
                                         Đăng xuất
                                     </a>
                                 </li>
@@ -427,7 +427,7 @@
                                 </a>
                             </li>
                             <li class="navbar__menu-item menu-item--seperate">
-                                <a href="no_logIn.html" class = "logOut">
+                                <a href="no_logIn.html" class="logOut">
                                     Đăng xuất
                                 </a>
                             </li>
@@ -519,87 +519,76 @@
                             <div class="profile-title">Bán Sản Phẩm</div>
                             <div class="profile-description">Đăng sản phẩm và bán trong shop của bạn</div>
                         </div>
-                        <div class="row user__information--content product-post">
-                            <div class="col l-6 user__info-text">
-                                <!-- 1. Ten san pham -->
-                                <!-- 2. Danh muc -->
-                                <!-- 3. Gia -->
-                                <!-- 4. So luong co san -->
-                                <!-- 5. 5 file anh co san (bat buoc up 5) -->
-                                <div class="info-wrap">
-                                    <span class="info-wrap--title">Tên sản phẩm: </span>
-                                    <div class="auth-form__group">
-                                        <input type="text" class="auth-form__input--special" placeholder="Tên sản phẩm">
+                        <form class="form-uploadProduct" id="form-3">
+                            <div class="form-wrapper form-uploadProd">
+                                <div class="form-divider">
+                                    <div class="form-group">
+                                        <label for="productName" class="form-label">Tên sản phẩm:</label>
+                                        <input id="productName" name="productName" type="text"
+                                            placeholder="VD: dungkhoaito1" class="form-control">
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="productPrice" class="form-label">Giá bán</label>
+                                        <input id="productPrice" name="productPrice" type="text"
+                                            placeholder="Nhập mật khẩu" class="form-control">
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="productFigure" class="form-label">Số lượng</label>
+                                        <input id="productFigure" name="productFigure" placeholder="Nhập lại mật khẩu"
+                                            type="number" class="form-control">
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="productCategory" class="form-label">Danh mục</label>
+                                        <input id="productCategory" name="productCategory" type="text"
+                                            placeholder="VD: Sơn Đặng" class="form-control">
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="productSale" class="form-label">Giảm giá(%)</label>
+                                        <input id="productSale" name="productSale" type="number"
+                                            placeholder="VD: Sơn Đặng" class="form-control">
+                                        <span class="form-message"></span>
                                     </div>
                                 </div>
-                                <div class="info-wrap">
-                                    <span class="info-wrap--title">Danh mục: </span>
-                                    <div class="auth-form__group">
-                                        <input type="text" class="auth-form__input--special"
-                                            placeholder="Danh mục sản phẩm">
+                                <div class="form-divider">
+                                    <div class="form-group">
+                                        <label for="main_image" class="form-label">Link ảnh sản phẩm chính</label>
+                                        <input id="main_image" name="main_image" type="text" placeholder="VD: Sơn Đặng"
+                                            class="form-control">
+                                        <span class="form-message"></span>
                                     </div>
-                                </div>
-                                <div class="info-wrap">
-                                    <span class="info-wrap--title">Giá bán: </span>
-                                    <div class="auth-form__group">
-                                        <input type="text" class="auth-form__input--special"
-                                            placeholder="Giá bán sản phẩm">
+                                    <div class="form-group">
+                                        <label for="sub_image1" class="form-label">Link ảnh sản phẩm phụ 1</label>
+                                        <input id="sub_image1" name="sub_image1" type="text"
+                                            placeholder="VD: 02/07/2003" class="form-control">
+                                        <span class="form-message"></span>
                                     </div>
-                                </div>
-                                <div class="info-wrap">
-                                    <span class="info-wrap--title">Số lượng đăng bán: </span>
-                                    <div class="auth-form__group">
-                                        <input type="text" class="auth-form__input--special"
-                                            placeholder="Số lượng sản phẩm">
+                                    <div class="form-group">
+                                        <label for="sub_image2" class="form-label">Link ảnh sản phẩm phụ 2</label>
+                                        <input id="sub_image2" name="sub_image2" type="text"
+                                            placeholder="VD: http://a.jpg" class="form-control">
+                                        <span class="form-message"></span>
                                     </div>
-                                </div>
-                                <div class="info-wrap">
-                                    <span class="info-wrap--title">Ảnh minh họa chính: </span>
-                                    <div class="auth-form__group">
-                                        <input type="text" class="auth-form__input--special"
-                                            placeholder="Link ảnh minh họa chính">
+                                    <div class="form-group">
+                                        <label for="sub_image3" class="form-label">Link ảnh sản phẩm phụ 3</label>
+                                        <input id="sub_image3" name="sub_image3" type="text" placeholder="VD: Sơn Đặng"
+                                            class="form-control">
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sub_image4" class="form-label">Link ảnh sản phẩm phụ 4</label>
+                                        <input id="sub_image4" name="sub_image4" type="text" placeholder="VD: Sơn Đặng"
+                                            class="form-control">
+                                        <span class="form-message"></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col l-6 user__info-text">
-                                <!-- 1. Ten san pham -->
-                                <!-- 2. Danh muc -->
-                                <!-- 3. Gia -->
-                                <!-- 4. So luong co san -->
-                                <!-- 5. 5 file anh co san (bat buoc up 5) -->
-                                <div class="info-wrap">
-                                    <span class="info-wrap--title">Ảnh minh họa 2: </span>
-                                    <div class="auth-form__group">
-                                        <input type="text" class="auth-form__input--special"
-                                            placeholder="Link ảnh minh họa 2">
-                                    </div>
-                                </div>
-                                <div class="info-wrap">
-                                    <span class="info-wrap--title">Ảnh minh họa 3: </span>
-                                    <div class="auth-form__group">
-                                        <input type="text" class="auth-form__input--special"
-                                            placeholder="Link ảnh minh họa 3">
-                                    </div>
-                                </div>
-                                <div class="info-wrap">
-                                    <span class="info-wrap--title">Ảnh minh họa 4: </span>
-                                    <div class="auth-form__group">
-                                        <input type="text" class="auth-form__input--special"
-                                            placeholder="Link ảnh minh họa 4">
-                                    </div>
-                                </div>
-                                <div class="info-wrap">
-                                    <span class="info-wrap--title">Ảnh minh họa 5: </span>
-                                    <div class="auth-form__group">
-                                        <input type="text" class="auth-form__input--special"
-                                            placeholder="Link ảnh minh họa 5">
-                                    </div>
-                                </div>
-                                <div class="info-wrap submit-button">
-                                    <div class="btn btn--primary uploadItem">Đăng bán</div>
-                                </div>
-                            </div>
-                        </div>
+                            <button class="btn btn--primary btn--product" type="submit">ĐĂNG BÁN</button>
+                        </form>
+
                     </div>
                 </div>
             </div>
@@ -976,7 +965,7 @@
                     </div>
                     <div class="main">
                         <form class="form" id="form-2">
-                            <div class="form-group" id = "login-input">
+                            <div class="form-group" id="login-input">
                                 <label for="usernameLogIn" class="form-label">Tên đăng nhập của bạn</label>
                                 <input id="usernameLogIn" name="usernameLogIn" type="text"
                                     placeholder="VD: dungkhoaito1" class="form-control">

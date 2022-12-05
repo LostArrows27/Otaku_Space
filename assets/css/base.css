@@ -525,6 +525,14 @@ html {
     display: flex;
     justify-content: space-between;
 }
+#form-3{
+    width: 80%;
+}
+.form-wrapper .form-uploadProd{
+    display: flex;
+    justify-content: space-around;
+}
+
 
 .form-wrapper > div {
     flex: 1;

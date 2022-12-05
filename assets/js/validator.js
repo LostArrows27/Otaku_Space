@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log(localStorage.getItem("fullname"));
                         console.log(localStorage.getItem("dob"));
                         console.log(localStorage.getItem("img"));
-                        toast_message({ type: "login", duration: 1000, msg: "Đăng ký tài khoản thành công !", icon: '<i class="fa-solid fa-circle-check"></i>'});
+                        toast_message({ type: "login", duration: 1000, msg: "Đăng ký tài khoản thành công !", icon: '<i class="fa-solid fa-circle-check"></i>' });
                         setTimeout(() => {
                             window.location.href = "no_login.html";
                         }, 1500)
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log(localStorage.getItem("fullname"));
                         console.log(localStorage.getItem("dob"));
                         console.log(localStorage.getItem("img"));
-                        toast_message({ type: "login", duration: 1000, msg: "Đăng nhập thành công !", icon: '<i class="fa-solid fa-circle-check"></i>'});
+                        toast_message({ type: "login", duration: 1000, msg: "Đăng nhập thành công !", icon: '<i class="fa-solid fa-circle-check"></i>' });
                         setTimeout(() => {
                             window.location.href = "no_login.html";
                         }, 1500)
@@ -96,6 +96,47 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
         }
     });
+
+    Validator({
+        form: '#form-3',
+        formGroupSelector: '.form-group',
+        errorSelector: '.form-message',
+        rules: [
+            Validator.isRequired('#productName', 'Vui lòng điền thông tin'),
+            Validator.isRequired('#productPrice', 'Vui lòng điền thông tin'),
+            Validator.isRequired('#productFigure', 'Vui lòng điền thông tin'),
+            Validator.isRequired('#productCategory', 'Vui lòng điền thông tin'),
+            Validator.isRequired('#productSale', 'Vui lòng điền thông tin'),
+            Validator.isRequired('#main_image', 'Vui lòng điền thông tin'),
+            Validator.isRequired('#sub_image1', 'Vui lòng điền thông tin'),
+            Validator.isRequired('#sub_image2', 'Vui lòng điền thông tin'),
+            Validator.isRequired('#sub_image3', 'Vui lòng điền thông tin'),
+            Validator.isRequired('#sub_image4', 'Vui lòng điền thông tin'),
+            Validator.isSalePercent('#productSale', 100, 'Giá trị phải trong khoảng 0-100'),
+            Validator.isImageLink('#main_image', 'Vui lòng điền đúng định dạng ảnh'),
+            Validator.isImageLink('#sub_image1', 'Vui lòng điền đúng định dạng ảnh'),
+            Validator.isImageLink('#sub_image2', 'Vui lòng điền đúng định dạng ảnh'),
+            Validator.isImageLink('#sub_image3', 'Vui lòng điền đúng định dạng ảnh'),
+            Validator.isImageLink('#sub_image4', 'Vui lòng điền đúng định dạng ảnh')
+
+
+        ],
+        onSubmit: function (data) {
+            toast_message({ type: "salenow", duration: 1000,  msg: "Đăng bán thành công" });
+            var userId = localStorage.getItem("userid");
+            data.ownerName = userId;
+            fetch('http://localhost:5000/new-product', {
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                method: 'POST',
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(dataBackEnd => redirectToProductPageAfterPostProduct(dataBackEnd[0].product_id, data.productSale))
+        }
+    });
+
 })
 
 // Đối tượng `Validator`
@@ -299,6 +340,15 @@ Validator.isConfirmed = function (selector, getConfirmValue, message) {
         selector: selector,
         test: function (value) {
             return value === getConfirmValue() ? undefined : message || 'Giá trị nhập vào không chính xác';
+        }
+    }
+}
+
+Validator.isSalePercent = (selector, max, message) => {
+    return {
+        selector: selector,
+        test: function (value) {
+            return parseInt(value) <= max && parseInt(value) >= 0 ? undefined : message || 'Giá trị không họp lệ';
         }
     }
 }

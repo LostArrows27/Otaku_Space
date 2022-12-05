@@ -41,7 +41,7 @@ window.onload = e => {
             .then(data => {
                 see(data);
                 query('.cart-notice').textContent = data.length;
-                if(data.length != 0) {
+                if (data.length != 0) {
                     query('.header__cart-list').classList.remove('header__cart-list--no-cart');
                 }
                 var myCartUL = query('.cart__item-list');
@@ -67,7 +67,7 @@ window.onload = e => {
                         <span class="cart__item-remove">Xóa</span>
                     </div>
                 </div>
-            </li>`  
+            </li>`
                     return a + cartEle;
                 }, "")
 
@@ -231,10 +231,10 @@ cartList.onclick = (e) => {
                 'Content-type': 'application/json'
             },
             method: 'POST',
-            body: JSON.stringify({user_id: deleteUserID, product_id: deleteProductID})
+            body: JSON.stringify({ user_id: deleteUserID, product_id: deleteProductID })
         })
-        .then(response => response.json())
-        .then(data => see(data))
+            .then(response => response.json())
+            .then(data => see(data))
         parentItem.remove();
         cart_notice.textContent = queryAll('.header__cart-list .cart__item').length;
         if (queryAll('.header__cart-list .cart__item').length == 0) {
@@ -365,6 +365,14 @@ function redirectToProductPage(product) {
     var salePercent = product.querySelector('.home-product-item__sale-off-percent').textContent.split('%')[0];
     localStorage.setItem("productSalePercent", salePercent)
     window.location.href = "productPage.html";
+}
+
+function redirectToProductPageAfterPostProduct(productID, sale) {
+    setTimeout(() => {
+        localStorage.setItem("productSalePercent", sale)
+        localStorage.setItem("productID", productID)
+        window.location.href = "productPage.html";
+    }, 1000)
 }
 
 function getProductHTML(productInfo, sign) {

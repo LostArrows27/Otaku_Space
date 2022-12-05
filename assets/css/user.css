@@ -12,9 +12,10 @@
 }
 
 .user__information {
-    height: 500px;
+    /* height: 500px; */
     background: white;
     transition: all 0.1s ease;
+    /* align-items:stretch; */
 }
 
 .user__interact--heading{
@@ -166,4 +167,10 @@
     opacity: 0.9;
 }
 
+
+.btn--product{
+    float: right;
+    margin-bottom: 40px;
+    margin-right: 20px;
+}
 
