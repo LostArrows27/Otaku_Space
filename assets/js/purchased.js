@@ -30,17 +30,17 @@ if(cartBtn) {
         var purchasedListHTMl = cartProductArr.reduce((a,b) => {
             let receiptBG = b.querySelector('img').src;
             let receiptTitle = b.querySelector('h5').textContent;
-            let receiptPricePerEach = b.querySelector('.cart__item-price').textContent.split('.')[0];
+            let receiptPricePerEach = b.querySelector('.cart__item-price').textContent;
             let receiptCount = b.querySelector('.cart__item-quantity').textContent;
             let receiptCategory = b.querySelector('.product-category').textContent;
-            totalPrice += parseInt(receiptPricePerEach) * 1000 * parseInt(receiptCount);
+            totalPrice += turnMoneyStringToNumber( b.querySelector('.cart__item-price').textContent.slice(0, -1)) * parseInt(receiptCount);
             let receiptProductHTML =  ` <li class="cart__item">
                                             <img src="${receiptBG}" alt="" class="cart__item--img--special">
                                             <div class="cart__item--info">
                                                 <div class="cart__item-head">
                                                     <h5 class="cart__item-name--special long-name">${receiptTitle}</h5>
                                                     <div class="cart__item-price-wrap">
-                                                        <span class="cart__item-price">${receiptPricePerEach+".000đ"}</span>
+                                                        <span class="cart__item-price">${receiptPricePerEach}</span>
                                                         <span class="cart__item-multiply">x</span>
                                                         <span class="cart__item-quantity">${receiptCount}</span>
                                                     </div>

@@ -375,6 +375,13 @@ function redirectToProductPageAfterPostProduct(productID, sale) {
     }, 1000)
 }
 
+function turnMoneyStringToNumber(money) {
+    money = money.trim();
+    return money.split('.').reduce((a, b) => {
+        return a * 1000 + parseInt(b);
+    }, 0);
+}
+
 function getProductHTML(productInfo, sign) {
     var salePercent = productInfo.sale_percent;
     var afterCellPrice = parseInt(productInfo.price) * (1 - salePercent / 100) / 1000;

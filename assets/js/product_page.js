@@ -55,7 +55,7 @@ purchased = () => {
             let productCategory = productCategoryNode.textContent.trim();
             let productCount = itemFigure;
             let productBG = getComputedStyle(productBGNode).backgroundImage.split('"')[1];
-            let productTotalPrice = parseInt(productCount) * parseInt(pricePerEach.slice(1)) * 1000;
+            let productTotalPrice = parseInt(productCount) * turnMoneyStringToNumber(pricePerEach.slice(1));
             purchasedTotalPrice.textContent = numberWithCommas(productTotalPrice) + "đ";
             purchasedWrap.innerHTML = ` <li class="cart__item">
                                         <img src="${productBG}" alt="" class="cart__item--img--special">
@@ -110,7 +110,6 @@ confirmBox.onclick = () => {
 
 
 // Small Function use later
-
 
 
 
