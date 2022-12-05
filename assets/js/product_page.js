@@ -41,20 +41,23 @@ countItem = (boo) => {
 var box = document.querySelector('.purchased');
 const buyBtn = query('.btn.btn--shopping');
 purchased = () => {
-    if (itemFigure > 0) {
-        buyFromCart = false;
-        buyNow = true;
-        purchased_box.style.display = 'flex';
-        box.classList.add('Fadein');
-        // Handle receiption form - start
-        let productTitle = productTitleNode.textContent.trim();
-        let pricePerEach = pricePerEachNode.textContent.trim();
-        let productCategory = productCategoryNode.textContent.trim();
-        let productCount = itemFigure;
-        let productBG = getComputedStyle(productBGNode).backgroundImage.split('"')[1];
-        let productTotalPrice = parseInt(productCount) * parseInt(pricePerEach.slice(1)) * 1000;
-        purchasedTotalPrice.textContent = numberWithCommas(productTotalPrice) + "đ";
-        purchasedWrap.innerHTML = ` <li class="cart__item">
+    if (localStorage.getItem("login") != "success") {
+        toast_message({ type: "loginPls", duration: 1000, msg: "Hãy đăng nhập trước !", icon: '<i class="fa-solid fa-triangle-exclamation"></i>' });
+    } else {
+        if (itemFigure > 0) {
+            buyFromCart = false;
+            buyNow = true;
+            purchased_box.style.display = 'flex';
+            box.classList.add('Fadein');
+            // Handle receiption form - start
+            let productTitle = productTitleNode.textContent.trim();
+            let pricePerEach = pricePerEachNode.textContent.trim();
+            let productCategory = productCategoryNode.textContent.trim();
+            let productCount = itemFigure;
+            let productBG = getComputedStyle(productBGNode).backgroundImage.split('"')[1];
+            let productTotalPrice = parseInt(productCount) * parseInt(pricePerEach.slice(1)) * 1000;
+            purchasedTotalPrice.textContent = numberWithCommas(productTotalPrice) + "đ";
+            purchasedWrap.innerHTML = ` <li class="cart__item">
                                         <img src="${productBG}" alt="" class="cart__item--img--special">
                                         <div class="cart__item--info">
                                             <div class="cart__item-head">
@@ -72,11 +75,13 @@ purchased = () => {
                                             </div>
                                         </div>
                                     </li>`
-        // Handle receiption form - end
-        setTimeout(() => {
-            box.classList.remove('Fadein');
-        }, 500)
+            // Handle receiption form - end
+            setTimeout(() => {
+                box.classList.remove('Fadein');
+            }, 500)
+        }
     }
+
 
 }
 
@@ -90,13 +95,13 @@ confirmBox.onclick = () => {
         box.classList.remove('Fadeout');
         purchased_box.style.display = 'none';
     }, 300)
-    if(buyNow) {
+    if (buyNow) {
         datacount.textContent = parseInt(datacount.innerHTML) - itemFigure;
         itemFigure = 0;
         count_num[0].innerHTML = itemFigure;
         toggleClass(buyBtn, 'btn--primary', 'btn--disabled');
     }
-    if(buyFromCart) {
+    if (buyFromCart) {
         cartList.classList.add('header__cart-list--no-cart');
         cartListUL.innerHTML = "";
     }

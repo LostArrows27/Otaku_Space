@@ -14,22 +14,28 @@ const heartButton = document.querySelector('.product-share--like');
 const heartIcon = document.querySelector('.share--like-icon');
 const likeCount = document.querySelector('.like-counted');
 heartButton.onclick = (k) => {
-    heartButton.classList.toggle('liked');
-    var like = Number.parseInt(likeCount.textContent);
-    if (heartButton.classList.contains('liked')) {
-        like++;
-        heartIcon.innerHTML = '<i class="fa-solid fa-heart"></i>'
+    if(localStorage.getItem("login") != "success") {
+        toast_message({ type: "loginPls", duration: 1000, msg: "Hãy đăng nhập trước !", icon: '<i class="fa-solid fa-triangle-exclamation"></i>' });
     } else {
-        like--;
-        heartIcon.innerHTML = '<i class="fa-regular fa-heart"></i>'
+        heartButton.classList.toggle('liked');
+        var like = Number.parseInt(likeCount.textContent);
+        if (heartButton.classList.contains('liked')) {
+            like++;
+            heartIcon.innerHTML = '<i class="fa-solid fa-heart"></i>'
+        } else {
+            like--;
+            heartIcon.innerHTML = '<i class="fa-regular fa-heart"></i>'
+        }
+        fetch(`http://localhost:5000/updateProductLike/${localStorage.getItem('productID')}/${like}`)
+        .then(response => response.json())
+        .then(data => see(data))
+        likeCount.textContent = like + "";
     }
-    likeCount.textContent = like + "";
 }
 
 // Navigate to shop page JS
 query('.shop__btn.btn').onclick = e => {
     setTimeout(() => {
-
         window.location.href = "shop.html";
     }, 200)
 }
@@ -41,36 +47,36 @@ addToCartBtn.onclick = e => {
     if (localStorage.getItem("login") != "success") {
         toast_message({ type: "loginPls", duration: 1000, msg: "Hãy đăng nhập trước !", icon: '<i class="fa-solid fa-triangle-exclamation"></i>' });
     } else {
-        toast_message({ type: "login", duration: 700, msg: "Thêm vào giỏ hàng thành công", icon: '<i class="fa-solid fa-circle-check"></i>' });
         const productCount = parseFloat(query('.col.l-6.count-num').textContent);
         var cartUL = query('.header__cart-list');
         cartUL.classList.remove('header__cart-list--no-cart');
         query('.col.l-6.count-num').textContent = "0";
         itemFigure = 0;
         if (productCount != 0) {
+            toast_message({ type: "login", duration: 1000, msg: "Thêm vào giỏ hàng thành công", icon: '<i class="fa-solid fa-circle-check"></i>' });
             var checkProductInCart = query(`[id="${localStorage.getItem("userid")}-${localStorage.getItem("productID")}"]`);
             if (!checkProductInCart) {
                 query('.cart-notice').textContent = parseInt(query('.cart-notice').textContent) + 1;
-                query('.cart__item-list').innerHTML += ` <li class="cart__item" id = "${localStorage.getItem("userid")}-${localStorage.getItem("productID")}"> 
-            <img src="${query('.image-info--main.set-bg').style.backgroundImage.slice(4, -1).replace(/"/g, "")}"
-                class="cart__item--img">
-            <div class="cart__item--info">
-                <div class="cart__item-head">
-                    <h5 class="cart__item-name text-left long-name">${query('.col.l-12.product-title').textContent.trim()}</h5>
-                    <div class="cart__item-price-wrap">
-                        <span class="cart__item-price">${query('.after-selled').textContent}đ</span>
-                        <span class="cart__item-multiply">x</span>
-                        <span class="cart__item-quantity">${productCount}</span>
+                query('.cart__item-list').innerHTML += 
+                `<li class="cart__item" id = "${localStorage.getItem("userid")}-${localStorage.getItem("productID")}"> 
+                    <img src="${query('.image-info--main.set-bg').style.backgroundImage.slice(4, -1).replace(/"/g, "")}" class="cart__item--img">
+                    <div class="cart__item--info">
+                        <div class="cart__item-head">
+                            <h5 class="cart__item-name text-left long-name">${query('.col.l-12.product-title').textContent.trim()}</h5>
+                            <div class="cart__item-price-wrap">
+                                <span class="cart__item-price">${query('.after-selled').textContent}đ</span>
+                                <span class="cart__item-multiply">x</span>
+                                <span class="cart__item-quantity">${productCount}</span>
+                            </div>
+                        </div>
+                        <div class="cart__item-body">
+                            <span class="cart__item-descript">
+                                Phân loại: <span class="product-category">${query('.product-category--special').textContent}</span>
+                            </span>
+                            <span class="cart__item-remove">Xóa</span>
+                        </div>
                     </div>
-                </div>
-                <div class="cart__item-body">
-                    <span class="cart__item-descript">
-                        Phân loại: <span class="product-category">${query('.product-category--special').textContent}</span>
-                    </span>
-                    <span class="cart__item-remove">Xóa</span>
-                </div>
-            </div>
-        </li>`
+                </li>`
                 fetch(`http://localhost:5000/addToCart/${localStorage.getItem("productID")}/${localStorage.getItem("userid")}/${productCount}`)
                     .then(response => response.json())
                     .then(data => see(data))
@@ -83,6 +89,8 @@ addToCartBtn.onclick = e => {
                     .then(response => response.json())
                     .then(data => see(data))
             }
+        } else {
+            toast_message({ type: "loginPls", duration: 1000, msg: "Hãy thêm sản phẩm trước !", icon: '<i class="fa-solid fa-circle-check"></i>' });
         }
     }
 }
