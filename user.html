@@ -178,13 +178,8 @@
                                     </a>
                                 </li>
                                 <li class="navbar__menu-item">
-                                    <a href="">
-                                        Địa chỉ của tôi
-                                    </a>
-                                </li>
-                                <li class="navbar__menu-item">
-                                    <a href="">
-                                        Đơn mua
+                                    <a class="my_shop">
+                                        Shop của tôi
                                     </a>
                                 </li>
                                 <li class="navbar__menu-item menu-item--seperate">
@@ -481,6 +476,11 @@
                                 class="user__interact--avatar">
                             <div class="user__interact--name">Bán Sản Phẩm</div>
                         </div>
+                        <div class="user__interact--heading my-product">
+                            <img src="https://cdn-icons-png.flaticon.com/512/172/172120.png" alt=""
+                                class="user__interact--avatar">
+                            <div class="user__interact--name">Đơn Hàng</div>
+                        </div>
                         <div class="strike"></div>
                     </div>
                     <div class="col l-9 user__information">
@@ -588,6 +588,50 @@
                             </div>
                             <button class="btn btn--primary btn--product" type="submit">ĐĂNG BÁN</button>
                         </form>
+
+                    </div>
+                    <div class="col l-9 user__information unactive">
+                        <div class="user__information--heading">
+                            <div class="profile-title">Đơn Hàng</div>
+                            <div class="profile-description">Lịch sử mua hàng của bạn</div>
+                        </div>
+                        <div class="row user__information--content ">
+                            <div class="col l-11 user__info-text order-title">
+                                <div class="row ">
+                                    <div class="col l-3">Mã dơn hàng</div>
+                                    <div class="col l-4">Ngày đặt mua</div>
+                                    <div class="col l-5">Tổng số tiền</div>
+                                </div>
+                            </div>
+                            <div class="col l-11 user__info-text scroll_order">
+                                <div class="row order">
+                                    <div class="col l-3">Mã dơn hàng</div>
+                                    <div class="col l-4">Ngày đặt mua</div>
+                                    <div class="col l-5">Tổng số tiền</div>
+                                </div>
+                                <div class="row order">
+                                    <div class="col l-3">Mã dơn hàng</div>
+                                    <div class="col l-4">Ngày đặt mua</div>
+                                    <div class="col l-5">Tổng số tiền</div>
+                                </div>
+                                <div class="row order">
+                                    <div class="col l-3">Mã dơn hàng</div>
+                                    <div class="col l-4">Ngày đặt mua</div>
+                                    <div class="col l-5">Tổng số tiền</div>
+                                </div>
+                                <div class="row order">
+                                    <div class="col l-3">Mã dơn hàng</div>
+                                    <div class="col l-4">Ngày đặt mua</div>
+                                    <div class="col l-5">Tổng số tiền</div>
+                                </div>
+                                <div class="row order">
+                                    <div class="col l-3">Mã dơn hàng</div>
+                                    <div class="col l-4">Ngày đặt mua</div>
+                                    <div class="col l-5">Tổng số tiền</div>
+                                </div>
+                            </div>
+                            
+                        </div>
 
                     </div>
                 </div>
@@ -753,6 +797,163 @@
         </div>
     </div>
     <!-- Purchased-box: end -->
+    <!-- Order box: start -->
+    <div class="box--order">
+        <div class="ordered">
+            <div class="header__cart-list--special">
+                <h4 class="cart__heading--special order-heading">ĐƠN THANH TOÁN</h4>
+                <ul class="cart__item-list--special order-ul">
+                    <!-- Cart item -->
+                    <!-- Khi sản phẩm có tên dài có thể add class long-name vào thẻ chứa sản phẩm -->
+                    <!-- <li class="cart__item">
+                        <img src="https://vn-live-02.slatic.net/p/06399e99f48f6c77ba6b376a3305beaa.jpg" alt=""
+                            class="cart__item--img--special">
+                        <div class="cart__item--info">
+                            <div class="cart__item-head">
+                                <h5 class="cart__item-name--special long-name"></h5>
+                                <div class="cart__item-price-wrap">
+                                    <span class="cart__item-price"></span>
+                                    <span class="cart__item-multiply">x</span>
+                                    <span class="cart__item-quantity"></span>
+                                </div>
+                            </div>
+                            <div class="cart__item-body">
+                                <span class="cart__item-descript">
+                                    Phân loại: <span class="product-category--special purchased-box"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </li> -->
+                    <!-- <li class="cart__item">
+                        <img src="https://product.hstatic.net/200000343865/product/7_ban-pho-thong_poster_6933b5b6343a4c828d614ae9bec694a5_large.jpg"
+                            class="cart__item--img--special">
+                        <div class="cart__item--info">
+                            <div class="cart__item-head">
+                                <h5 class="cart__item-name--special">Hội chứng tuổi thanh xuân tập 7</h5>
+                                <div class="cart__item-price-wrap">
+                                    <span class="cart__item-price">270.000đ</span>
+                                    <span class="cart__item-multiply">x</span>
+                                    <span class="cart__item-quantity">3</span>
+                                </div>
+                            </div>
+                            <div class="cart__item-body">
+                                <span class="cart__item-descript">
+                                    Phân loại: <span class="product-category">Light Novel</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cart__item">
+                        <img src="https://cf.shopee.vn/file/512cde2f496fc83e8278a76b5bc36876_tn"
+                            class="cart__item--img--special">
+                        <div class="cart__item--info">
+                            <div class="cart__item-head">
+                                <h5 class="cart__item-name--special">Nhà có 5 nàng dâu Tập 13</h5>
+                                <div class="cart__item-price-wrap">
+                                    <span class="cart__item-price">60.000đ</span>
+                                    <span class="cart__item-multiply">x</span>
+                                    <span class="cart__item-quantity">2</span>
+                                </div>
+                            </div>
+                            <div class="cart__item-body">
+                                <span class="cart__item-descript">
+                                    Phân loại: <span class="product-category">Manga Nhật</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cart__item">
+                        <img src="https://cf.shopee.vn/file/8f457932ad0d02d169197ab224b739fc_tn"
+                            class="cart__item--img--special">
+                        <div class="cart__item--info">
+                            <div class="cart__item-head">
+                                <h5 class="cart__item-name--special">Figure Mai Sakurajima 80cm</h5>
+                                <div class="cart__item-price-wrap">
+                                    <span class="cart__item-price">580.000đ</span>
+                                    <span class="cart__item-multiply">x</span>
+                                    <span class="cart__item-quantity">1</span>
+                                </div>
+                            </div>
+                            <div class="cart__item-body">
+                                <span class="cart__item-descript">
+                                    Phân loại: <span class="product-category">Figure - Đồ chơi</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cart__item">
+                        <img src="https://cf.shopee.vn/file/39be19cc80a4ed52a8a38321ed50b711_tn"
+                            class="cart__item--img--special">
+                        <div class="cart__item--info">
+                            <div class="cart__item-head">
+                                <h5 class="cart__item-name--special">Figure K-On! Mio Akiyama</h5>
+                                <div class="cart__item-price-wrap">
+                                    <span class="cart__item-price">450.000đ</span>
+                                    <span class="cart__item-multiply">x</span>
+                                    <span class="cart__item-quantity">2</span>
+                                </div>
+                            </div>
+                            <div class="cart__item-body">
+                                <span class="cart__item-descript">
+                                    Phân loại: <span class="product-category">Figure - Đồ chơi</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cart__item">
+                        <img src="https://cf.shopee.vn/file/798fc4169d4000602146611d0578e04e" alt=""
+                            class="cart__item--img--special">
+                        <div class="cart__item--info">
+                            <div class="cart__item-head">
+                                <h5 class="cart__item-name--special">Nhân vật hạ cấp Tomozaki tập 1</h5>
+                                <div class="cart__item-price-wrap">
+                                    <span class="cart__item-price">500.000đ</span>
+                                    <span class="cart__item-multiply">x</span>
+                                    <span class="cart__item-quantity">5</span>
+                                </div>
+                            </div>
+                            <div class="cart__item-body">
+                                <span class="cart__item-descript">
+                                    Phân loại: <span class="product-category">Light Novel</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cart__item">
+                        <img src="https://product.hstatic.net/200000343865/product/thien-su-nha-ben_pho-thong_poster_355243c434124939b5921cb29f88a051_large.jpg"
+                            class="cart__item--img--special">
+                        <div class="cart__item--info">
+                            <div class="cart__item-head">
+                                <h5 class="cart__item-name--special">Thiên sứ nhà bên tập 3</h5>
+                                <div class="cart__item-price-wrap">
+                                    <span class="cart__item-price">450.000đ</span>
+                                    <span class="cart__item-multiply">x</span>
+                                    <span class="cart__item-quantity">5</span>
+                                </div>
+                            </div>
+                            <div class="cart__item-body">
+                                <span class="cart__item-descript">
+                                    Phân loại: <span class="product-category">Light Novel</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li> -->
+                </ul>
+                <div class="total-price">
+                    <div class="total-price__title">Tổng thanh toán: </div>
+                    <div class="total-price__amount orders-overAll">
+                        40.000đ
+                    </div>
+                </div>
+                <div class="button-wrap">
+                    <button class="btn btn--primary order-close">Đồng ý</button>
+                    <!-- <button class="btn btn--primary confirm" onclick="">Mua Hàng</button> -->
+                </div>
+            </div>
+            <!-- <button class = "btn btn--normal close">Trở lại</button>
+            <button class = "btn btn--primary confirm">Thanh toán</button> -->
+        </div>
+    </div>
     <!-- Footer: start -->
     <footer class="footer">
         <div class="grid grid-footer wide">

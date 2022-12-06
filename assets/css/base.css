@@ -211,6 +211,19 @@ html {
 }
 
 /* Purchased Box CSS */
+.box--purchased--special {
+    display: none;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    align-items: center;
+    justify-content: center;
+}
+
 .box--purchased {
     display: none;
     position: fixed;
@@ -226,6 +239,14 @@ html {
 
 
 .purchased {
+    background-color: var(--white-color);
+    /* min-width: 400px; */
+    /* min-height: 300px; */
+    /* width: 30vw; */
+    /* height: 50vh; */
+}
+
+.purchased--special {
     background-color: var(--white-color);
     /* min-width: 400px; */
     /* min-height: 300px; */
@@ -312,6 +333,14 @@ html {
 
 .close {
     margin-right: 20px;
+}
+
+.cart__item-list--special-2nd {
+    padding: 0 40px;
+    list-style: none;
+    max-height: 56.5vh;
+    overflow-y: auto;
+    border-bottom: 1px solid #f1f0ed;
 }
 
 .cart__item-list--special {
@@ -525,6 +554,11 @@ html {
     display: flex;
     justify-content: space-between;
 }
+
+.image-noproduct{
+    margin-top: 30px;
+}
+
 #form-3{
     width: 80%;
 }

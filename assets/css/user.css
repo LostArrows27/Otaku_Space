@@ -56,8 +56,10 @@
 
 .user__information--content {
     /* padding: 20px; */
-    width: 94%;
+    width: 100%;
     padding: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .padding-special {
@@ -174,3 +176,56 @@
     margin-right: 20px;
 }
 
+.order-title{
+    padding: 3px 0;
+    text-align: center;
+    font-size: 1.6rem;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+  
+}
+
+.order-title .col  {
+    padding: 0; 
+    
+}
+
+.order + .order{
+    margin-top: 0px;
+}
+
+.order .col{
+    padding: 12px 0;
+}
+.order{
+    margin-top:10px;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.order:hover{
+    cursor: pointer;
+    background-color: #d6d0d0;
+}
+.scroll_order{
+    height: 30vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.box--order{
+    display: none;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    align-items: center;
+    justify-content: center;
+}
+
+.ordered{
+    background-color: var(--white-color);
+}

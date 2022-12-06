@@ -9,6 +9,26 @@ allSubBg.forEach((e) => {
     }
 })
 
+// Getting shop information
+fetch(`http://localhost:5000/user_shop/${localStorage.getItem('shop_name')}`)
+    .then(response => response.json())
+    .then(myData => {
+        //see(myData);
+        var shop_info = myData.data[0][0];
+        var shop_products = myData.data[1];
+        query('#solded').textContent = shop_info.sold_amount;
+        query('#customer').textContent = shop_info.sold_amount;
+        // var shop_wrapper = document.querySelector('.shop_product_wrapper');
+        // var product_shop = query('.product__shop');
+        // var shop_pull = query('.shop-pull');
+        // product_shop.querySelector('.set-bg').style.backgroundImage = `url(${shop_info.image_profile})`;
+        // product_shop.querySelector('.shop__image-name').innerText = shop_info.user_nickName;
+        // product_shop.querySelector('.sold-count').innerText = shop_info.sold_amount;
+        // product_shop.querySelector('.customer-count').innerText = shop_info.sold_amount;
+        // product_shop.querySelector('.product-count').innerText = shop_products.length;
+        // localStorage.setItem("shop_sold",shop_info.sold_amount);
+  
+    });
 // Heart like button JS
 const heartButton = document.querySelector('.product-share--like');
 const heartIcon = document.querySelector('.share--like-icon');
@@ -38,10 +58,41 @@ query('.shop__btn.btn').onclick = e => {
     setTimeout(() => {
         console.log(localStorage.getItem('shop_name'));
        
-        fetch(`http://localhost:5000/user_shop/${localStorage.getItem('shop_name')}`)
-            .then(response => response.json())
-            .then(myData => see(myData))
-        // window.location.href = "shop.html";
+        
+            // .then(data => {
+            //     existProduct = queryAll('.home-product-item');
+            //     // see(existProduct);
+            //     existProduct.forEach(e => {
+            //         e.onclick = f => {
+            //             f.preventDefault();
+            //             redirectToProductPage(e.parentElement);
+            //         }
+            //     })
+            // })
+            // }).then(data => {
+            //     var randomProductArr = data.data;
+            //     //dsee(randomProductArr);
+            //     var productContainer = query('.home-product.wrapper-here .row.sm-gutter');
+            //     var productContainerHTML = "";
+            //     productContainerHTML = randomProductArr.reduce((a, b) => {
+            //         var productHTML = getProductHTML(b, "2-4");
+            //         return a + productHTML;
+            //     }, "");
+            //     productContainer.innerHTML = productContainerHTML;
+            //     productNLArray = queryAll('.home-product.wrapper-here .row .col.l-2-4.m-4.c-6');
+            //     return "Done !!";
+            // })
+            // .then(data => {
+            //     existProduct = queryAll('.home-product-item');
+            //     // see(existProduct);
+            //     existProduct.forEach(e => {
+            //         e.onclick = f => {
+            //             f.preventDefault();
+            //             redirectToProductPage(e.parentElement);
+            //         }
+            //     })
+            // })
+        window.location.href = "shop.html";
     }, 200)
 }
 

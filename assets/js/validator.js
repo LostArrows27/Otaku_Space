@@ -133,7 +133,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 body: JSON.stringify(data)
             })
                 .then(response => response.json())
-                .then(dataBackEnd => redirectToProductPageAfterPostProduct(dataBackEnd[0].product_id, data.productSale))
+                .then(dataBackEnd => {
+                    var info = dataBackEnd[1][0];
+                    redirectToProductPageAfterPostProduct(info.id, info.sale_percent)
+                })
         }
     });
 

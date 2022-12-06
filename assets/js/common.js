@@ -12,9 +12,14 @@ const logInMenuOnMobile = query('.navbar-list__item.navbar-user.hide.hide-specia
 const mobileNotLogIn = query('.mobile-menu-not-log-in');
 const tabletNotLogIn = query('.not-log-in-tablet')
 const myAvatar = queryAll('.navbar-user__avatar');
+const searchInput = query('.header-search__search-input')
+const searchResult = query('.history-search')
 var productNLArray;
 var logMobileBtn;
 var existProduct;
+var text;
+var searchRecently;
+var userSearchRecently;
 const singUpForm = query('#sign-up-form');
 if (singUpForm) {
     const signUpInput = singUpForm.querySelector('input')
@@ -37,6 +42,18 @@ window.onload = e => {
         logInMenuOnMobile.classList.remove('hide-special');
         mobileNotLogIn.style.display = 'none';
         tabletNotLogIn.style.display = 'none';
+        // Set up user history search
+        fetch("http://localhost:5000/userSearchHistory/" + localStorage.getItem("userid"))
+            .then(res => res.json())
+            .then(data => {
+                console.log('Search History: ');
+                see(data)
+                searchResult.innerHTML = data.reduce((a, b, c) => {
+                    var myHTML = `<li class="history-item"><a href="#" onclick="event.preventDefault()">${b.search_history}</a></li>`
+                    return c <= 4 ? a + myHTML : a;
+                }, "")
+                userSearchRecently = searchResult.innerHTML;
+            })
         // Set up user cart data
         fetch("http://localhost:5000/userCart/" + localStorage.getItem("userid"))
             .then(response => response.json())
@@ -78,8 +95,17 @@ window.onload = e => {
     } else {
         query('.header__cart-list').classList.add('header__cart-list--no-cart');
         query('.cart-notice').textContent = "0";
-        query('.header__search-history').textContent = "";
-        // Handle lich su tim kiem trong list hien ra
+        query('.history-heading').textContent = "Được tìm kiếm gần đây";
+        fetch(`http://localhost:5000/randomProduct/5`)
+            .then(res => res.json())
+            .then(data => {
+                data = data.data;
+                searchResult.innerHTML = data.reduce((a, b, c) => {
+                    var liHTML = `<li class="history-item" onclick="event.preventDefault();redirectToProductPageAfterPostProduct(${b.product_id}, ${b.sale_percent}, 100)" id="${b.owner_name}-${b.product_id}"><a href="#">${b.product_name}</a></li>`
+                    return c <= 4 ? a + liHTML : a;
+                }, "")
+                searchRecently = searchResult.innerHTML;
+            })
     }
     if (window.location.href.includes("no_login.html")) {
         fetch("http://localhost:5000/randomProduct/15")
@@ -219,17 +245,37 @@ if (logOut) {
 
 // Handle Search Option
 // .header-search__search-input:focus~.header__search-history
-const searchInput = query('.header-search__search-input')
-query('.header-search__search-btn').onclick = e => {
-    if(searchInput.value) {
+searchInput.onkeyup = e => {
+    text = searchInput.value;
+    if (text) {
         // 2 step
         // 1. send search history back to backend
         // 2. query products based on search value
-        fetch(`http://localhost:5000/searchProduct/${searchInput.value}/${localStorage.getItem("userid")}`)
-        .then(res => res.json())
-        .then(data => see(data))
+        fetch(`http://localhost:5000/searchProduct/${text}`)
+            .then(res => res.json())
+            .then(data => {
+                query('.history-heading').textContent = "Kết quả tìm kiếm"
+                searchResult.innerHTML = data.reduce((a, b, c) => {
+                    var liHTML = `<li class="history-item" onclick="event.preventDefault();redirectToProductPageAfterPostProduct(${b.product_id}, ${b.sale_percent}, 100)" id="${b.owner_name}-${b.product_id}"><a href="#">${b.product_name}</a></li>`
+                    return c <= 9 ? a + liHTML : a;
+                }, "")
+            })
     }
 }
+
+searchInput.onfocus = e => {
+    if (searchInput.value == "" && localStorage.getItem("login") == "success") {
+        query('.history-heading').textContent = "Lịch sử tìm kiếm gần đây";
+        // fetch('http://localhost:5000/searchHistory')
+        searchResult.innerHTML = userSearchRecently;
+    }
+    if(searchInput.value == "" && localStorage.getItem("login") == "null") {
+        query('.history-heading').textContent = "Gợi ý tìm kiếm sản phẩm";
+        searchResult.innerHTML = searchRecently;
+    }
+}
+
+// 
 
 
 // Cart Delete Function
@@ -294,6 +340,14 @@ if (logMobileBtn) {
     })
 }
 
+
+//My shop button
+var a = query('.my_shop');
+
+a.onclick = () =>{
+    localStorage.setItem('shop_name',localStorage.getItem('userid'));
+    window.location.href = "shop.html";
+}
 // Switch between log in and sign up form
 
 // Navigate to main page 
@@ -387,12 +441,26 @@ function redirectToProductPage(product) {
     window.location.href = "productPage.html";
 }
 
-function redirectToProductPageAfterPostProduct(productID, sale) {
-    setTimeout(() => {
-        localStorage.setItem("productSalePercent", sale)
-        localStorage.setItem("productID", productID)
-        window.location.href = "productPage.html";
-    }, 1000)
+function redirectToProductPageAfterPostProduct(productID, sale, duration = 1000) {
+    console.log('Get back now');
+    if (duration == 100 && localStorage.getItem("login") == "success") {
+        fetch(`http://localhost:5000/saveSearch/${text}/${localStorage.getItem("userid")}`)
+            .then(res => res.json())
+            .then(data => { return data })
+            .then(data2 => {
+                setTimeout(() => {
+                    localStorage.setItem("productSalePercent", sale)
+                    localStorage.setItem("productID", productID)
+                    window.location.href = "productPage.html";
+                }, duration)
+            })
+    } else {
+        setTimeout(() => {
+            localStorage.setItem("productSalePercent", sale)
+            localStorage.setItem("productID", productID)
+            window.location.href = "productPage.html";
+        }, duration)
+    }
 }
 
 function turnMoneyStringToNumber(money) {
@@ -450,5 +518,53 @@ function getProductHTML(productInfo, sign) {
     return myHTML;
 }
 
-
+function getBoxProduct(productInfo,ratio) {
+    var salePercent = productInfo.sale_percent;
+    var afterCellPrice = parseInt(productInfo.price) * (1 - salePercent / 100) / 1000;
+    var myHTML = `<div class="col l-${ratio} m-4 c-6 box_product"  productType="${productInfo.category}">
+    <div class="box_product_shop">
+        <div class = "${productInfo.product_id} ${productInfo.owner_name}"></div>
+        <a class="home-product-item" href="./productPage.html" onclick="event.preventDefault();redirectToProductPage(event.target.parentElement.parentElement)">
+            <div class="home-product-item__img"
+                style="background-image: url(${productInfo.main_image});">
+            </div>
+            <h4 class="home-product-item__name">
+                ${productInfo.product_name}
+            </h4>
+            <div class="home-product-item__price">
+                <span class="home-prodct-item__price--old">${numberWithCommas(productInfo.price)}đ</span>
+                <span class="home-prodct-item__price--new">${numberWithCommas(afterCellPrice.toFixed() * 1000)}đ</span>
+            </div>
+            <div class="home-product-item__action">
+                <span class="home-product-item__heart home-product-item__heart--liked">
+                    <i class="fa-regular fa-heart"></i>
+                    <!-- Heart Tim -->
+                    <i class="fa-solid fa-heart home-product-item__heart--liked-heart"></i>
+                </span>
+                <div class="home-product-item__rating">
+                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                    <i class="fa-solid fa-star home-product-item__gold"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span class="sold-item">${productInfo.sold_amount} đã bán</span>
+                </div>
+            </div>
+            <div class="home-product-item__origin">
+                <span class="home-product-item__brand">Kim Đồng</span>
+                <span class="home-product-item__name-city">Việt Nam</span>
+            </div>
+            <div class="home-product-item__favortie">
+                <i class="fa-solid fa-check"></i>
+                <span>Yêu thích</span>
+            </div>
+            <div class="home-product-item__sale-off">
+                <span class="home-product-item__sale-off-percent">${salePercent}%</span>
+                <span class="home-product-item__sale-off-label">GIẢM</span>
+            </div>
+        </a>
+        </div>
+    </div>`
+    return myHTML;
+}
 

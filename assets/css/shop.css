@@ -15,5 +15,15 @@
     border-color:white;
 }
 
+.box_product{
+    display: flex;
+    justify-content: center;
+}
+
+.box_product_shop{
+    width: 190px;
+    height: 100%;
+}
+
 
 

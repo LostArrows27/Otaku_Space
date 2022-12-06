@@ -29,6 +29,11 @@ function initEvents() {
 
     function reloadProduct(productArr) {
         const productWrap = query('.home-product .row');
+        if(productArr.length == 0) {
+            productWrap.innerHTML = `<img src="https://ohuivina.com/assets/images/no-cart.png" alt="" class = "image-noproduct">`
+            productWrap.parentElement.style = 'display: flex; justify-content: center';
+            return ;
+        }
         setTimeout(() => {
             productWrap.innerHTML = productArr.reduce((a, b) => {
                 return a + b.outerHTML;

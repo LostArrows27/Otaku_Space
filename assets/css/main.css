@@ -961,6 +961,11 @@
     display: block;
 }
 
+.header__search-history:hover{
+    display: block;
+}
+
+
 .history-heading {
     margin: 8px 12px;
     font-size: 1.4rem;
