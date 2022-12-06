@@ -14,7 +14,7 @@ const heartButton = document.querySelector('.product-share--like');
 const heartIcon = document.querySelector('.share--like-icon');
 const likeCount = document.querySelector('.like-counted');
 heartButton.onclick = (k) => {
-    if(localStorage.getItem("login") != "success") {
+    if (localStorage.getItem("login") != "success") {
         toast_message({ type: "loginPls", duration: 1000, msg: "Hãy đăng nhập trước !", icon: '<i class="fa-solid fa-triangle-exclamation"></i>' });
     } else {
         heartButton.classList.toggle('liked');
@@ -27,8 +27,8 @@ heartButton.onclick = (k) => {
             heartIcon.innerHTML = '<i class="fa-regular fa-heart"></i>'
         }
         fetch(`http://localhost:5000/updateProductLike/${localStorage.getItem('productID')}/${like}`)
-        .then(response => response.json())
-        .then(data => see(data))
+            .then(response => response.json())
+            .then(data => see(data))
         likeCount.textContent = like + "";
     }
 }
@@ -36,7 +36,12 @@ heartButton.onclick = (k) => {
 // Navigate to shop page JS
 query('.shop__btn.btn').onclick = e => {
     setTimeout(() => {
-        window.location.href = "shop.html";
+        console.log(localStorage.getItem('shop_name'));
+       
+        fetch(`http://localhost:5000/user_shop/${localStorage.getItem('shop_name')}`)
+            .then(response => response.json())
+            .then(myData => see(myData))
+        // window.location.href = "shop.html";
     }, 200)
 }
 
@@ -53,12 +58,12 @@ addToCartBtn.onclick = e => {
         query('.col.l-6.count-num').textContent = "0";
         itemFigure = 0;
         if (productCount != 0) {
-            toast_message({ type: "login", duration: 1000, msg: "Thêm vào giỏ hàng thành công", icon: '<i class="fa-solid fa-circle-check"></i>' });
             var checkProductInCart = query(`[id="${localStorage.getItem("userid")}-${localStorage.getItem("productID")}"]`);
             if (!checkProductInCart) {
+                toast_message({ type: "login", duration: 1000, msg: "Thêm vào giỏ hàng thành công", icon: '<i class="fa-solid fa-circle-check"></i>' });
                 query('.cart-notice').textContent = parseInt(query('.cart-notice').textContent) + 1;
-                query('.cart__item-list').innerHTML += 
-                `<li class="cart__item" id = "${localStorage.getItem("userid")}-${localStorage.getItem("productID")}"> 
+                query('.cart__item-list').innerHTML +=
+                    `<li class="cart__item" id = "${localStorage.getItem("userid")}-${localStorage.getItem("productID")}"> 
                     <img src="${query('.image-info--main.set-bg').style.backgroundImage.slice(4, -1).replace(/"/g, "")}" class="cart__item--img">
                     <div class="cart__item--info">
                         <div class="cart__item-head">
@@ -84,10 +89,15 @@ addToCartBtn.onclick = e => {
                 var myCSS = `[id="${localStorage.getItem("userid")}-${localStorage.getItem("productID")}"]`;
                 var myProductInCart = query(myCSS);
                 var myProductInCartCount = myProductInCart.querySelector('.cart__item-quantity');
-                myProductInCartCount.textContent = parseInt(myProductInCartCount.textContent) + productCount;
-                fetch(`http://localhost:5000/updateCart/${localStorage.getItem("productID")}/${localStorage.getItem("userid")}/${productCount}`)
-                    .then(response => response.json())
-                    .then(data => see(data))
+                if (parseInt(myProductInCartCount.textContent) + productCount > parseInt(query('.data-count').textContent)) {
+                    toast_message({ type: "loginPls", duration: 1000, msg: "Vượt quá số lượng sản phẩm đang có !", icon: '<i class="fa-solid fa-triangle-exclamation"></i>' });
+                } else {
+                    toast_message({ type: "login", duration: 1000, msg: "Thêm vào giỏ hàng thành công", icon: '<i class="fa-solid fa-circle-check"></i>' });
+                    myProductInCartCount.textContent = parseInt(myProductInCartCount.textContent) + productCount;
+                    fetch(`http://localhost:5000/updateCart/${localStorage.getItem("productID")}/${localStorage.getItem("userid")}/${productCount}`)
+                        .then(response => response.json())
+                        .then(data => see(data))
+                }
             }
         } else {
             toast_message({ type: "loginPls", duration: 1000, msg: "Hãy thêm sản phẩm trước !", icon: '<i class="fa-solid fa-circle-check"></i>' });

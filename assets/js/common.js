@@ -1,3 +1,5 @@
+
+
 // Constant
 const query = document.querySelector.bind(document);
 const queryAll = document.querySelectorAll.bind(document);
@@ -76,6 +78,8 @@ window.onload = e => {
     } else {
         query('.header__cart-list').classList.add('header__cart-list--no-cart');
         query('.cart-notice').textContent = "0";
+        query('.header__search-history').textContent = "";
+        // Handle lich su tim kiem trong list hien ra
     }
     if (window.location.href.includes("no_login.html")) {
         fetch("http://localhost:5000/randomProduct/15")
@@ -213,6 +217,21 @@ if (logOut) {
     })
 }
 
+// Handle Search Option
+// .header-search__search-input:focus~.header__search-history
+const searchInput = query('.header-search__search-input')
+query('.header-search__search-btn').onclick = e => {
+    if(searchInput.value) {
+        // 2 step
+        // 1. send search history back to backend
+        // 2. query products based on search value
+        fetch(`http://localhost:5000/searchProduct/${searchInput.value}/${localStorage.getItem("userid")}`)
+        .then(res => res.json())
+        .then(data => see(data))
+    }
+}
+
+
 // Cart Delete Function
 const cartList = query('.header__cart-list');
 const cart_notice = query('.cart-notice');
@@ -244,21 +263,19 @@ cartList.onclick = (e) => {
 }
 
 // Header Search Option Function
-const option = query('.header-option');
-option.onclick = e => {
-    var ele = e.target;
-    // span tag
-    if (!ele.classList.contains('header-option__item')) {
-        ele = ele.parentElement;
-    }
-    // ken ka shiteai ne 
-    if (!ele.classList.contains('header-option__item--active') && !ele.classList.contains('header-search__search-select')) {
-        const oldOption = query('.header-option__item.header-option__item--active');
-        toggleClass(oldOption, 'header-option__item--active', 'active');
-        toggleClass(ele, 'active', 'header-option__item--active');
-        query('.header-search__search-select-label').textContent = ele.querySelector('span').textContent;
-    }
-}
+// const option = query('.header-option');
+// option.onclick = e => {
+//     var ele = e.target;
+//     if (!ele.classList.contains('header-option__item')) {
+//         ele = ele.parentElement;
+//     }
+//     if (!ele.classList.contains('header-option__item--active') && !ele.classList.contains('header-search__search-select')) {
+//         const oldOption = query('.header-option__item.header-option__item--active');
+//         toggleClass(oldOption, 'header-option__item--active', 'active');
+//         toggleClass(ele, 'active', 'header-option__item--active');
+//         query('.header-search__search-select-label').textContent = ele.querySelector('span').textContent;
+//     }
+// }
 
 // Log In sign up on mobile
 if (logMobileBtn) {
@@ -360,8 +377,11 @@ function getRandomInt(min, max) {
 }
 
 function redirectToProductPage(product) {
+    console.log(product);
     var productID = product.querySelector('div').classList[0]
+    var shop_name = product.querySelector('div').classList[1];
     localStorage.setItem("productID", productID)
+    localStorage.setItem("shop_name", shop_name)
     var salePercent = product.querySelector('.home-product-item__sale-off-percent').textContent.split('%')[0];
     localStorage.setItem("productSalePercent", salePercent)
     window.location.href = "productPage.html";
