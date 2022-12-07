@@ -441,7 +441,22 @@ function redirectToProductPage(product) {
     window.location.href = "productPage.html";
 }
 
-function redirectToProductPageAfterPostProduct(productID, sale, duration = 1000) {
+// fetch("http://localhost:5000/getCategory")
+//     .then(res => res.json())
+//     .then(data => {
+//         see(data)
+//         query('.category-list').innerHTML = `<li class="category-item category-item--active">
+//                                             <a href="#" class="category-item__link">Tất Cả</a>
+//                                             </li>`
+//         data.forEach(e => {
+//             query('.category-list').innerHTML +=  `<li class="category-item">
+//                         <a href="#" class="category-item__link">${e.category}</a>
+//                                                 </li>`
+//         })
+//         initEvents();
+//     })
+
+function redirectToProductPageAfterPostProduct(productID, sale, userid , duration = 1000) {
     console.log('Get back now');
     if (duration == 100 && localStorage.getItem("login") == "success") {
         fetch(`http://localhost:5000/saveSearch/${text}/${localStorage.getItem("userid")}`)
@@ -458,6 +473,7 @@ function redirectToProductPageAfterPostProduct(productID, sale, duration = 1000)
         setTimeout(() => {
             localStorage.setItem("productSalePercent", sale)
             localStorage.setItem("productID", productID)
+            localStorage.setItem("shop_name", userid)
             window.location.href = "productPage.html";
         }, duration)
     }

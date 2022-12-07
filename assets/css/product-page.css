@@ -131,7 +131,7 @@
 }
 
 .product-info {
-    font-size: 3.4rem;
+    font-size: 3.5rem;
     font-weight: 400;
     line-height: normal;
     margin-bottom: 20px;
@@ -145,7 +145,7 @@
 
 .sold-count{
     color: var(--primary-color);
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .product-price {
@@ -153,7 +153,14 @@
     padding: 3%;
     max-width: 95%;
     margin: 20px;
+}
 
+.product-title{
+    /* font-size: 3rem; */
+}
+
+.row.sm-gutter.product-info{
+    margin-bottom: 30px;
 }
 
 .total-pr {

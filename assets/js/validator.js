@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 .then(response => response.json())
                 .then(dataBackEnd => {
                     var info = dataBackEnd[1][0];
-                    redirectToProductPageAfterPostProduct(info.id, info.sale_percent)
+                    redirectToProductPageAfterPostProduct(info.id, info.sale_percent, localStorage.getItem("userid"))
                 })
         }
     });

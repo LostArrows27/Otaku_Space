@@ -203,12 +203,13 @@ html {
 }
 
 .highlight-base {
-    background-color: var(--primary-color);
-    border-radius: 8px;
+    background: linear-gradient(0, #fe6433, #f53e2d);
+    opacity: 0.9;
+    border-radius: 12px;
     color: white;
     padding: 0px 8px;
 
-}
+} 
 
 /* Purchased Box CSS */
 .box--purchased--special {
