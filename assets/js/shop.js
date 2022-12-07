@@ -5,7 +5,7 @@ fetch(`http://localhost:5000/user_shop/${localStorage.getItem('shop_name')}`)
         //see(myData);
         var shop_info = myData.data[0][0];
         var shop_products = myData.data[1];
-
+        randomProductArr = myData.data[1];
         var shop_wrapper = document.querySelector('.shop_product_wrapper');
         var product_shop = query('.product__shop');
         var shop_pull = query('.shop-pull');
@@ -47,7 +47,8 @@ fetch(`http://localhost:5000/user_shop/${localStorage.getItem('shop_name')}`)
         productNLArray = queryAll('.shop_product_wrapper .col');
         if (shop_products.length == 0) {
             const productWrap = query('.home-product .row');
-            productWrap.innerHTML = `<img src="https://ohuivina.com/assets/images/no-cart.png" alt="" class = "image-noproduct">`
+            productWrap.innerHTML = `<div class = "no-product--heading">Người dùng này chưa đăng bán sản phẩm nào</div>
+            <img src="https://ohuivina.com/assets/images/no-cart.png" alt="" class = "image-noproduct" width = "300px">`
             productWrap.parentElement.classList.add('no-products')
         }
         return "Done !!";

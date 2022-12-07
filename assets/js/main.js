@@ -1,7 +1,7 @@
 // You have to saved all your product here before classify other function
 
-var pageBtnRight  = query('.btn--right');
-var pageBtnLeft  = query('.btn--left');
+var pageBtnRight = query('.btn--right');
+var pageBtnLeft = query('.btn--left');
 $(document).ready(function () {
     fetch("http://localhost:5000/getCategory")
         .then(res => res.json())
@@ -21,73 +21,69 @@ $(document).ready(function () {
 });
 
 function initEvents() {
-    // 
-    
     console.log(pageBtnRight.classList.contains('disabled-btn'));
     console.log(pageBtnLeft.classList.contains('disabled-btn'));
     pageBtnRight.onclick = (e) => {
-        console.log(randomProductArr);
-        if(!pageBtnRight.classList.contains('disabled-btn')) {
+        if (!pageBtnRight.classList.contains('disabled-btn')) {
             var productContainer = query('.home-product.wrapper-here .row.sm-gutter');
             var productContainerHTML = "";
             var trackInd;
-            productContainerHTML = randomProductArr.reduce((a, b,c) => {
+            productContainerHTML = randomProductArr.reduce((a, b, c) => {
                 var productHTML = getProductHTML(b, "2-4");
-                if(c <= currentInd+15 &&c > currentInd)  {
+                if (c <= currentInd + 15 && c > currentInd) {
                     trackInd = c;
                     return a + productHTML;
-                }else{
+                } else {
                     return a;
                 }
             }, "");
-            console.log(randomProductArr);
             currentInd = trackInd;
-            if(currentInd == randomProductArr.length-1) {
+            if (currentInd == randomProductArr.length - 1) {
                 pageBtnRight.classList.add('disabled-btn');
             }
-            if(pageBtnLeft.classList.contains('disabled-btn')){
+            if (pageBtnLeft.classList.contains('disabled-btn')) {
                 pageBtnLeft.classList.remove('disabled-btn');
             }
-            
+
             productContainer.innerHTML = productContainerHTML;
         }
-        
+
     }
 
     pageBtnLeft.onclick = (e) => {
-        
-        if(!pageBtnLeft.classList.contains('disabled-btn')) {
+
+        if (!pageBtnLeft.classList.contains('disabled-btn')) {
             var productContainer = query('.home-product.wrapper-here .row.sm-gutter');
             var productContainerHTML = "";
             var trackInd;
-            if(currentInd+1 % 15 != 0) {
-                while(currentInd  %15 != 0) {
+            if (currentInd + 1 % 15 != 0) {
+                while (currentInd % 15 != 0) {
                     currentInd++;
                     console.log(currentInd);
                 }
             }
             currentInd--;
             console.log(currentInd);
-            productContainerHTML = randomProductArr.reduce((a, b,c) => {
+            productContainerHTML = randomProductArr.reduce((a, b, c) => {
                 var productHTML = getProductHTML(b, "2-4");
-                if(c <= currentInd-15 &&c > currentInd-30) {
+                if (c <= currentInd - 15 && c > currentInd - 30) {
                     trackInd = c;
                     return a + productHTML;
-                }else{
+                } else {
                     return a;
                 }
-                
+
             }, "");
             currentInd = trackInd;
-            if(currentInd == 14) {
+            if (currentInd == 14) {
                 pageBtnLeft.classList.add('disabled-btn');
             }
-            if(pageBtnRight.classList.contains('disabled-btn')) {
+            if (pageBtnRight.classList.contains('disabled-btn')) {
                 pageBtnRight.classList.remove('disabled-btn');
             }
             productContainer.innerHTML = productContainerHTML;
         }
-        
+
     }
     // Phan loai san pham theo danh muc
     $('.category-item').click(function (event) {
@@ -97,21 +93,38 @@ function initEvents() {
             $('.category-item--active').removeClass('category-item--active');
             $(this).addClass('category-item--active');
             const productType = this.querySelector('a').textContent;
-            
-            if(productType == "Tất Cả") {
-                reloadProd(randomProductArr);
-                pageBtnRight.classList.remove('disabled-btn');
-                pageBtnLeft.classList.add('disabled-btn');
+
+            if (productType == "Tất Cả") {
+                if(randomProductArr.length == 0) {
+                    const productWrap = query('.home-product .row');
+                    productWrap.innerHTML = `<div class = "no-product--heading">Người dùng này chưa đăng bán sản phẩm nào</div>
+                    <img src="https://ohuivina.com/assets/images/no-cart.png" alt="" class = "image-noproduct" width = "300px">`
+                    productWrap.parentElement.classList.add('no-products')
+                } else {
+                    reloadProd(randomProductArr);
+                    pageBtnRight.classList.remove('disabled-btn');
+                    pageBtnLeft.classList.add('disabled-btn');
+                }
             }
-            else{
+            else {
                 const newArr = randomProductArr.filter(product => {
-                    return product.category == productType ;
+                    return product.category == productType;
                 })
-                reloadProd(newArr);
+                if(newArr.length == 0) {
+                    const productWrap = query('.home-product .row');
+                    productWrap.innerHTML = `<div class = "no-product--heading">Không có sản phẩm nào cho danh mục này</div>
+                    <img src="https://ohuivina.com/assets/images/no-cart.png" alt="" class = "image-noproduct" width = "300px">`
+                    productWrap.parentElement.classList.add('no-products')
+                }
+                else {
+                    const productWrap = query('.home-product .row');
+                    productWrap.parentElement.classList.remove('no-products')
+                    reloadProd(newArr);
+                }
                 pageBtnRight.classList.add('disabled-btn');
                 pageBtnLeft.classList.add('disabled-btn');
 
-            } 
+            }
         }
     })
 
@@ -126,7 +139,7 @@ function initEvents() {
     function reloadProd(allProd) {
         var productContainer = query('.home-product.wrapper-here .row.sm-gutter');
         var productContainerHTML = "";
-        productContainerHTML = allProd.reduce((a, b,c) => {
+        productContainerHTML = allProd.reduce((a, b, c) => {
             var productHTML = getProductHTML(b, "2-4");
             return c <= 14 ? a + productHTML : a;
         }, "");
@@ -162,39 +175,14 @@ function initEvents() {
             e.preventDefault();
             priceLabel.textContent = "Giá cao đến thấp";
             randomProductArr.sort(sortMy);
-            randomProductArr.forEach(e => {
-                see(e.price)
-            })
-            see('-----------------------------------------------------')
-//             price
-// : 
-// 40000
-// product_id
-// : 
-// 32
-// product_name
-// : 
-// "Sách - Những đứa trẻ đuổi theo tinh tú"
-// sale_percent
-// : 
-// 23
         } else {
             e.preventDefault();
             priceLabel.textContent = "Giá thấp đến cao";
-            randomProductArr.sort((a,b) => {
-                return a.price*(100-a.sale_percent)/100 -  b.price*(100-b.sale_percent)/100;
+            randomProductArr.sort((a, b) => {
+                return a.price * (100 - a.sale_percent) / 100 - b.price * (100 - b.sale_percent) / 100;
             });
         }
         setTimeout(() => {
-            // window.location.reload();
-            // var productContainer = query('.home-product.wrapper-here .row.sm-gutter');
-            // var productContainerHTML = "";
-            // productContainerHTML = randomProductArr.reduce((a, b,c) => {
-            //     var productHTML = getProductHTML(b, "2-4");
-            //     return c <= 14 ? a + productHTML : a;
-            // }, "");
-            // productContainer.innerHTML = productContainerHTML;
-            // currentInd = 14;
             reloadProd(randomProductArr);
         }, 300);
     }
@@ -243,8 +231,8 @@ function initEvents() {
         return extractPrice(b) - extractPrice(a);
     }
 
-    function sortMy(a,b) {
-        return b.price*(100-b.sale_percent)/100 -  a.price*(100-a.sale_percent)/100;
+    function sortMy(a, b) {
+        return b.price * (100 - b.sale_percent) / 100 - a.price * (100 - a.sale_percent) / 100;
     }
 
     function shuffleProduct(array) {
