@@ -1198,7 +1198,9 @@
     height: 36px;
     background-color: white;
 }
-
+.home-filter__page-btn:hover{
+    cursor: pointer;
+}
 .home-filter__page-icon {
     font-size: 1rem;
     font-weight: 400;

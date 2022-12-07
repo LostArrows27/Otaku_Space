@@ -594,9 +594,18 @@ html {
     flex-direction: column;
 }
 
+.padding-more{
+    padding-bottom: 40px;
+}
+
 .form-label,
 .form-message {
     text-align: left;
+}
+
+.no-products{
+    display: flex;
+    justify-content: center;
 }
 
 .form-label {

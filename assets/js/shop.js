@@ -14,7 +14,7 @@ fetch(`http://localhost:5000/user_shop/${localStorage.getItem('shop_name')}`)
         product_shop.querySelector('.sold-count').innerText = shop_info.sold_amount;
         product_shop.querySelector('.customer-count').innerText = shop_info.sold_amount;
         product_shop.querySelector('.product-count').innerText = shop_products.length;
-        localStorage.setItem("shop_sold",shop_info.sold_amount);
+        localStorage.setItem("shop_sold", shop_info.sold_amount);
         console.log(shop_pull, 'hello');
         var clone_shop_products = shop_products;
         var shopHtml = shop_products.reduce((acc, product) => {
@@ -24,20 +24,20 @@ fetch(`http://localhost:5000/user_shop/${localStorage.getItem('shop_name')}`)
         clone_shop_products.sort((a, b) => {
             return b.sold_amount - a.sold_amount;
         })
-        
+
         var divided;
-        if(clone_shop_products.length <=6) {
-            divided = clone_shop_products.length != 5 ? 12/ clone_shop_products.length+'':'2-4';
-        }else{
-            clone_shop_products = clone_shop_products.slice(0,6);
+        if (clone_shop_products.length <= 6) {
+            divided = clone_shop_products.length != 5 ? 12 / clone_shop_products.length + '' : '2-4';
+        } else {
+            clone_shop_products = clone_shop_products.slice(0, 6);
             divided = 2;
         }
-        
+
         var topProductHtml = clone_shop_products.reduce((acc, product) => {
-            var producthtml = getBoxProduct(product,divided);
+            var producthtml = getBoxProduct(product, divided);
             return acc + producthtml;
         }, '')
-       
+
 
         // var space_left = 12 - count * 2;
         // var space_one_columm = space_left / 2;
@@ -45,6 +45,11 @@ fetch(`http://localhost:5000/user_shop/${localStorage.getItem('shop_name')}`)
         shop_pull.innerHTML = topProductHtml;
         shop_wrapper.innerHTML = shopHtml;
         productNLArray = queryAll('.shop_product_wrapper .col');
+        if (shop_products.length == 0) {
+            const productWrap = query('.home-product .row');
+            productWrap.innerHTML = `<img src="https://ohuivina.com/assets/images/no-cart.png" alt="" class = "image-noproduct">`
+            productWrap.parentElement.classList.add('no-products')
+        }
         return "Done !!";
     });
 
@@ -74,10 +79,10 @@ function classifyProduct(productType) {
 function reloadProduct(productArr) {
     // shop no product hien ra
     const productWrap = query('.home-product .row');
-    if(productArr.length == 0) {
+    if (productArr.length == 0) {
         productWrap.innerHTML = `<img src="https://ohuivina.com/assets/images/no-cart.png" alt="" class = "image-noproduct">`
         productWrap.parentElement.style = 'display: flex; justify-content: center';
-        return ;
+        return;
     }
     setTimeout(() => {
         productWrap.innerHTML = productArr.reduce((a, b) => {

@@ -8,6 +8,7 @@ var closeBtn
 fetch('http://localhost:5000/userOrder/' + localStorage.getItem('userid'))
     .then(res => res.json())
     .then(data => {
+        data.reverse();
         query('.col.l-11.user__info-text.scroll_order').innerHTML = data.reduce((a, b) => {
             var myReceipt = `<div class="row order test">
                                 <div class="col l-3 order-id">${b.orderid}</div>

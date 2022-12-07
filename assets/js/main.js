@@ -1,24 +1,94 @@
 // You have to saved all your product here before classify other function
 
-
+var pageBtnRight  = query('.btn--right');
+var pageBtnLeft  = query('.btn--left');
 $(document).ready(function () {
     fetch("http://localhost:5000/getCategory")
-    .then(res => res.json())
-    .then(data => {
-        see(data)
-        query('.category-list').innerHTML = `<li class="category-item category-item--active">
+        .then(res => res.json())
+        .then(data => {
+            see(data)
+            query('.category-list').innerHTML = `<li class="category-item category-item--active">
                                             <a href="#" class="category-item__link">Tất Cả</a>
                                             </li>`
-        data.forEach(e => {
-            query('.category-list').innerHTML +=  `<li class="category-item">
+            data.forEach(e => {
+                query('.category-list').innerHTML += `<li class="category-item">
                         <a href="#" class="category-item__link">${e.category}</a>
-                                                </li>`
+                                                </li>`;
+                allProduct.push([{ category: e.category, product: [] }]);
+            })
+            initEvents();
         })
-        initEvents();
-    })
 });
 
 function initEvents() {
+    // 
+    
+    console.log(pageBtnRight.classList.contains('disabled-btn'));
+    console.log(pageBtnLeft.classList.contains('disabled-btn'));
+    pageBtnRight.onclick = (e) => {
+        console.log(randomProductArr);
+        if(!pageBtnRight.classList.contains('disabled-btn')) {
+            var productContainer = query('.home-product.wrapper-here .row.sm-gutter');
+            var productContainerHTML = "";
+            var trackInd;
+            productContainerHTML = randomProductArr.reduce((a, b,c) => {
+                var productHTML = getProductHTML(b, "2-4");
+                if(c <= currentInd+15 &&c > currentInd)  {
+                    trackInd = c;
+                    return a + productHTML;
+                }else{
+                    return a;
+                }
+            }, "");
+            console.log(randomProductArr);
+            currentInd = trackInd;
+            if(currentInd == randomProductArr.length-1) {
+                pageBtnRight.classList.add('disabled-btn');
+            }
+            if(pageBtnLeft.classList.contains('disabled-btn')){
+                pageBtnLeft.classList.remove('disabled-btn');
+            }
+            
+            productContainer.innerHTML = productContainerHTML;
+        }
+        
+    }
+
+    pageBtnLeft.onclick = (e) => {
+        
+        if(!pageBtnLeft.classList.contains('disabled-btn')) {
+            var productContainer = query('.home-product.wrapper-here .row.sm-gutter');
+            var productContainerHTML = "";
+            var trackInd;
+            if(currentInd+1 % 15 != 0) {
+                while(currentInd  %15 != 0) {
+                    currentInd++;
+                    console.log(currentInd);
+                }
+            }
+            currentInd--;
+            console.log(currentInd);
+            productContainerHTML = randomProductArr.reduce((a, b,c) => {
+                var productHTML = getProductHTML(b, "2-4");
+                if(c <= currentInd-15 &&c > currentInd-30) {
+                    trackInd = c;
+                    return a + productHTML;
+                }else{
+                    return a;
+                }
+                
+            }, "");
+            currentInd = trackInd;
+            if(currentInd == 14) {
+                pageBtnLeft.classList.add('disabled-btn');
+            }
+            if(pageBtnRight.classList.contains('disabled-btn')) {
+                pageBtnRight.classList.remove('disabled-btn');
+            }
+            productContainer.innerHTML = productContainerHTML;
+        }
+        
+    }
     // Phan loai san pham theo danh muc
     $('.category-item').click(function (event) {
         var test = $(this).hasClass('category-item--active');
@@ -27,25 +97,53 @@ function initEvents() {
             $('.category-item--active').removeClass('category-item--active');
             $(this).addClass('category-item--active');
             const productType = this.querySelector('a').textContent;
-            reloadProduct(classifyProduct(productType));
+            
+            if(productType == "Tất Cả") {
+                reloadProd(randomProductArr);
+                pageBtnRight.classList.remove('disabled-btn');
+                pageBtnLeft.classList.add('disabled-btn');
+            }
+            else{
+                const newArr = randomProductArr.filter(product => {
+                    return product.category == productType ;
+                })
+                reloadProd(newArr);
+                pageBtnRight.classList.add('disabled-btn');
+                pageBtnLeft.classList.add('disabled-btn');
+
+            } 
         }
     })
 
     function classifyProduct(productType) {
-        const productArr = Array.prototype.slice.call(productNLArray);
-        if (productType == "Tất Cả") return productArr;
+        // const productArr = Array.prototype.slice.call(randomProductArr);
         const newArr = productArr.filter(e => {
             return e.getAttribute("producttype") == productType;
         })
         return newArr;
     }
 
+    function reloadProd(allProd) {
+        var productContainer = query('.home-product.wrapper-here .row.sm-gutter');
+        var productContainerHTML = "";
+        productContainerHTML = allProd.reduce((a, b,c) => {
+            var productHTML = getProductHTML(b, "2-4");
+            return c <= 14 ? a + productHTML : a;
+        }, "");
+        productContainer.innerHTML = productContainerHTML;
+        currentInd = 14;
+    }
+
     function reloadProduct(productArr) {
         const productWrap = query('.home-product .row');
-        if(productArr.length == 0) {
+        if (productArr.length == 0) {
             productWrap.innerHTML = `<img src="https://ohuivina.com/assets/images/no-cart.png" alt="" class = "image-noproduct">`
-            productWrap.parentElement.style = 'display: flex; justify-content: center';
-            return ;
+            productWrap.parentElement.classList.add('no-products')
+            return;
+        } else {
+            setTimeout(() => {
+                productWrap.parentElement.classList.remove('no-products')
+            }, 300);
         }
         setTimeout(() => {
             productWrap.innerHTML = productArr.reduce((a, b) => {
@@ -58,21 +156,46 @@ function initEvents() {
     const productWrap = query('.home-product .row');
     const priceLabel = query('.select-input__label');
     query('.select-input__list').onclick = (e) => {
-        const productNLArrayNew = queryAll('.home-product .row .col.l-2-4.m-4.c-6');
-        const productArray = Array.prototype.slice.call(productNLArrayNew);
+        // const productNLArrayNew = queryAll('.home-product .row .col.l-2-4.m-4.c-6');
+        // const productArray = Array.prototype.slice.call(productNLArrayNew);
         if (e.target.classList.contains('high-price')) {
             e.preventDefault();
             priceLabel.textContent = "Giá cao đến thấp";
-            productArray.sort(highPriceSort);
+            randomProductArr.sort(sortMy);
+            randomProductArr.forEach(e => {
+                see(e.price)
+            })
+            see('-----------------------------------------------------')
+//             price
+// : 
+// 40000
+// product_id
+// : 
+// 32
+// product_name
+// : 
+// "Sách - Những đứa trẻ đuổi theo tinh tú"
+// sale_percent
+// : 
+// 23
         } else {
             e.preventDefault();
             priceLabel.textContent = "Giá thấp đến cao";
-            productArray.sort(lowPriceSort);
+            randomProductArr.sort((a,b) => {
+                return a.price*(100-a.sale_percent)/100 -  b.price*(100-b.sale_percent)/100;
+            });
         }
         setTimeout(() => {
-            productWrap.innerHTML = productArray.reduce((a, b) => {
-                return a + b.outerHTML;
-            }, "");
+            // window.location.reload();
+            // var productContainer = query('.home-product.wrapper-here .row.sm-gutter');
+            // var productContainerHTML = "";
+            // productContainerHTML = randomProductArr.reduce((a, b,c) => {
+            //     var productHTML = getProductHTML(b, "2-4");
+            //     return c <= 14 ? a + productHTML : a;
+            // }, "");
+            // productContainer.innerHTML = productContainerHTML;
+            // currentInd = 14;
+            reloadProd(randomProductArr);
         }, 300);
     }
 
@@ -105,7 +228,7 @@ function initEvents() {
 
     // Small Function for all Function above
     function extractPrice(product) {
-        return product.querySelector('.home-prodct-item__price--new').textContent.split('.')[0];
+        return turnMoneyStringToNumber(product.querySelector('.home-prodct-item__price--new').textContent.split('đ')[0])
     }
 
     function extractSell(product) {
@@ -118,6 +241,10 @@ function initEvents() {
 
     function highPriceSort(a, b) {
         return extractPrice(b) - extractPrice(a);
+    }
+
+    function sortMy(a,b) {
+        return b.price*(100-b.sale_percent)/100 -  a.price*(100-a.sale_percent)/100;
     }
 
     function shuffleProduct(array) {

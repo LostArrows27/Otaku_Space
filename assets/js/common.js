@@ -14,12 +14,15 @@ const tabletNotLogIn = query('.not-log-in-tablet')
 const myAvatar = queryAll('.navbar-user__avatar');
 const searchInput = query('.header-search__search-input')
 const searchResult = query('.history-search')
+var allProduct = [];
 var productNLArray;
 var logMobileBtn;
 var existProduct;
 var text;
+var currentInd;
 var searchRecently;
 var userSearchRecently;
+var randomProductArr;
 const singUpForm = query('#sign-up-form');
 if (singUpForm) {
     const signUpInput = singUpForm.querySelector('input')
@@ -108,19 +111,22 @@ window.onload = e => {
             })
     }
     if (window.location.href.includes("no_login.html")) {
-        fetch("http://localhost:5000/randomProduct/15")
+        fetch("http://localhost:5000/allProduct/")
             .then(response => response.json())
             .then(data => {
-                var randomProductArr = data.data;
+                randomProductArr = data.data;
                 // see(randomProductArr);
                 var productContainer = query('.home-product.wrapper-here .row.sm-gutter');
                 var productContainerHTML = "";
-                productContainerHTML = randomProductArr.reduce((a, b) => {
+                var countLimit = 15;
+                productContainerHTML = randomProductArr.reduce((a, b,c) => {
                     var productHTML = getProductHTML(b, "2-4");
-                    return a + productHTML;
+                    return c <= 14 ? a + productHTML : a;
                 }, "");
                 productContainer.innerHTML = productContainerHTML;
+                currentInd = 14;
                 productNLArray = queryAll('.home-product.wrapper-here .row .col.l-2-4.m-4.c-6');
+                // productType=
                 return "Done !!";
             })
             .then(data => {
@@ -133,6 +139,7 @@ window.onload = e => {
                     }
                 })
             })
+      
     }
     if (window.location.href.includes("productPage.html")) {
         // Take Random Product
