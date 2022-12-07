@@ -2,7 +2,20 @@
 
 
 $(document).ready(function () {
-    initEvents();
+    fetch("http://localhost:5000/getCategory")
+    .then(res => res.json())
+    .then(data => {
+        see(data)
+        query('.category-list').innerHTML = `<li class="category-item category-item--active">
+                                            <a href="#" class="category-item__link">Tất Cả</a>
+                                            </li>`
+        data.forEach(e => {
+            query('.category-list').innerHTML +=  `<li class="category-item">
+                        <a href="#" class="category-item__link">${e.category}</a>
+                                                </li>`
+        })
+        initEvents();
+    })
 });
 
 function initEvents() {

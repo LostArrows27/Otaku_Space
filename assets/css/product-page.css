@@ -145,14 +145,14 @@
 
 .sold-count{
     color: var(--primary-color);
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .product-price {
     background-color: rgba(118, 135, 121, 0.1);
     padding: 3%;
     max-width: 95%;
-    margin: 20px;
+    margin: 35px 20px 20px 20px;
 }
 
 .product-title{
@@ -248,15 +248,20 @@
 }
 
 .btn--add {
-    color: #ee4d2d;
+    color: #377DA6;
     height: 48px;
-    background-color: rgb(255, 245, 241);
-    border: 1px solid #ee4d2d;
+    background-color: rgba(55, 125, 166, 0.1);
+    border: 1px solid #377DA6;
     padding: 20px;
 }
 
+.btn--new{
+    color: #377DA6 !important;  
+
+}
+
 .btn--add:hover {
-    background-color: rgba(255, 245, 241, 0.5);
+    background-color: rgba(55, 125, 166, 0.2);
 }
 
 .btn--shopping:hover {
@@ -315,14 +320,14 @@
 }
 
 .shop__btn {
-    border: 1px solid #EE4D2D;
+    border: 1px solid #377DA6;
     color: red;
     font-weight: 300;
-    background-color: rgb(255,245,241);
+    background-color: rgba(55, 125, 166, 0.1);
 }
 
 .shop__btn:hover{
-    background-color: rgba(255, 245, 241, 0.5);
+    background-color: rgba(55, 125, 166, 0.2);
 }
 
 .shop__btn-icon {
@@ -357,7 +362,7 @@
 }
 
 .shop__information span {
-    color: #EE4D2D;
+    color: var(--primary-color);
 }
 
 .info-first {

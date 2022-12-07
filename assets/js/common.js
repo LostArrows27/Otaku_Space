@@ -351,10 +351,10 @@ a.onclick = () =>{
 // Switch between log in and sign up form
 
 // Navigate to main page 
-const main_page = query('.header__logo-img');
+const main_page = query('.header__logo-img-g');
 main_page.onclick = e => {
     var mouse = e.target;
-    if (mouse.closest('.header__logo-img')) {
+    if (mouse.closest('.header__logo-img-g')) {
         setTimeout(() => {
             window.location.href = "no_login.html";
         }, 300);
@@ -441,20 +441,7 @@ function redirectToProductPage(product) {
     window.location.href = "productPage.html";
 }
 
-// fetch("http://localhost:5000/getCategory")
-//     .then(res => res.json())
-//     .then(data => {
-//         see(data)
-//         query('.category-list').innerHTML = `<li class="category-item category-item--active">
-//                                             <a href="#" class="category-item__link">Tất Cả</a>
-//                                             </li>`
-//         data.forEach(e => {
-//             query('.category-list').innerHTML +=  `<li class="category-item">
-//                         <a href="#" class="category-item__link">${e.category}</a>
-//                                                 </li>`
-//         })
-//         initEvents();
-//     })
+
 
 function redirectToProductPageAfterPostProduct(productID, sale, userid , duration = 1000) {
     console.log('Get back now');

@@ -3,9 +3,9 @@
     --black-color: #000;
     --text-color: #333;
     --theme-color: #ffeba7;
-    --primary-color: #ee4d2d;
+    --primary-color:  #3A6AB1 ;
     --saleOff-color: rgba(255, 216, 64, 0.93);
-    --primary-color-rgba: rgb(238, 77, 45);
+    --primary-color-rgba: rgb(25,109,174);
     --navbar-height: 32px;
     --header-height: 120px;
     --sort-bar-height: 46px;
@@ -203,7 +203,7 @@ html {
 }
 
 .highlight-base {
-    background: linear-gradient(0, #fe6433, #f53e2d);
+    background: linear-gradient(90deg, #377DA6,#1BC4E5 );
     opacity: 0.9;
     border-radius: 12px;
     color: white;
