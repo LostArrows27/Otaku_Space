@@ -29,7 +29,7 @@ if (singUpForm) {
 }
 
 window.onload = e => {
-    console.log(window.location.href);
+   
     if (localStorage.getItem("login") == "success") {
         queryAll('.user-login-name').forEach(e => {
             e.textContent = localStorage.getItem("fullname");

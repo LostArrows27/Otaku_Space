@@ -18,7 +18,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
     <!-- End Link Font -->
-    <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css" rel="stylesheet"
+        type="text/css" />
     <link rel="stylesheet" href="./assets/css/grid.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
@@ -43,7 +44,7 @@
             </div>
             <div class="toast--runtime"></div>
         </div> -->
-        
+
     </div>
     <div class="app">
         <!-- Header: start -->
@@ -1608,9 +1609,15 @@
         </div>
     </div>
     <script src="./assets/jQuery/jquery-3.6.0.js"></script>
-    <script src="./assets/js/common.js"></script>
+    <script>
+
+        if (!window.location.href.includes('user.html') && !window.location.href.includes('shop.html') && !(window.location.href.includes('page.html') && !window.location.href.includes('no_login.html'))) {
+            window.location.href = "/no_login.html"
+        } 
+    </script>
+    <!-- <script src="./assets/js/common.js"></script>
     <script src="./assets/js/main.js"></script>
-    <script src="./assets/js/purchased.js"></script>
+    <script src="./assets/js/purchased.js"></script> -->
 </body>
 
 </html>
