@@ -92,7 +92,7 @@ query('.shop__btn.btn').onclick = e => {
             //         }
             //     })
             // })
-        window.location.href = "shop.html";
+        window.location.href = "/shop.html";
     }, 200)
 }
 

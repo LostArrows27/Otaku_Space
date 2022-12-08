@@ -243,7 +243,7 @@ if (logOut) {
                 localStorage.setItem("login", null)
                 toast_message({ type: "login", duration: 1000, msg: "Đăng xuất thành công !", icon: '<i class="fa-solid fa-circle-check"></i>' });
                 setTimeout(() => {
-                    window.location.href = "no_login.html";
+                    window.location.href = "/no_login.html";
                 }, 1500)
             }
         }
@@ -353,7 +353,7 @@ var a = query('.my_shop');
 
 a.onclick = () =>{
     localStorage.setItem('shop_name',localStorage.getItem('userid'));
-    window.location.href = "shop.html";
+    window.location.href = "/shop.html";
 }
 // Switch between log in and sign up form
 
@@ -363,7 +363,7 @@ main_page.onclick = e => {
     var mouse = e.target;
     if (mouse.closest('.header__logo-img-g')) {
         setTimeout(() => {
-            window.location.href = "no_login.html";
+            window.location.href = "/no_login.html";
         }, 300);
     }
 }
@@ -421,7 +421,7 @@ function numberWithCommas(x) {
 
 function redirection() {
     setTimeout(() => {
-        window.location.href = "shop.html";
+        window.location.href = "/shop.html";
     }, 200)
 }
 
@@ -445,7 +445,7 @@ function redirectToProductPage(product) {
     localStorage.setItem("shop_name", shop_name)
     var salePercent = product.querySelector('.home-product-item__sale-off-percent').textContent.split('%')[0];
     localStorage.setItem("productSalePercent", salePercent)
-    window.location.href = "productPage.html";
+    window.location.href = "/productPage.html";
 }
 
 
@@ -460,7 +460,7 @@ function redirectToProductPageAfterPostProduct(productID, sale, userid , duratio
                 setTimeout(() => {
                     localStorage.setItem("productSalePercent", sale)
                     localStorage.setItem("productID", productID)
-                    window.location.href = "productPage.html";
+                    window.location.href = "/productPage.html";
                 }, duration)
             })
     } else {
@@ -468,7 +468,7 @@ function redirectToProductPageAfterPostProduct(productID, sale, userid , duratio
             localStorage.setItem("productSalePercent", sale)
             localStorage.setItem("productID", productID)
             localStorage.setItem("shop_name", userid)
-            window.location.href = "productPage.html";
+            window.location.href = "/productPage.html";
         }, duration)
     }
 }

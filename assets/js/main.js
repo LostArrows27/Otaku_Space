@@ -102,6 +102,7 @@ function initEvents() {
                     productWrap.parentElement.classList.add('no-products')
                 } else {
                     reloadProd(randomProductArr);
+                    productWrap.parentElement.classList.remove('no-products')
                     pageBtnRight.classList.remove('disabled-btn');
                     pageBtnLeft.classList.add('disabled-btn');
                 }
