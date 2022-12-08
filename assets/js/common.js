@@ -110,7 +110,7 @@ window.onload = e => {
                 searchRecently = searchResult.innerHTML;
             })
     }
-    if (window.location.href.includes("no_login.html")) {
+    if (window.location.href.includes("nologin.html")) {
         fetch("http://localhost:5000/allProduct/")
             .then(response => response.json())
             .then(data => {
@@ -243,7 +243,7 @@ if (logOut) {
                 localStorage.setItem("login", null)
                 toast_message({ type: "login", duration: 1000, msg: "Đăng xuất thành công !", icon: '<i class="fa-solid fa-circle-check"></i>' });
                 setTimeout(() => {
-                    window.location.href = "/no_login.html";
+                    window.location.href = "/nologin.html";
                 }, 1500)
             }
         }
@@ -363,7 +363,7 @@ main_page.onclick = e => {
     var mouse = e.target;
     if (mouse.closest('.header__logo-img-g')) {
         setTimeout(() => {
-            window.location.href = "/no_login.html";
+            window.location.href = "/nologin.html";
         }, 300);
     }
 }
@@ -371,7 +371,7 @@ main_page.onclick = e => {
 // Handle buy in cart while no-login => force user to do login step
 var path = window.location.pathname;
 var page = path.split("/").pop();
-if (page == "no_login.html") {
+if (page == "nologin.html") {
     // another handle
 }
 
