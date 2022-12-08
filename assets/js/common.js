@@ -51,6 +51,7 @@ window.onload = e => {
             .then(data => {
                 console.log('Search History: ');
                 see(data)
+                data.reverse();
                 searchResult.innerHTML = data.reduce((a, b, c) => {
                     var myHTML = `<li class="history-item"><a href="#" onclick="event.preventDefault()">${b.search_history}</a></li>`
                     return c <= 4 ? a + myHTML : a;
@@ -172,6 +173,7 @@ window.onload = e => {
             .then(data => {
                 // productSalePercent
                 var productData = data.data[0];
+                localStorage.setItem("shop_name", productData.owner_name)
                 // localStorage.setItem("shop_name", productData.owner_name);
                 // localStorage.setItem("shop_image", productData.image_profile);
                 // localStorage.setItem("shop_product_count", productData.shop_count);
@@ -451,8 +453,8 @@ function redirectToProductPage(product) {
 
 
 function redirectToProductPageAfterPostProduct(productID, sale, userid , duration = 1000) {
-    console.log('Get back now');
-    if (duration == 100 && localStorage.getItem("login") == "success") {
+    console.log('Get back now', userid);
+    if (userid == 100 && localStorage.getItem("login") == "success") {
         fetch(`http://localhost:5000/saveSearch/${text}/${localStorage.getItem("userid")}`)
             .then(res => res.json())
             .then(data => { return data })
