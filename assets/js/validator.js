@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log(localStorage.getItem("img"));
                         toast_message({ type: "login", duration: 1000, msg: "Đăng nhập thành công !", icon: '<i class="fa-solid fa-circle-check"></i>' });
                         setTimeout(() => {
-                            window.location.href = "/no_logIn.htmln.html";
+                            window.location.href = "/no_logIn.html";
                         }, 1500)
                     }
                 })
