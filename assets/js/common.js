@@ -463,7 +463,7 @@ function redirectToProductPageAfterPostProduct(productID, sale, userid , duratio
                     localStorage.setItem("productSalePercent", sale)
                     localStorage.setItem("productID", productID)
                     window.location.href = "/productPage.html";
-                }, duration)
+                }, 100)
             })
     } else {
         setTimeout(() => {
