@@ -96,7 +96,7 @@ if (confirmBox) {
                 buyDate: `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`
             };
             console.log(receiptData);
-            fetch('http://localhost:5000/receipt_data', {
+            fetch('https://web-database.vercel.app/receipt_data', {
                 headers: {
                     'Content-type': 'application/json'
                 },
@@ -123,7 +123,7 @@ if (confirmBox) {
             cartListUL.innerHTML = "";
             cart_notice.innerHTML = "0";
 
-            fetch('http://localhost:5000/buyFromCart', {
+            fetch('https://web-database.vercel.app/buyFromCart', {
                 headers: {
                     'Content-type': 'application/json'
                 },

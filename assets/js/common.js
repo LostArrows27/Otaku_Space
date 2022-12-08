@@ -49,7 +49,7 @@ window.onload = e => {
         mobileNotLogIn.style.display = 'none';
         tabletNotLogIn.style.display = 'none';
         // Set up user history search
-        fetch("http://localhost:5000/userSearchHistory/" + localStorage.getItem("userid"))
+        fetch("https://web-database.vercel.app/userSearchHistory/" + localStorage.getItem("userid"))
             .then(res => res.json())
             .then(data => {
                 console.log('Search History: ');
@@ -62,7 +62,7 @@ window.onload = e => {
                 userSearchRecently = searchResult.innerHTML;
             })
         // Set up user cart data
-        fetch("http://localhost:5000/userCart/" + localStorage.getItem("userid"))
+        fetch("https://web-database.vercel.app/userCart/" + localStorage.getItem("userid"))
             .then(response => response.json())
             .then(data => {
                 see(data);
@@ -103,7 +103,7 @@ window.onload = e => {
         query('.header__cart-list').classList.add('header__cart-list--no-cart');
         query('.cart-notice').textContent = "0";
         query('.history-heading').textContent = "Được tìm kiếm gần đây";
-        fetch(`http://localhost:5000/randomProduct/5`)
+        fetch(`https://web-database.vercel.app/randomProduct/5`)
             .then(res => res.json())
             .then(data => {
                 data = data.data;
@@ -115,7 +115,7 @@ window.onload = e => {
             })
     }
     if (window.location.href.includes("nologin.html")) {
-        fetch("http://localhost:5000/allProduct/")
+        fetch("https://web-database.vercel.app/allProduct/")
             .then(response => response.json())
             .then(data => {
                 randomProductArr = data.data;
@@ -140,7 +140,7 @@ window.onload = e => {
     }
     if (window.location.href.includes("productPage.html")) {
         // Take Random Product
-        fetch("http://localhost:5000/randomProduct/6")
+        fetch("https://web-database.vercel.app/randomProduct/6")
             .then(response => response.json())
             .then(data => {
                 var randomProductArr = data.data;
@@ -164,7 +164,7 @@ window.onload = e => {
                 })
             })
         // Take product info
-        fetch("http://localhost:5000/productID/" + localStorage.getItem("productID"))
+        fetch("https://web-database.vercel.app/productID/" + localStorage.getItem("productID"))
             .then(response => response.json())
             .then(data => {
                 // productSalePercent
@@ -256,7 +256,7 @@ searchInput.onkeyup = e => {
         // 2 step
         // 1. send search history back to backend
         // 2. query products based on search value
-        fetch(`http://localhost:5000/searchProduct/${text}`)
+        fetch(`https://web-database.vercel.app/searchProduct/${text}`)
             .then(res => res.json())
             .then(data => {
                 query('.history-heading').textContent = "Kết quả tìm kiếm"
@@ -296,7 +296,7 @@ cartList.onclick = (e) => {
         var deleteProductID = parentID.split('-')[1];
         see(deleteUserID);
         see(deleteProductID);
-        fetch('http://localhost:5000/deleteCartItem', {
+        fetch('https://web-database.vercel.app/deleteCartItem', {
             headers: {
                 'Content-type': 'application/json'
             },

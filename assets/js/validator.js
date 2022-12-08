@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 'Mật khẩu nhập lại không chính xác')
         ],
         onSubmit: function (data) {
-            fetch('http://localhost:5000/signup', {
+            fetch('https://web-database.vercel.app/signup', {
                 headers: {
                     'Content-type': 'application/json'
                 },
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
             Validator.isRequired('#passwordLogIn', 'Vui lòng nhập mật khẩu'),
         ],
         onSubmit: function (data) {
-            fetch('http://localhost:5000/signin', {
+            fetch('https://web-database.vercel.app/signin', {
                 headers: {
                     'Content-type': 'application/json'
                 },
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
             toast_message({ type: "salenow", duration: 1000,  msg: "Đăng bán thành công" });
             var userId = localStorage.getItem("userid");
             data.ownerName = userId;
-            fetch('http://localhost:5000/new-product', {
+            fetch('https://web-database.vercel.app/new-product', {
                 headers: {
                     'Content-type': 'application/json'
                 },

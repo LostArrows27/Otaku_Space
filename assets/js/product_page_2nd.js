@@ -10,7 +10,7 @@ allSubBg.forEach((e) => {
 })
 
 // Getting shop information
-fetch(`http://localhost:5000/user_shop/${localStorage.getItem('shop_name')}`)
+fetch(`https://web-database.vercel.app/user_shop/${localStorage.getItem('shop_name')}`)
     .then(response => response.json())
     .then(myData => {
         //see(myData);
@@ -46,7 +46,7 @@ heartButton.onclick = (k) => {
             like--;
             heartIcon.innerHTML = '<i class="fa-regular fa-heart"></i>'
         }
-        fetch(`http://localhost:5000/updateProductLike/${localStorage.getItem('productID')}/${like}`)
+        fetch(`https://web-database.vercel.app/updateProductLike/${localStorage.getItem('productID')}/${like}`)
             .then(response => response.json())
             .then(data => see(data))
         likeCount.textContent = like + "";
@@ -132,7 +132,7 @@ addToCartBtn.onclick = e => {
                         </div>
                     </div>
                 </li>`
-                fetch(`http://localhost:5000/addToCart/${localStorage.getItem("productID")}/${localStorage.getItem("userid")}/${productCount}`)
+                fetch(`https://web-database.vercel.app/addToCart/${localStorage.getItem("productID")}/${localStorage.getItem("userid")}/${productCount}`)
                     .then(response => response.json())
                     .then(data => see(data))
             } else {
@@ -144,7 +144,7 @@ addToCartBtn.onclick = e => {
                 } else {
                     toast_message({ type: "login", duration: 1000, msg: "Thêm vào giỏ hàng thành công", icon: '<i class="fa-solid fa-circle-check"></i>' });
                     myProductInCartCount.textContent = parseInt(myProductInCartCount.textContent) + productCount;
-                    fetch(`http://localhost:5000/updateCart/${localStorage.getItem("productID")}/${localStorage.getItem("userid")}/${productCount}`)
+                    fetch(`https://web-database.vercel.app/updateCart/${localStorage.getItem("productID")}/${localStorage.getItem("userid")}/${productCount}`)
                         .then(response => response.json())
                         .then(data => see(data))
                 }

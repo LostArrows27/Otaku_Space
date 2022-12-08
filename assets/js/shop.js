@@ -1,5 +1,5 @@
 
-fetch(`http://localhost:5000/user_shop/${localStorage.getItem('shop_name')}`)
+fetch(`https://web-database.vercel.app/user_shop/${localStorage.getItem('shop_name')}`)
     .then(response => response.json())
     .then(myData => {
         //see(myData);

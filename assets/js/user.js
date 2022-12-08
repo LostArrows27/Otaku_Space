@@ -5,7 +5,7 @@ const strike = query('.strike')
 var isActive = 0;
 var closeBtn
 
-fetch('http://localhost:5000/userOrder/' + localStorage.getItem('userid'))
+fetch('https://web-database.vercel.app/userOrder/' + localStorage.getItem('userid'))
     .then(res => res.json())
     .then(data => {
         data.reverse();

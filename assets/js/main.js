@@ -2,7 +2,7 @@
 
 
 $(document).ready(function () {
-    fetch("http://localhost:5000/getCategory")
+    fetch("https://web-database.vercel.app/getCategory")
         .then(res => res.json())
         .then(data => {
             see(data)
