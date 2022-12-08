@@ -1209,7 +1209,7 @@
 
 .disabled-btn {
     border-right: 1px solid #eee;
-    background-color: #F9F9F9;
+    background-color: #dbdbdb;
     color: #CCCCCC;
     cursor: default;
 }

@@ -4,7 +4,7 @@ fetch(`http://localhost:5000/user_shop/${localStorage.getItem('shop_name')}`)
     .then(myData => {
         //see(myData);
         var shop_info = myData.data[0][0];
-        var shop_products = myData.data[1];
+        currentProductArr = myData.data[1];
         randomProductArr = myData.data[1];
         var shop_wrapper = document.querySelector('.shop_product_wrapper');
         var product_shop = query('.product__shop');
@@ -13,14 +13,15 @@ fetch(`http://localhost:5000/user_shop/${localStorage.getItem('shop_name')}`)
         product_shop.querySelector('.shop__image-name').innerText = shop_info.user_nickName;
         product_shop.querySelector('.sold-count').innerText = shop_info.sold_amount;
         product_shop.querySelector('.customer-count').innerText = shop_info.sold_amount;
-        product_shop.querySelector('.product-count').innerText = shop_products.length;
+        product_shop.querySelector('.product-count').innerText = currentProductArr.length;
         localStorage.setItem("shop_sold", shop_info.sold_amount);
         console.log(shop_pull, 'hello');
-        var clone_shop_products = shop_products;
-        var shopHtml = shop_products.reduce((acc, product) => {
-            var productHTML = getProductHTML(product, "2-4");
-            return acc + productHTML;
-        }, '')
+        var clone_shop_products = currentProductArr;
+        reloadProd(currentProductArr);
+        // var shopHtml = currentProductArr.reduce((acc, product) => {
+        //     var productHTML = getProductHTML(product, "2-4");
+        //     return acc + productHTML;
+        // }, '')
         clone_shop_products.sort((a, b) => {
             return b.sold_amount - a.sold_amount;
         })
@@ -43,9 +44,8 @@ fetch(`http://localhost:5000/user_shop/${localStorage.getItem('shop_name')}`)
         // var space_one_columm = space_left / 2;
         // var auto_align = `<div class="col l-${space_one_columm} m-4 c-6" ></div>`;
         shop_pull.innerHTML = topProductHtml;
-        shop_wrapper.innerHTML = shopHtml;
         productNLArray = queryAll('.shop_product_wrapper .col');
-        if (shop_products.length == 0) {
+        if (currentProductArr.length == 0) {
             const productWrap = query('.home-product .row');
             productWrap.innerHTML = `<div class = "no-product--heading">Người dùng này chưa đăng bán sản phẩm nào</div>
             <img src="https://ohuivina.com/assets/images/no-cart.png" alt="" class = "image-noproduct" width = "300px">`

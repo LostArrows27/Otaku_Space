@@ -14,6 +14,8 @@ const tabletNotLogIn = query('.not-log-in-tablet')
 const myAvatar = queryAll('.navbar-user__avatar');
 const searchInput = query('.header-search__search-input')
 const searchResult = query('.history-search')
+var pageBtnRight = query('.btn--right');
+var pageBtnLeft = query('.btn--left');
 var allProduct = [];
 var productNLArray;
 var logMobileBtn;
@@ -23,6 +25,7 @@ var currentInd;
 var searchRecently;
 var userSearchRecently;
 var randomProductArr;
+var currentProductArr;
 const singUpForm = query('#sign-up-form');
 if (singUpForm) {
     const signUpInput = singUpForm.querySelector('input')
@@ -117,15 +120,8 @@ window.onload = e => {
             .then(data => {
                 randomProductArr = data.data;
                 // see(randomProductArr);
-                var productContainer = query('.home-product.wrapper-here .row.sm-gutter');
-                var productContainerHTML = "";
-                var countLimit = 15;
-                productContainerHTML = randomProductArr.reduce((a, b,c) => {
-                    var productHTML = getProductHTML(b, "2-4");
-                    return c <= 14 ? a + productHTML : a;
-                }, "");
-                productContainer.innerHTML = productContainerHTML;
-                currentInd = 14;
+                reloadProd(randomProductArr);
+                currentProductArr = randomProductArr;
                 productNLArray = queryAll('.home-product.wrapper-here .row .col.l-2-4.m-4.c-6');
                 // productType=
                 return "Done !!";
@@ -474,7 +470,34 @@ function redirectToProductPageAfterPostProduct(productID, sale, userid , duratio
         }, duration)
     }
 }
-
+//reload Product from ind to ind 
+function reloadProd(allProd,start = -1, end = 14) {
+    var productContainer = query('.home-product.wrapper-here .row.sm-gutter');
+    var productContainerHTML = "";
+    var trackInd;
+    productContainerHTML = allProd.reduce((a, b, c) => {
+        var productHTML = getProductHTML(b, "2-4");
+        if(c <= end && c>start ){
+            trackInd = c;
+            return a + productHTML;
+            
+        }else{
+            return a;
+        }
+    }, "");
+    productContainer.innerHTML = productContainerHTML;
+    currentInd = trackInd;
+    if (currentInd <= 14) {
+        pageBtnLeft.classList.add('disabled-btn');
+    }else{
+        pageBtnLeft.classList.remove('disabled-btn');
+    }
+    if (currentInd == allProd.length - 1) {
+        pageBtnRight.classList.add('disabled-btn');
+    }else{
+        pageBtnRight.classList.remove('disabled-btn');
+    }
+}
 function turnMoneyStringToNumber(money) {
     money = money.trim();
     return money.split('.').reduce((a, b) => {
@@ -579,4 +602,6 @@ function getBoxProduct(productInfo,ratio) {
     </div>`
     return myHTML;
 }
+
+
 

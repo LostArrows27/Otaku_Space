@@ -1,7 +1,6 @@
 // You have to saved all your product here before classify other function
 
-var pageBtnRight = query('.btn--right');
-var pageBtnLeft = query('.btn--left');
+
 $(document).ready(function () {
     fetch("http://localhost:5000/getCategory")
         .then(res => res.json())
@@ -24,64 +23,25 @@ function initEvents() {
     console.log(pageBtnRight.classList.contains('disabled-btn'));
     console.log(pageBtnLeft.classList.contains('disabled-btn'));
     pageBtnRight.onclick = (e) => {
+        e.preventDefault();
         if (!pageBtnRight.classList.contains('disabled-btn')) {
-            var productContainer = query('.home-product.wrapper-here .row.sm-gutter');
-            var productContainerHTML = "";
-            var trackInd;
-            productContainerHTML = randomProductArr.reduce((a, b, c) => {
-                var productHTML = getProductHTML(b, "2-4");
-                if (c <= currentInd + 15 && c > currentInd) {
-                    trackInd = c;
-                    return a + productHTML;
-                } else {
-                    return a;
-                }
-            }, "");
-            currentInd = trackInd;
-            if (currentInd == randomProductArr.length - 1) {
-                pageBtnRight.classList.add('disabled-btn');
-            }
-            if (pageBtnLeft.classList.contains('disabled-btn')) {
-                pageBtnLeft.classList.remove('disabled-btn');
-            }
-
-            productContainer.innerHTML = productContainerHTML;
+            reloadProd(currentProductArr,currentInd,currentInd+15);
         }
 
     }
 
     pageBtnLeft.onclick = (e) => {
-
+        e.preventDefault();
         if (!pageBtnLeft.classList.contains('disabled-btn')) {
-            var productContainer = query('.home-product.wrapper-here .row.sm-gutter');
-            var productContainerHTML = "";
-            var trackInd;
+            
             if (currentInd + 1 % 15 != 0) {
-                while (currentInd % 15 != 0) {
+                if(currentInd %15 == 0) currentInd++;
+                while (currentInd % 15 != 0 ) {
                     currentInd++;
-                    console.log(currentInd);
                 }
             }
             currentInd--;
-            console.log(currentInd);
-            productContainerHTML = randomProductArr.reduce((a, b, c) => {
-                var productHTML = getProductHTML(b, "2-4");
-                if (c <= currentInd - 15 && c > currentInd - 30) {
-                    trackInd = c;
-                    return a + productHTML;
-                } else {
-                    return a;
-                }
-
-            }, "");
-            currentInd = trackInd;
-            if (currentInd == 14) {
-                pageBtnLeft.classList.add('disabled-btn');
-            }
-            if (pageBtnRight.classList.contains('disabled-btn')) {
-                pageBtnRight.classList.remove('disabled-btn');
-            }
-            productContainer.innerHTML = productContainerHTML;
+            reloadProd(currentProductArr,currentInd-30,currentInd-15)
         }
 
     }
@@ -93,25 +53,28 @@ function initEvents() {
             $('.category-item--active').removeClass('category-item--active');
             $(this).addClass('category-item--active');
             const productType = this.querySelector('a').textContent;
-
+            // reset page filter
+            const primaryBtn = query('.btn.home-filter__btn.btn--primary')
+            toggleClass(primaryBtn, 'btn--primary', 'btn--normal');
+            const btnNewest = query('.btn-newest');
+            toggleClass(btnNewest, 'btn--normal', 'btn--primary');
             if (productType == "Tất Cả") {
+                currentProductArr = randomProductArr;
                 if(randomProductArr.length == 0) {
                     const productWrap = query('.home-product .row');
                     productWrap.innerHTML = `<div class = "no-product--heading">Người dùng này chưa đăng bán sản phẩm nào</div>
                     <img src="https://ohuivina.com/assets/images/no-cart.png" alt="" class = "image-noproduct" width = "300px">`
                     productWrap.parentElement.classList.add('no-products')
                 } else {
-                    reloadProd(randomProductArr);
-                    productWrap.parentElement.classList.remove('no-products')
-                    pageBtnRight.classList.remove('disabled-btn');
-                    pageBtnLeft.classList.add('disabled-btn');
+                    reloadProd(currentProductArr);
+                    productWrap.parentElement.classList.remove('no-products');
                 }
             }
             else {
-                const newArr = randomProductArr.filter(product => {
+                currentProductArr = randomProductArr.filter(product => {
                     return product.category == productType;
                 })
-                if(newArr.length == 0) {
+                if(currentProductArr.length == 0) {
                     const productWrap = query('.home-product .row');
                     productWrap.innerHTML = `<div class = "no-product--heading">Không có sản phẩm nào cho danh mục này</div>
                     <img src="https://ohuivina.com/assets/images/no-cart.png" alt="" class = "image-noproduct" width = "300px">`
@@ -120,10 +83,9 @@ function initEvents() {
                 else {
                     const productWrap = query('.home-product .row');
                     productWrap.parentElement.classList.remove('no-products')
-                    reloadProd(newArr);
+                    reloadProd(currentProductArr);
+                    
                 }
-                pageBtnRight.classList.add('disabled-btn');
-                pageBtnLeft.classList.add('disabled-btn');
 
             }
         }
@@ -135,17 +97,6 @@ function initEvents() {
             return e.getAttribute("producttype") == productType;
         })
         return newArr;
-    }
-
-    function reloadProd(allProd) {
-        var productContainer = query('.home-product.wrapper-here .row.sm-gutter');
-        var productContainerHTML = "";
-        productContainerHTML = allProd.reduce((a, b, c) => {
-            var productHTML = getProductHTML(b, "2-4");
-            return c <= 14 ? a + productHTML : a;
-        }, "");
-        productContainer.innerHTML = productContainerHTML;
-        currentInd = 14;
     }
 
     function reloadProduct(productArr) {
@@ -175,16 +126,16 @@ function initEvents() {
         if (e.target.classList.contains('high-price')) {
             e.preventDefault();
             priceLabel.textContent = "Giá cao đến thấp";
-            randomProductArr.sort(sortMy);
+            currentProductArr.sort(sortMy);
         } else {
             e.preventDefault();
             priceLabel.textContent = "Giá thấp đến cao";
-            randomProductArr.sort((a, b) => {
+            currentProductArr.sort((a, b) => {
                 return a.price * (100 - a.sale_percent) / 100 - b.price * (100 - b.sale_percent) / 100;
             });
         }
         setTimeout(() => {
-            reloadProd(randomProductArr);
+            reloadProd(currentProductArr);
         }, 300);
     }
 
@@ -200,16 +151,16 @@ function initEvents() {
                 toggleClass(e, 'btn--normal', 'btn--primary')
                 // Doing function for each 3 buttons here
                 if (e.textContent == "Bán chạy") {
-                    productArray.sort(mostSelled);
+                    currentProductArr.sort( (a,b) =>{
+                        return b.sold_amount - a.sold_amount;
+                    })
                 } else {
                     // "Pho bien" and "Moi nhat" function will random
                     // Well till we have a Backend Data i will fix this 
-                    shuffleProduct(productArray);
+                    shuffleProduct(currentProductArr);
                 }
                 setTimeout(() => {
-                    productWrap.innerHTML = productArray.reduce((a, b) => {
-                        return a + b.outerHTML;
-                    }, "");
+                    reloadProd(currentProductArr);
                 }, 300);
             }
         }

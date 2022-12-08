@@ -58,7 +58,6 @@ query('.shop__btn.btn').onclick = e => {
     setTimeout(() => {
         console.log(localStorage.getItem('shop_name'));
        
-        
             // .then(data => {
             //     existProduct = queryAll('.home-product-item');
             //     // see(existProduct);
