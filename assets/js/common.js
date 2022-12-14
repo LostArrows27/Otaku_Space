@@ -109,7 +109,7 @@ window.onload = e => {
             .then(data => {
                 data = data.data;
                 searchResult.innerHTML = data.reduce((a, b, c) => {
-                    var liHTML = `<li class="history-item" onclick="event.preventDefault();redirectToProductPageAfterPostProduct(${b.product_id}, ${b.sale_percent}, 100, ${b.product_name})" id="${b.owner_name}-${b.product_id}"><a href="#">${b.product_name}</a></li>`
+                    var liHTML = `<li class="history-item" onclick="event.preventDefault();redirectToProductPageAfterPostProduct(${b.product_id}, ${b.sale_percent}, 100, '${b.product_name}')" id="${b.owner_name}-${b.product_id}"><a href="#">${b.product_name}</a></li>`
                     return c <= 4 ? a + liHTML : a;
                 }, "")
                 searchRecently = searchResult.innerHTML;
