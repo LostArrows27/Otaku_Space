@@ -22,6 +22,7 @@ var logMobileBtn;
 var existProduct;
 var text;
 var currentInd;
+var productnamesearch
 var searchRecently;
 var userSearchRecently;
 var randomProductArr;
@@ -108,7 +109,7 @@ window.onload = e => {
             .then(data => {
                 data = data.data;
                 searchResult.innerHTML = data.reduce((a, b, c) => {
-                    var liHTML = `<li class="history-item" onclick="event.preventDefault();redirectToProductPageAfterPostProduct(${b.product_id}, ${b.sale_percent}, 100)" id="${b.owner_name}-${b.product_id}"><a href="#">${b.product_name}</a></li>`
+                    var liHTML = `<li class="history-item" onclick="event.preventDefault();redirectToProductPageAfterPostProduct(${b.product_id}, ${b.sale_percent}, 100, ${b.product_name})" id="${b.owner_name}-${b.product_id}"><a href="#">${b.product_name}</a></li>`
                     return c <= 4 ? a + liHTML : a;
                 }, "")
                 searchRecently = searchResult.innerHTML;
@@ -253,6 +254,7 @@ if (logOut) {
 searchInput.onkeyup = e => {
     text = searchInput.value;
     if (text) {
+        // console.log(text);
         // 2 step
         // 1. send search history back to backend
         // 2. query products based on search value
@@ -261,17 +263,27 @@ searchInput.onkeyup = e => {
             .then(data => {
                 query('.history-heading').textContent = "Kết quả tìm kiếm"
                 searchResult.innerHTML = data.reduce((a, b, c) => {
-                    var liHTML = `<li class="history-item" onclick="event.preventDefault();redirectToProductPageAfterPostProduct(${b.product_id}, ${b.sale_percent}, 100)" id="${b.owner_name}-${b.product_id}"><a href="#">${b.product_name}</a></li>`
+                    var liHTML = `<li class="history-item" onclick="event.preventDefault();redirectToProductPageAfterPostProduct(${b.product_id}, ${b.sale_percent}, 100, '${b.product_name}')" id="${b.owner_name}-${b.product_id}"><a href="#">${b.product_name}</a></li>`
                     return c <= 9 ? a + liHTML : a;
                 }, "")
             })
+    } else {
+        fetch(`https://web-database.vercel.app/searchProduct/t`)
+        .then(res => res.json())
+        .then(data => {
+            query('.history-heading').textContent = "Kết quả tìm kiếm"
+            searchResult.innerHTML = data.reduce((a, b, c) => {
+                var liHTML = `<li class="history-item" onclick="event.preventDefault();redirectToProductPageAfterPostProduct(${b.product_id}, ${b.sale_percent}, 100, '${b.product_name}')" id="${b.owner_name}-${b.product_id}"><a href="#">${b.product_name}</a></li>`
+                return c <= 9 ? a + liHTML : a;
+            }, "")
+        })
     }
 }
 
 searchInput.onfocus = e => {
     if (searchInput.value == "" && localStorage.getItem("login") == "success") {
         query('.history-heading').textContent = "Lịch sử tìm kiếm gần đây";
-        // fetch('http://localhost:5000/searchHistory')
+        // fetch('https://web-database.vercel.app/searchHistory')
         searchResult.innerHTML = userSearchRecently;
     }
     if(searchInput.value == "" && localStorage.getItem("login") == "null") {
@@ -448,10 +460,11 @@ function redirectToProductPage(product) {
 
 
 
-function redirectToProductPageAfterPostProduct(productID, sale, userid , duration = 1000) {
+function redirectToProductPageAfterPostProduct(productID, sale, userid , productName, duration = 1000) {
     console.log('Get back now', userid);
     if (userid == 100 && localStorage.getItem("login") == "success") {
-        fetch(`http://localhost:5000/saveSearch/${text}/${localStorage.getItem("userid")}`)
+        if(text == '') text = productName
+        fetch(`https://web-database.vercel.app/saveSearch/${text}/${localStorage.getItem("userid")}`)
             .then(res => res.json())
             .then(data => { return data })
             .then(data2 => {

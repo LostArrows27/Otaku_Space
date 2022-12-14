@@ -19,6 +19,7 @@ $(document).ready(function () {
         })
 });
 
+
 function initEvents() {
     console.log(pageBtnRight.classList.contains('disabled-btn'));
     console.log(pageBtnLeft.classList.contains('disabled-btn'));
