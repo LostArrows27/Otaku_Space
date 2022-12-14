@@ -1,2 +1,10 @@
-# A clone version of Shopee web page based on F8 Tutorial
-![preview](https://user-images.githubusercontent.com/97510841/187012544-7169bc06-73ff-4a8e-a35c-2958edf9ca43.png)
+# Otaku space an online bookstore for everyone
+<img width="1280" alt="image" src="https://user-images.githubusercontent.com/63915841/207500327-2664daa3-4871-49ac-8f54-bc78a40fd446.png">
+
+# Link deploy web:
+<a href="https://shopee-web-clone-six.vercel.app/nologin.html" target="_blank">Google</a>
+
+Web có hầu hết các chức năng cơ bản của một sàn giao dịch online với database đơn giản và dễ hiểu
+Link video demo:
+
+#THANK FOR VISITTING OUT WEB
