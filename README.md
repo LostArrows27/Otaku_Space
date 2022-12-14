@@ -4,6 +4,7 @@
 # Link deploy web: <a  style="font-size:40px;" href="https://shopee-web-clone-six.vercel.app/nologin.html" target="_blank">Otaku space</a>
 
 Web có hầu hết các chức năng cơ bản của một sàn giao dịch online với database đơn giản và dễ hiểu
-Link video demo:
+# Link video demo:<a  style="font-size:40px;" href="https://drive.google.com/file/d/1lZDgIPBtA37rxLDSyJ7Jbcxz0bPeVN19/view?usp=sharing" target="_blank">Demo </a>
 
-#THANK FOR VISITTING OUT WEB
+
+# THANK FOR VISITTING OUT WEB
