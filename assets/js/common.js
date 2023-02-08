@@ -490,10 +490,9 @@ function reloadProd(allProd,start = -1, end = 14) {
     var trackInd;
     productContainerHTML = allProd.reduce((a, b, c) => {
         var productHTML = getProductHTML(b, "2-4");
-        if(c <= end && c>start ){
+        if(c <= end && c > start ){
             trackInd = c;
             return a + productHTML;
-            
         }else{
             return a;
         }

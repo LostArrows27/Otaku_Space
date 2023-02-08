@@ -15,7 +15,7 @@
         margin-top: 10px;
     }
 
-    .footer__dowload-app{
+    .footer__dowload-app {
         justify-content: space-around;
     }
 
@@ -28,8 +28,8 @@
     .header__logo-link,
     .header__mobile-search,
     .footer_left,
-    .mob ,
-    .special{
+    .mob,
+    .special {
         -webkit-tap-highlight-color: transparent;
     }
 
@@ -45,6 +45,36 @@
 
     .mobile-category {
         display: flex;
+    }
+
+    .mobile-category__wrap {
+        position: relative;
+    }
+
+    .blur {
+        /* border-top-left-radius: 50% 60%;
+         no slash on individual radius properties, mix-and-match with pixel and percent measures 
+        border-bottom-left-radius: 50% 60%; */
+    
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 6%;
+        top: 0;
+        background: linear-gradient(to left,rgba(245, 245, 245, 0.8) , transparent );
+        right: -2px;
+        /* z-index: 1000 */
+        /* top: 300px; */
+    }
+
+    .blur-right{
+        display: none;
+        position: absolute;
+        height: 100%;
+        width: 6%;
+        top: 0;
+        background: linear-gradient(to right,rgba(245, 245, 245, 0.8) , transparent );
+        left: -2px;
     }
 
     .header__sort-bar {
@@ -314,7 +344,7 @@
         font-size: 2.2rem;
     }
 
-    .header-option{
+    .header-option {
         top: calc(100% + 1px);
     }
 }

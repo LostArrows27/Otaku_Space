@@ -1086,6 +1086,7 @@
 /* Mobile Navbar Category */
 
 .mobile-category{
+    /* background-color: red; */
     display: none;
     list-style: none;
     max-width: 100%;
@@ -1107,6 +1108,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #266EBA;
 }
 
 .mobile-category__item:hover{
@@ -1120,6 +1122,7 @@
     font-size: 1.4rem;
     text-align: center;
     font-weight: 300;
+    line-height: 1.4rem;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
@@ -1128,7 +1131,11 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-.mobile-category__item:nth-of-type(3n){
+.mobile-category__item-selected{
+    background-color: #16b3d3;
+}
+
+/* .mobile-category__item:nth-of-type(3n){
     background-color: #87AFD8;
 }
 
@@ -1138,7 +1145,7 @@
 
 .mobile-category__item:nth-of-type(3n+2){
     background-color: #88CF81;
-}
+} */
 
 .hide{
     display: none;
