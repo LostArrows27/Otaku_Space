@@ -1,37 +1,47 @@
-# Otaku space an online bookstore for everyone 
-- 1 sản phẩm của nhóm 5 - INT2211_234
+<div align="center">
+  <a href="https://github.com/LostArrows27/Otaku_Space">
+    <img src="https://otaku-space.vercel.app/assets/img/logo.png" alt="Logo" width="160" height="160">
+  </a>
+  <h3>Otaku Space</h3>
+<div>Online book store for Otaku</div>
+</div>
+
+## About the project
+- Otaku Space is an online books store made for Anime's fan (Otaku)  
+
 <img width="900" alt="image" src="https://user-images.githubusercontent.com/63915841/207500327-2664daa3-4871-49ac-8f54-bc78a40fd446.png">
 
-# Link deploy web: <a  style="font-size:40px;" href="https://shopee-web-clone-six.vercel.app/nologin.html" target="_blank">Otaku space</a>
+## Demo website + video dem
+- See demo website [here](https://otaku-space.vercel.app/);
+- See website demo video [here](https://drive.google.com/file/d/1lZDgIPBtA37rxLDSyJ7Jbcxz0bPeVN19/view?usp=sharing)
 
-# Link video demo: <a  style="font-size:40px;" href="https://drive.google.com/file/d/1lZDgIPBtA37rxLDSyJ7Jbcxz0bPeVN19/view?usp=sharing" target="_blank">Demo </a>
+## Note
+- Because our team hosts MySQL on Heroku and the server often encounters errors, sometimes the website might not display completely. If an error occurs, please kindly reload the webpage or watch the demo video above!
 
-Lưu ý: Do nhóm mình host MySQL bên Heroku và server thường lỗi nên đôi khi web sẽ không hiển thị hết. Nếu lỗi vui lòng các bạn reload lại web hoặc xem video demo bên trên !
+## Website Features
 
-# Web có hầu hết các chức năng cơ bản của một sàn giao dịch online với database đơn giản và dễ hiểu
-1. Đăng nhập, đăng ký tài khoản
-2. Xem sản phẩm, "like" sản phẩm
-3. Thêm vào giỏ hàng
-4. Thanh toán từ giỏ hàng / mua trực tiếp
-5. Đăng bán sản phẩm
-6. Tìm kiếm sản phẩm 
-7. Xem shop bản thân, xem shop người dùng khác
-8. Lọc sản phẩm theo giá, nổi bật, bán chạy, ....
+- The website includes most of the basic functionalities of an online trading platform with a simple and intuitive database.
+1. Login, account registration
+2. View products, "like" products
+3. Add to cart
+4. Checkout from the cart / direct purchase
+5. List products for sale
+6. Search for products
+7. View own shop, view other users' shops
+8. Filter products by price, featured, best-selling, and more.
 
-
-
-# Công nghệ sử dụng
+## Technology Highlights
 1. Frontend: HTML, CSS, Javascript, JQuery
-2. Backend: MySQL (MySQl Workbench), NodeJS
+2. Backend: MySQL (MySQl Workbench), NodeJS, ExpressJS
+3. Hosting: Heroku (Database), Vercel (FrontEnd + BackEnd)
 
-# Biểu đồ mô hình quan hệ cho Cơ Sở Dữ Liệu
+## Entity-Relationship Diagram (ERD) for the Database
 <img width="900" alt="image" src="https://user-images.githubusercontent.com/97510841/207873522-0e267a18-b3bb-4599-8631-948a7bc970d6.png">
 
-1. Bảng users --> người dùng. Chứa thông tin cá nhân người dùng. Mỗi người dùng có thể đăng bán và mua hàng
-2. Bảng products --> sản phẩm. Chứa cá thông tin của sản phảm như tên, người đăng, link ảnh minh họa, số lượng, .....
-3. Bảng carts --> giỏ hàng. Lưu những sản phẩm người dùng lưu vào giỏ hàng
-4. Bảng orders --> đơn hàng. Lưu giữ thông tin người mua và ngày mua
-5. Bảng orderdetail --> Lưu trữ thông tin chi tiết của đơn hàng từng người dùng
-6. Bảng searchhistory --> lưu giữ lịch sủ tìm kiếm của người dùng mỗi khi gõ vào phần tìm kiếm và quyết định xem 1 sản phẩm gì đó
-
-# THANK FOR VISITTING OUR WEB
+1. Table "users": contains personal information of users. Each user can both list items for sale and make purchases.
+2. Table "products": contains information about products such as name, uploader, illustration image link, quantity, and more.
+3. Table "carts": stores the products that users have added to their carts.
+4. Table "orders": stores information about the buyer and the purchase date.
+5. Table "orderdetail": stores detailed information about each user's orders.
+6. Table "searchhistory": stores the search history of users whenever they enter a search term and decide to view a specific product.
+## THANK FOR VISITTING OUR WEB
